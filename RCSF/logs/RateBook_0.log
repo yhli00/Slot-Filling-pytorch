@@ -1,0 +1,69 @@
+02/14/2022 13:14:12 - INFO - __main__ -   **********************Job Start**********************
+02/14/2022 13:14:12 - INFO - __main__ -   Learning rate = 1e-05
+02/14/2022 13:14:12 - INFO - __main__ -   Warmup rate = 0.0
+02/14/2022 13:14:12 - INFO - __main__ -   Batch_size = 48
+02/14/2022 13:14:12 - INFO - __main__ -   Gradient_accumulation_steps = 1
+02/14/2022 13:14:12 - INFO - __main__ -   Train epoch = 32
+02/14/2022 13:14:44 - INFO - dataset -   Loading data from data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+02/14/2022 13:14:44 - INFO - dataset -   Loading data from data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+02/14/2022 13:14:45 - INFO - dataset -   Loading data from data/snips/GetWeather/GetWeather.txt, total nums is 2100
+02/14/2022 13:14:46 - INFO - dataset -   Loading data from data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+02/14/2022 13:14:46 - INFO - dataset -   Loading data from data/snips/RateBook/RateBook.txt, total nums is 2056
+02/14/2022 13:14:46 - INFO - dataset -   Loading data from data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+02/14/2022 13:14:47 - INFO - dataset -   Loading data from data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+02/14/2022 13:14:47 - INFO - dataset -   Loading data from data/atis/atis.txt, total nums is 5871
+02/14/2022 13:14:47 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:47 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:47 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:47 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:48 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:48 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:48 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:48 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:48 - INFO - dataset -   Using queries from description.
+02/14/2022 13:14:48 - INFO - dataset -   The target domain is RateBook
+02/14/2022 13:14:48 - INFO - dataset -   train_data: 12428 -> 95553
+02/14/2022 13:14:48 - INFO - dataset -   valid_data: 500 -> 3500
+02/14/2022 13:14:48 - INFO - dataset -   test_data: 1556 -> 10892
+02/14/2022 13:35:18 - INFO - trainer -   Epoch 1, train_loss 0.033911    Evalution acc 0.4428, recall 0.2489, f1 0.3187
+02/14/2022 13:36:11 - INFO - trainer -   Saved model checkpoint to model_dir/RateBook/0/model.pth
+02/14/2022 13:56:30 - INFO - trainer -   Epoch 2, train_loss 0.010997    Evalution acc 0.4386, recall 0.2489, f1 0.3176
+02/14/2022 14:16:31 - INFO - trainer -   Epoch 3, train_loss 0.006381    Evalution acc 0.5206, recall 0.3164, f1 0.3936
+02/14/2022 14:17:22 - INFO - trainer -   Saved model checkpoint to model_dir/RateBook/0/model.pth
+02/14/2022 14:37:38 - INFO - trainer -   Epoch 4, train_loss 0.004153    Evalution acc 0.5036, recall 0.2696, f1 0.3512
+02/14/2022 14:57:39 - INFO - trainer -   Epoch 5, train_loss 0.002710    Evalution acc 0.4984, recall 0.2603, f1 0.3420
+02/14/2022 15:16:01 - INFO - trainer -   Epoch 6, train_loss 0.002145    Evalution acc 0.4615, recall 0.2380, f1 0.3140
+02/14/2022 15:34:31 - INFO - trainer -   Epoch 7, train_loss 0.001735    Evalution acc 0.4868, recall 0.2505, f1 0.3308
+02/14/2022 15:52:57 - INFO - trainer -   Epoch 8, train_loss 0.001391    Evalution acc 0.4792, recall 0.2446, f1 0.3238
+02/14/2022 16:11:34 - INFO - trainer -   Epoch 9, train_loss 0.001069    Evalution acc 0.4786, recall 0.2495, f1 0.3280
+02/14/2022 16:29:52 - INFO - trainer -   Epoch 10, train_loss 0.000926    Evalution acc 0.5074, recall 0.2800, f1 0.3608
+02/14/2022 16:48:19 - INFO - trainer -   Epoch 11, train_loss 0.000675    Evalution acc 0.5108, recall 0.2952, f1 0.3742
+02/14/2022 17:06:36 - INFO - trainer -   Epoch 12, train_loss 0.000690    Evalution acc 0.5311, recall 0.2881, f1 0.3736
+02/14/2022 17:25:34 - INFO - trainer -   Epoch 13, train_loss 0.000388    Evalution acc 0.4980, recall 0.2723, f1 0.3521
+02/14/2022 17:25:34 - INFO - trainer -   Reach early stop count 10, training stop
+02/14/2022 17:26:43 - INFO - dataset -   Loading data from data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+02/14/2022 17:26:44 - INFO - dataset -   Loading data from data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+02/14/2022 17:26:44 - INFO - dataset -   Loading data from data/snips/GetWeather/GetWeather.txt, total nums is 2100
+02/14/2022 17:26:45 - INFO - dataset -   Loading data from data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+02/14/2022 17:26:46 - INFO - dataset -   Loading data from data/snips/RateBook/RateBook.txt, total nums is 2056
+02/14/2022 17:26:46 - INFO - dataset -   Loading data from data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+02/14/2022 17:26:47 - INFO - dataset -   Loading data from data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+02/14/2022 17:26:48 - INFO - dataset -   Loading data from data/atis/atis.txt, total nums is 5871
+02/14/2022 17:26:48 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:48 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:49 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:49 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:49 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:49 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:49 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:49 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:49 - INFO - dataset -   Using queries from description.
+02/14/2022 17:26:49 - INFO - dataset -   The target domain is RateBook
+02/14/2022 17:26:49 - INFO - dataset -   train_data: 12428 -> 95553
+02/14/2022 17:26:49 - INFO - dataset -   valid_data: 500 -> 3500
+02/14/2022 17:26:49 - INFO - dataset -   test_data: 1556 -> 10892
+02/14/2022 17:26:50 - INFO - trainer -   Model loaded from model_dir/RateBook/0/model.pth
+02/14/2022 17:26:50 - INFO - __main__ -   Starting test...
+02/14/2022 17:27:42 - INFO - trainer -   ***********************************************************
+02/14/2022 17:27:42 - INFO - trainer -   Test result: acc 0.5023, recall 0.2912, f1 0.3686
+02/14/2022 17:27:42 - INFO - trainer -   ***********************************************************

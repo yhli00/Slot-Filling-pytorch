@@ -1,0 +1,2 @@
+paddlenlp==2.2.5
+paddlepaddle-gpu==2.2.2.post111

@@ -1,0 +1,22 @@
+02/26/2022 14:31:43 - INFO - __main__ -   **********************Job Start**********************
+02/26/2022 14:31:43 - INFO - __main__ -   Learning rate = 1e-05
+02/26/2022 14:31:43 - INFO - __main__ -   Warmup rate = 0.0
+02/26/2022 14:31:43 - INFO - __main__ -   Batch_size = 16
+02/26/2022 14:31:43 - INFO - __main__ -   Gradient_accumulation_steps = 1
+02/26/2022 14:31:43 - INFO - __main__ -   Train epoch = 64
+02/26/2022 14:31:43 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+02/26/2022 14:32:12 - INFO - dataset -   Loading data from data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+02/26/2022 14:32:12 - INFO - dataset -   Loading data from data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+02/26/2022 14:32:12 - INFO - dataset -   Loading data from data/snips/GetWeather/GetWeather.txt, total nums is 2100
+02/26/2022 14:32:12 - INFO - dataset -   Loading data from data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+02/26/2022 14:32:12 - INFO - dataset -   Loading data from data/snips/RateBook/RateBook.txt, total nums is 2056
+02/26/2022 14:32:12 - INFO - dataset -   Loading data from data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+02/26/2022 14:32:13 - INFO - dataset -   Loading data from data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+02/26/2022 14:32:13 - INFO - dataset -   Loading data from data/atis/atis.txt, total nums is 5871
+02/26/2022 14:32:13 - INFO - dataset -   Using queries from description.
+02/26/2022 14:32:13 - INFO - dataset -   Using queries from description.
+02/26/2022 14:32:13 - INFO - dataset -   Using queries from description.
+02/26/2022 14:32:13 - INFO - dataset -   Using queries from description.
+02/26/2022 14:32:14 - INFO - dataset -   Using queries from description.
+02/26/2022 14:32:14 - INFO - dataset -   Using queries from description.
+02/26/2022 14:32:14 - INFO - dataset -   Using queries from description.
