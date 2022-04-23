@@ -5962,3 +5962,728 @@
 04/20/2022 18:07:47 - INFO - trainer -   Epoch 1, Domain BookRestaurant, train_loss 0.218587,    Evalution acc 0.0104, recall 0.0023, f1 0.0037
 04/20/2022 18:08:15 - INFO - trainer -   Saved model checkpoint to model_dir3/AddToPlaylist/0/model.pth
 04/20/2022 18:09:04 - INFO - trainer -   Epoch 1, Domain GetWeather, train_loss 0.184336,    Evalution acc 0.1234, recall 0.0499, f1 0.0711
+04/20/2022 18:21:47 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 18:21:47 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 18:21:47 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 18:21:47 - INFO - __main__ -   Batch_size = 16
+04/20/2022 18:21:47 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 18:21:47 - INFO - __main__ -   Train epoch = 64
+04/20/2022 18:21:47 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 18:21:47 - INFO - __main__ -   Context_max_len = 48
+04/20/2022 18:21:47 - INFO - __main__ -   Label_max_len = 48
+04/20/2022 18:22:06 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 18:22:06 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 18:22:06 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 18:22:06 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 18:22:06 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 18:22:06 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 18:22:06 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 18:22:06 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 18:22:06 - INFO - dataset -   sort is sort
+04/20/2022 18:22:06 - INFO - dataset -   city is a large town
+04/20/2022 18:22:06 - INFO - dataset -   state is the civil government of a country
+04/20/2022 18:22:06 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:22:06 - INFO - dataset -   country is a nation with its own government occupying a particular territory
+04/20/2022 18:22:06 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:22:06 - INFO - dataset -   facility is a place amenity or piece of equipment provided for a particular purpose
+04/20/2022 18:22:06 - INFO - dataset -   restaurant name is restaurant name
+04/20/2022 18:22:06 - INFO - dataset -   cuisine is a style or method of cooking especially as characteristic of a particular country region or establishment
+04/20/2022 18:22:06 - INFO - dataset -   restaurant type is restaurant type
+04/20/2022 18:22:06 - INFO - dataset -   served dish is served dish
+04/20/2022 18:22:06 - INFO - dataset -   number is number integer digit
+04/20/2022 18:22:06 - INFO - dataset -   position is a place where someone or something is located or has been put
+04/20/2022 18:22:06 - INFO - dataset -   person is what or which person or people
+04/20/2022 18:22:25 - INFO - dataset -   city is a large town
+04/20/2022 18:22:25 - INFO - dataset -   state is the civil government of a country
+04/20/2022 18:22:25 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:22:25 - INFO - dataset -   current location is current position
+04/20/2022 18:22:25 - INFO - dataset -   country is a nation with its own government occupying a particular territory
+04/20/2022 18:22:25 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:22:25 - INFO - dataset -   geographic position is a place where someone or something is located or has been put
+04/20/2022 18:22:25 - INFO - dataset -   temperature is the degree or intensity of heat present in a substance or object especially as expressed according to a comparative scale and shown by a thermometer or perceived by touch
+04/20/2022 18:22:25 - INFO - dataset -   weather is the state of the atmosphere at a place and time as regards heat dryness sunshine wind rain etc
+04/20/2022 18:22:44 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:22:44 - INFO - dataset -   music item is musical term
+04/20/2022 18:22:44 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:22:44 - INFO - dataset -   genre is a category of artistic composition as in music or literature characterized by similarities in form style or subject matter
+04/20/2022 18:22:44 - INFO - dataset -   service is service or application
+04/20/2022 18:22:44 - INFO - dataset -   year is year number
+04/20/2022 18:22:44 - INFO - dataset -   album is a blank book for the insertion of photographs stamps or pictures
+04/20/2022 18:22:44 - INFO - dataset -   sort is sort
+04/20/2022 18:22:44 - INFO - dataset -   track is a recording of one song or piece of music
+04/20/2022 18:23:02 - INFO - dataset -   series is a set of related television or radio programs especially of a specified kind
+04/20/2022 18:23:02 - INFO - dataset -   this the referential pronoun
+04/20/2022 18:23:02 - INFO - dataset -   rating value is number integer digit
+04/20/2022 18:23:02 - INFO - dataset -   object name is name
+04/20/2022 18:23:02 - INFO - dataset -   object type is type
+04/20/2022 18:23:02 - INFO - dataset -   rating unit is stars
+04/20/2022 18:23:02 - INFO - dataset -   best rating is highest score
+04/20/2022 18:23:20 - INFO - dataset -   object name is name
+04/20/2022 18:23:20 - INFO - dataset -   object type is type
+04/20/2022 18:23:37 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:23:37 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:23:37 - INFO - dataset -   object type is type
+04/20/2022 18:23:37 - INFO - dataset -   movie type is film type
+04/20/2022 18:23:37 - INFO - dataset -   location type is cinema theater
+04/20/2022 18:23:37 - INFO - dataset -   location name is cinema name
+04/20/2022 18:23:37 - INFO - dataset -   movie name is movie name
+04/20/2022 18:23:55 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:23:55 - INFO - dataset -   music item is musical term
+04/20/2022 18:23:55 - INFO - dataset -   owner is a person who owns something
+04/20/2022 18:23:55 - INFO - dataset -   entity name is entity name
+04/20/2022 18:23:55 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:24:00 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:24:00 - INFO - dataset -   music item is musical term
+04/20/2022 18:24:00 - INFO - dataset -   owner is a person who owns something
+04/20/2022 18:24:00 - INFO - dataset -   entity name is entity name
+04/20/2022 18:24:00 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:24:13 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 18:24:13 - INFO - dataset -   ********** Train data information : **********
+04/20/2022 18:24:13 - INFO - dataset -   domain name: BookRestaurant,    data_size=2052
+04/20/2022 18:24:13 - INFO - dataset -   domain name: GetWeather,    data_size=2077
+04/20/2022 18:24:13 - INFO - dataset -   domain name: PlayMusic,    data_size=2082
+04/20/2022 18:24:13 - INFO - dataset -   domain name: RateBook,    data_size=2027
+04/20/2022 18:24:13 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=2015
+04/20/2022 18:24:13 - INFO - dataset -   domain name: SearchScreeningEvent,    data_size=2041
+04/20/2022 18:24:13 - INFO - dataset -   ********** Valid data information : **********
+04/20/2022 18:24:13 - INFO - dataset -   domain name: AddToPlaylist,    data_size=485
+04/20/2022 18:24:13 - INFO - dataset -   ********** Test data information : **********
+04/20/2022 18:24:13 - INFO - dataset -   domain name: AddToPlaylist,    data_size=1504
+04/20/2022 18:25:27 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 18:25:27 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 18:25:27 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 18:25:27 - INFO - __main__ -   Batch_size = 16
+04/20/2022 18:25:27 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 18:25:27 - INFO - __main__ -   Train epoch = 64
+04/20/2022 18:25:27 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 18:25:27 - INFO - __main__ -   Context_max_len = 32
+04/20/2022 18:25:27 - INFO - __main__ -   Label_max_len = 32
+04/20/2022 18:25:42 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 18:25:42 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 18:25:42 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 18:25:42 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 18:25:42 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 18:25:42 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 18:25:42 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 18:25:42 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 18:25:42 - INFO - dataset -   sort is sort
+04/20/2022 18:25:42 - INFO - dataset -   city is a large town
+04/20/2022 18:25:42 - INFO - dataset -   state is the civil government of a country
+04/20/2022 18:25:42 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:25:42 - INFO - dataset -   country is a nation with its own government occupying a particular territory
+04/20/2022 18:25:42 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:25:42 - INFO - dataset -   facility is a place amenity or piece of equipment provided for a particular purpose
+04/20/2022 18:25:42 - INFO - dataset -   restaurant name is restaurant name
+04/20/2022 18:25:42 - INFO - dataset -   cuisine is a style or method of cooking especially as characteristic of a particular country region or establishment
+04/20/2022 18:25:42 - INFO - dataset -   restaurant type is restaurant type
+04/20/2022 18:25:42 - INFO - dataset -   served dish is served dish
+04/20/2022 18:25:42 - INFO - dataset -   number is number integer digit
+04/20/2022 18:25:42 - INFO - dataset -   position is a place where someone or something is located or has been put
+04/20/2022 18:25:42 - INFO - dataset -   person is what or which person or people
+04/20/2022 18:26:01 - INFO - dataset -   city is a large town
+04/20/2022 18:26:01 - INFO - dataset -   state is the civil government of a country
+04/20/2022 18:26:01 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:26:01 - INFO - dataset -   current location is current position
+04/20/2022 18:26:01 - INFO - dataset -   country is a nation with its own government occupying a particular territory
+04/20/2022 18:26:01 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:26:01 - INFO - dataset -   geographic position is a place where someone or something is located or has been put
+04/20/2022 18:26:01 - INFO - dataset -   temperature is the degree or intensity of heat present in a substance or object especially as expressed according to a comparative scale and shown by a thermometer or perceived by touch
+04/20/2022 18:26:01 - INFO - dataset -   weather is the state of the atmosphere at a place and time as regards heat dryness sunshine wind rain etc
+04/20/2022 18:26:20 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:26:20 - INFO - dataset -   music item is musical term
+04/20/2022 18:26:20 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:26:20 - INFO - dataset -   genre is a category of artistic composition as in music or literature characterized by similarities in form style or subject matter
+04/20/2022 18:26:20 - INFO - dataset -   service is service or application
+04/20/2022 18:26:20 - INFO - dataset -   year is year number
+04/20/2022 18:26:20 - INFO - dataset -   album is a blank book for the insertion of photographs stamps or pictures
+04/20/2022 18:26:20 - INFO - dataset -   sort is sort
+04/20/2022 18:26:20 - INFO - dataset -   track is a recording of one song or piece of music
+04/20/2022 18:26:38 - INFO - dataset -   series is a set of related television or radio programs especially of a specified kind
+04/20/2022 18:26:38 - INFO - dataset -   this the referential pronoun
+04/20/2022 18:26:38 - INFO - dataset -   rating value is number integer digit
+04/20/2022 18:26:38 - INFO - dataset -   object name is name
+04/20/2022 18:26:38 - INFO - dataset -   object type is type
+04/20/2022 18:26:38 - INFO - dataset -   rating unit is stars
+04/20/2022 18:26:38 - INFO - dataset -   best rating is highest score
+04/20/2022 18:26:56 - INFO - dataset -   object name is name
+04/20/2022 18:26:56 - INFO - dataset -   object type is type
+04/20/2022 18:27:12 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:27:12 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:27:12 - INFO - dataset -   object type is type
+04/20/2022 18:27:12 - INFO - dataset -   movie type is film type
+04/20/2022 18:27:12 - INFO - dataset -   location type is cinema theater
+04/20/2022 18:27:12 - INFO - dataset -   location name is cinema name
+04/20/2022 18:27:12 - INFO - dataset -   movie name is movie name
+04/20/2022 18:27:28 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:27:28 - INFO - dataset -   music item is musical term
+04/20/2022 18:27:28 - INFO - dataset -   owner is a person who owns something
+04/20/2022 18:27:28 - INFO - dataset -   entity name is entity name
+04/20/2022 18:27:28 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:27:33 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:27:33 - INFO - dataset -   music item is musical term
+04/20/2022 18:27:33 - INFO - dataset -   owner is a person who owns something
+04/20/2022 18:27:33 - INFO - dataset -   entity name is entity name
+04/20/2022 18:27:33 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:27:46 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 18:27:46 - INFO - dataset -   ********** Train data information : **********
+04/20/2022 18:27:46 - INFO - dataset -   domain name: BookRestaurant,    data_size=2052
+04/20/2022 18:27:46 - INFO - dataset -   domain name: GetWeather,    data_size=2077
+04/20/2022 18:27:46 - INFO - dataset -   domain name: PlayMusic,    data_size=2082
+04/20/2022 18:27:46 - INFO - dataset -   domain name: RateBook,    data_size=2027
+04/20/2022 18:27:46 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=2015
+04/20/2022 18:27:46 - INFO - dataset -   domain name: SearchScreeningEvent,    data_size=2041
+04/20/2022 18:27:46 - INFO - dataset -   ********** Valid data information : **********
+04/20/2022 18:27:46 - INFO - dataset -   domain name: AddToPlaylist,    data_size=485
+04/20/2022 18:27:46 - INFO - dataset -   ********** Test data information : **********
+04/20/2022 18:27:46 - INFO - dataset -   domain name: AddToPlaylist,    data_size=1504
+04/20/2022 18:28:44 - INFO - trainer -   Epoch 1, Domain BookRestaurant, train_loss 0.217410,    Evalution acc 0.0927, recall 0.0454, f1 0.0609
+04/20/2022 18:29:10 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 18:29:57 - INFO - trainer -   Epoch 1, Domain GetWeather, train_loss 0.183046,    Evalution acc 0.0395, recall 0.0182, f1 0.0249
+04/20/2022 18:30:45 - INFO - trainer -   Epoch 1, Domain PlayMusic, train_loss 0.206578,    Evalution acc 0.1599, recall 0.1346, f1 0.1462
+04/20/2022 18:31:11 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 18:31:57 - INFO - trainer -   Epoch 1, Domain RateBook, train_loss 0.281727,    Evalution acc 0.2350, recall 0.1868, f1 0.2082
+04/20/2022 18:32:33 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 18:32:33 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 18:32:33 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 18:32:33 - INFO - __main__ -   Batch_size = 16
+04/20/2022 18:32:33 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 18:32:33 - INFO - __main__ -   Train epoch = 64
+04/20/2022 18:32:33 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 18:32:33 - INFO - __main__ -   Context_max_len = 48
+04/20/2022 18:32:33 - INFO - __main__ -   Label_max_len = 48
+04/20/2022 18:32:46 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 18:32:46 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 18:32:46 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 18:32:46 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 18:32:46 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 18:32:46 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 18:32:46 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 18:32:46 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 18:32:46 - INFO - dataset -   sort is sort
+04/20/2022 18:32:46 - INFO - dataset -   city is a large town
+04/20/2022 18:32:46 - INFO - dataset -   state is the civil government of a country
+04/20/2022 18:32:46 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:32:46 - INFO - dataset -   country is a nation with its own government occupying a particular territory
+04/20/2022 18:32:46 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:32:46 - INFO - dataset -   facility is a place amenity or piece of equipment provided for a particular purpose
+04/20/2022 18:32:46 - INFO - dataset -   restaurant name is restaurant name
+04/20/2022 18:32:46 - INFO - dataset -   cuisine is a style or method of cooking especially as characteristic of a particular country region or establishment
+04/20/2022 18:32:46 - INFO - dataset -   restaurant type is restaurant type
+04/20/2022 18:32:46 - INFO - dataset -   served dish is served dish
+04/20/2022 18:32:46 - INFO - dataset -   number is number integer digit
+04/20/2022 18:32:46 - INFO - dataset -   position is a place where someone or something is located or has been put
+04/20/2022 18:32:46 - INFO - dataset -   person is what or which person or people
+04/20/2022 18:33:05 - INFO - dataset -   city is a large town
+04/20/2022 18:33:05 - INFO - dataset -   state is the civil government of a country
+04/20/2022 18:33:05 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:33:05 - INFO - dataset -   current location is current position
+04/20/2022 18:33:05 - INFO - dataset -   country is a nation with its own government occupying a particular territory
+04/20/2022 18:33:05 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:33:05 - INFO - dataset -   geographic position is a place where someone or something is located or has been put
+04/20/2022 18:33:05 - INFO - dataset -   temperature is the degree or intensity of heat present in a substance or object especially as expressed according to a comparative scale and shown by a thermometer or perceived by touch
+04/20/2022 18:33:05 - INFO - dataset -   weather is the state of the atmosphere at a place and time as regards heat dryness sunshine wind rain etc
+04/20/2022 18:33:23 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:33:23 - INFO - dataset -   music item is musical term
+04/20/2022 18:33:23 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:33:23 - INFO - dataset -   genre is a category of artistic composition as in music or literature characterized by similarities in form style or subject matter
+04/20/2022 18:33:23 - INFO - dataset -   service is service or application
+04/20/2022 18:33:23 - INFO - dataset -   year is year number
+04/20/2022 18:33:23 - INFO - dataset -   album is a blank book for the insertion of photographs stamps or pictures
+04/20/2022 18:33:23 - INFO - dataset -   sort is sort
+04/20/2022 18:33:23 - INFO - dataset -   track is a recording of one song or piece of music
+04/20/2022 18:33:40 - INFO - dataset -   series is a set of related television or radio programs especially of a specified kind
+04/20/2022 18:33:40 - INFO - dataset -   this the referential pronoun
+04/20/2022 18:33:40 - INFO - dataset -   rating value is number integer digit
+04/20/2022 18:33:40 - INFO - dataset -   object name is name
+04/20/2022 18:33:40 - INFO - dataset -   object type is type
+04/20/2022 18:33:40 - INFO - dataset -   rating unit is stars
+04/20/2022 18:33:40 - INFO - dataset -   best rating is highest score
+04/20/2022 18:34:00 - INFO - dataset -   object name is name
+04/20/2022 18:34:00 - INFO - dataset -   object type is type
+04/20/2022 18:34:18 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:34:18 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:34:18 - INFO - dataset -   object type is type
+04/20/2022 18:34:18 - INFO - dataset -   movie type is film type
+04/20/2022 18:34:18 - INFO - dataset -   location type is cinema theater
+04/20/2022 18:34:18 - INFO - dataset -   location name is cinema name
+04/20/2022 18:34:18 - INFO - dataset -   movie name is movie name
+04/20/2022 18:34:37 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:34:37 - INFO - dataset -   music item is musical term
+04/20/2022 18:34:37 - INFO - dataset -   owner is a person who owns something
+04/20/2022 18:34:37 - INFO - dataset -   entity name is entity name
+04/20/2022 18:34:37 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:34:42 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:34:42 - INFO - dataset -   music item is musical term
+04/20/2022 18:34:42 - INFO - dataset -   owner is a person who owns something
+04/20/2022 18:34:42 - INFO - dataset -   entity name is entity name
+04/20/2022 18:34:42 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:34:55 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 18:34:55 - INFO - dataset -   ********** Train data information : **********
+04/20/2022 18:34:55 - INFO - dataset -   domain name: BookRestaurant,    data_size=2052
+04/20/2022 18:34:55 - INFO - dataset -   domain name: GetWeather,    data_size=2077
+04/20/2022 18:34:55 - INFO - dataset -   domain name: PlayMusic,    data_size=2082
+04/20/2022 18:34:55 - INFO - dataset -   domain name: RateBook,    data_size=2027
+04/20/2022 18:34:55 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=2015
+04/20/2022 18:34:55 - INFO - dataset -   domain name: SearchScreeningEvent,    data_size=2041
+04/20/2022 18:34:55 - INFO - dataset -   ********** Valid data information : **********
+04/20/2022 18:34:55 - INFO - dataset -   domain name: AddToPlaylist,    data_size=485
+04/20/2022 18:34:55 - INFO - dataset -   ********** Test data information : **********
+04/20/2022 18:34:55 - INFO - dataset -   domain name: AddToPlaylist,    data_size=1504
+04/20/2022 18:35:19 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 18:35:19 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 18:35:19 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 18:35:19 - INFO - __main__ -   Batch_size = 16
+04/20/2022 18:35:19 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 18:35:19 - INFO - __main__ -   Train epoch = 64
+04/20/2022 18:35:19 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 18:35:19 - INFO - __main__ -   Context_max_len = 32
+04/20/2022 18:35:19 - INFO - __main__ -   Label_max_len = 32
+04/20/2022 18:35:34 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 18:35:34 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 18:35:34 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 18:35:34 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 18:35:34 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 18:35:34 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 18:35:34 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 18:35:34 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 18:35:34 - INFO - dataset -   sort is sort
+04/20/2022 18:35:34 - INFO - dataset -   city is a large town
+04/20/2022 18:35:34 - INFO - dataset -   state is the civil government of a country
+04/20/2022 18:35:34 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:35:34 - INFO - dataset -   country is a nation with its own government occupying a particular territory
+04/20/2022 18:35:34 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:35:34 - INFO - dataset -   facility is a place amenity or piece of equipment provided for a particular purpose
+04/20/2022 18:35:34 - INFO - dataset -   restaurant name is restaurant name
+04/20/2022 18:35:34 - INFO - dataset -   cuisine is a style or method of cooking especially as characteristic of a particular country region or establishment
+04/20/2022 18:35:34 - INFO - dataset -   restaurant type is restaurant type
+04/20/2022 18:35:34 - INFO - dataset -   served dish is served dish
+04/20/2022 18:35:34 - INFO - dataset -   number is number integer digit
+04/20/2022 18:35:34 - INFO - dataset -   position is a place where someone or something is located or has been put
+04/20/2022 18:35:34 - INFO - dataset -   person is what or which person or people
+04/20/2022 18:35:55 - INFO - dataset -   city is a large town
+04/20/2022 18:35:55 - INFO - dataset -   state is the civil government of a country
+04/20/2022 18:35:55 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:35:55 - INFO - dataset -   current location is current position
+04/20/2022 18:35:55 - INFO - dataset -   country is a nation with its own government occupying a particular territory
+04/20/2022 18:35:55 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:35:55 - INFO - dataset -   geographic position is a place where someone or something is located or has been put
+04/20/2022 18:35:55 - INFO - dataset -   temperature is the degree or intensity of heat present in a substance or object especially as expressed according to a comparative scale and shown by a thermometer or perceived by touch
+04/20/2022 18:35:55 - INFO - dataset -   weather is the state of the atmosphere at a place and time as regards heat dryness sunshine wind rain etc
+04/20/2022 18:36:13 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:36:13 - INFO - dataset -   music item is musical term
+04/20/2022 18:36:13 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:36:13 - INFO - dataset -   genre is a category of artistic composition as in music or literature characterized by similarities in form style or subject matter
+04/20/2022 18:36:13 - INFO - dataset -   service is service or application
+04/20/2022 18:36:13 - INFO - dataset -   year is year number
+04/20/2022 18:36:13 - INFO - dataset -   album is a blank book for the insertion of photographs stamps or pictures
+04/20/2022 18:36:13 - INFO - dataset -   sort is sort
+04/20/2022 18:36:13 - INFO - dataset -   track is a recording of one song or piece of music
+04/20/2022 18:36:32 - INFO - dataset -   series is a set of related television or radio programs especially of a specified kind
+04/20/2022 18:36:32 - INFO - dataset -   this the referential pronoun
+04/20/2022 18:36:32 - INFO - dataset -   rating value is number integer digit
+04/20/2022 18:36:32 - INFO - dataset -   object name is name
+04/20/2022 18:36:32 - INFO - dataset -   object type is type
+04/20/2022 18:36:32 - INFO - dataset -   rating unit is stars
+04/20/2022 18:36:32 - INFO - dataset -   best rating is highest score
+04/20/2022 18:36:50 - INFO - dataset -   object name is name
+04/20/2022 18:36:50 - INFO - dataset -   object type is type
+04/20/2022 18:37:05 - INFO - dataset -   time range is a point of time as measured in hours and minutes past midnight or noon
+04/20/2022 18:37:05 - INFO - dataset -   spatial relation is spatial near or far
+04/20/2022 18:37:05 - INFO - dataset -   object type is type
+04/20/2022 18:37:05 - INFO - dataset -   movie type is film type
+04/20/2022 18:37:05 - INFO - dataset -   location type is cinema theater
+04/20/2022 18:37:05 - INFO - dataset -   location name is cinema name
+04/20/2022 18:37:05 - INFO - dataset -   movie name is movie name
+04/20/2022 18:37:23 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:37:23 - INFO - dataset -   music item is musical term
+04/20/2022 18:37:23 - INFO - dataset -   owner is a person who owns something
+04/20/2022 18:37:23 - INFO - dataset -   entity name is entity name
+04/20/2022 18:37:23 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:37:28 - INFO - dataset -   play list is a list of recorded songs or pieces of music chosen to be broadcast on a radio show or by a particular radio station
+04/20/2022 18:37:28 - INFO - dataset -   music item is musical term
+04/20/2022 18:37:28 - INFO - dataset -   owner is a person who owns something
+04/20/2022 18:37:28 - INFO - dataset -   entity name is entity name
+04/20/2022 18:37:28 - INFO - dataset -   artist is musician a person who plays a musical instrument especially as a profession or is musically talented
+04/20/2022 18:37:41 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 18:37:41 - INFO - dataset -   ********** Train data information : **********
+04/20/2022 18:37:41 - INFO - dataset -   domain name: BookRestaurant,    data_size=2052
+04/20/2022 18:37:41 - INFO - dataset -   domain name: GetWeather,    data_size=2077
+04/20/2022 18:37:41 - INFO - dataset -   domain name: PlayMusic,    data_size=2082
+04/20/2022 18:37:41 - INFO - dataset -   domain name: RateBook,    data_size=2027
+04/20/2022 18:37:41 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=2015
+04/20/2022 18:37:41 - INFO - dataset -   domain name: SearchScreeningEvent,    data_size=2041
+04/20/2022 18:37:41 - INFO - dataset -   ********** Valid data information : **********
+04/20/2022 18:37:41 - INFO - dataset -   domain name: AddToPlaylist,    data_size=485
+04/20/2022 18:37:41 - INFO - dataset -   ********** Test data information : **********
+04/20/2022 18:37:41 - INFO - dataset -   domain name: AddToPlaylist,    data_size=1504
+04/20/2022 18:38:40 - INFO - trainer -   Epoch 1, Domain BookRestaurant, train_loss 0.217410,    Evalution acc 0.0927, recall 0.0454, f1 0.0609
+04/20/2022 18:39:08 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 18:39:57 - INFO - trainer -   Epoch 1, Domain GetWeather, train_loss 0.183046,    Evalution acc 0.0395, recall 0.0182, f1 0.0249
+04/20/2022 18:40:45 - INFO - trainer -   Epoch 1, Domain PlayMusic, train_loss 0.206578,    Evalution acc 0.1599, recall 0.1346, f1 0.1462
+04/20/2022 18:41:14 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 18:42:05 - INFO - trainer -   Epoch 1, Domain RateBook, train_loss 0.281727,    Evalution acc 0.2350, recall 0.1868, f1 0.2082
+04/20/2022 18:42:42 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 18:43:28 - INFO - trainer -   Epoch 1, Domain SearchCreativeWork, train_loss 0.402124,    Evalution acc 0.0494, recall 0.0182, f1 0.0265
+04/20/2022 18:44:13 - INFO - trainer -   Epoch 1, Domain SearchScreeningEvent, train_loss 0.228394,    Evalution acc 0.0726, recall 0.0424, f1 0.0535
+04/20/2022 18:45:00 - INFO - trainer -   Epoch 2, Domain BookRestaurant, train_loss 0.116019,    Evalution acc 0.0972, recall 0.0658, f1 0.0785
+04/20/2022 18:45:48 - INFO - trainer -   Epoch 2, Domain GetWeather, train_loss 0.136480,    Evalution acc 0.1416, recall 0.0968, f1 0.1150
+04/20/2022 18:46:33 - INFO - trainer -   Epoch 2, Domain PlayMusic, train_loss 0.153187,    Evalution acc 0.4599, recall 0.3601, f1 0.4039
+04/20/2022 18:47:06 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 18:47:52 - INFO - trainer -   Epoch 2, Domain RateBook, train_loss 0.197446,    Evalution acc 0.4771, recall 0.2761, f1 0.3498
+04/20/2022 18:48:37 - INFO - trainer -   Epoch 2, Domain SearchCreativeWork, train_loss 0.140420,    Evalution acc 0.5965, recall 0.2057, f1 0.3060
+04/20/2022 18:49:24 - INFO - trainer -   Epoch 2, Domain SearchScreeningEvent, train_loss 0.159989,    Evalution acc 0.4488, recall 0.2753, f1 0.3413
+04/20/2022 18:50:13 - INFO - trainer -   Epoch 3, Domain BookRestaurant, train_loss 0.086087,    Evalution acc 0.3863, recall 0.2595, f1 0.3104
+04/20/2022 18:50:56 - INFO - trainer -   Epoch 3, Domain GetWeather, train_loss 0.105538,    Evalution acc 0.3854, recall 0.2912, f1 0.3318
+04/20/2022 18:51:41 - INFO - trainer -   Epoch 3, Domain PlayMusic, train_loss 0.103638,    Evalution acc 0.5206, recall 0.3434, f1 0.4139
+04/20/2022 18:52:16 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 18:53:04 - INFO - trainer -   Epoch 3, Domain RateBook, train_loss 0.133465,    Evalution acc 0.4948, recall 0.2882, f1 0.3642
+04/20/2022 18:53:46 - INFO - trainer -   Epoch 3, Domain SearchCreativeWork, train_loss 0.072063,    Evalution acc 0.5505, recall 0.2390, f1 0.3333
+04/20/2022 18:54:34 - INFO - trainer -   Epoch 3, Domain SearchScreeningEvent, train_loss 0.076765,    Evalution acc 0.4836, recall 0.2224, f1 0.3047
+04/20/2022 18:55:23 - INFO - trainer -   Epoch 4, Domain BookRestaurant, train_loss 0.067930,    Evalution acc 0.4784, recall 0.2852, f1 0.3573
+04/20/2022 18:56:11 - INFO - trainer -   Epoch 4, Domain GetWeather, train_loss 0.069506,    Evalution acc 0.4642, recall 0.2995, f1 0.3641
+04/20/2022 18:56:57 - INFO - trainer -   Epoch 4, Domain PlayMusic, train_loss 0.079231,    Evalution acc 0.5070, recall 0.3033, f1 0.3796
+04/20/2022 18:57:44 - INFO - trainer -   Epoch 4, Domain RateBook, train_loss 0.116734,    Evalution acc 0.4924, recall 0.2685, f1 0.3475
+04/20/2022 18:58:27 - INFO - trainer -   Epoch 4, Domain SearchCreativeWork, train_loss 0.050688,    Evalution acc 0.5509, recall 0.2088, f1 0.3028
+04/20/2022 18:59:17 - INFO - trainer -   Epoch 4, Domain SearchScreeningEvent, train_loss 0.051787,    Evalution acc 0.4867, recall 0.2761, f1 0.3523
+04/20/2022 19:00:06 - INFO - trainer -   Epoch 5, Domain BookRestaurant, train_loss 0.052667,    Evalution acc 0.4851, recall 0.2716, f1 0.3482
+04/20/2022 19:00:52 - INFO - trainer -   Epoch 5, Domain GetWeather, train_loss 0.047375,    Evalution acc 0.5041, recall 0.2814, f1 0.3612
+04/20/2022 19:01:38 - INFO - trainer -   Epoch 5, Domain PlayMusic, train_loss 0.065701,    Evalution acc 0.5531, recall 0.3427, f1 0.4232
+04/20/2022 19:02:07 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 19:02:54 - INFO - trainer -   Epoch 5, Domain RateBook, train_loss 0.110440,    Evalution acc 0.5680, recall 0.3003, f1 0.3929
+04/20/2022 19:03:36 - INFO - trainer -   Epoch 5, Domain SearchCreativeWork, train_loss 0.039963,    Evalution acc 0.6161, recall 0.1906, f1 0.2912
+04/20/2022 19:04:22 - INFO - trainer -   Epoch 5, Domain SearchScreeningEvent, train_loss 0.041279,    Evalution acc 0.5601, recall 0.2360, f1 0.3321
+04/20/2022 19:05:12 - INFO - trainer -   Epoch 6, Domain BookRestaurant, train_loss 0.047161,    Evalution acc 0.5233, recall 0.2806, f1 0.3653
+04/20/2022 19:05:58 - INFO - trainer -   Epoch 6, Domain GetWeather, train_loss 0.037248,    Evalution acc 0.5313, recall 0.2632, f1 0.3520
+04/20/2022 19:06:44 - INFO - trainer -   Epoch 6, Domain PlayMusic, train_loss 0.053243,    Evalution acc 0.5753, recall 0.3351, f1 0.4235
+04/20/2022 19:07:14 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 19:07:57 - INFO - trainer -   Epoch 6, Domain RateBook, train_loss 0.085287,    Evalution acc 0.5572, recall 0.3056, f1 0.3947
+04/20/2022 19:08:41 - INFO - trainer -   Epoch 6, Domain SearchCreativeWork, train_loss 0.032462,    Evalution acc 0.5689, recall 0.1717, f1 0.2638
+04/20/2022 19:09:29 - INFO - trainer -   Epoch 6, Domain SearchScreeningEvent, train_loss 0.030829,    Evalution acc 0.6122, recall 0.2723, f1 0.3770
+04/20/2022 19:10:21 - INFO - trainer -   Epoch 7, Domain BookRestaurant, train_loss 0.039335,    Evalution acc 0.5165, recall 0.2731, f1 0.3572
+04/20/2022 19:11:06 - INFO - trainer -   Epoch 7, Domain GetWeather, train_loss 0.030092,    Evalution acc 0.5267, recall 0.2837, f1 0.3687
+04/20/2022 19:11:52 - INFO - trainer -   Epoch 7, Domain PlayMusic, train_loss 0.048050,    Evalution acc 0.5510, recall 0.3472, f1 0.4260
+04/20/2022 19:12:24 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 19:13:11 - INFO - trainer -   Epoch 7, Domain RateBook, train_loss 0.051111,    Evalution acc 0.5986, recall 0.3306, f1 0.4259
+04/20/2022 19:13:55 - INFO - trainer -   Epoch 7, Domain SearchCreativeWork, train_loss 0.020335,    Evalution acc 0.5577, recall 0.1755, f1 0.2670
+04/20/2022 19:14:42 - INFO - trainer -   Epoch 7, Domain SearchScreeningEvent, train_loss 0.021436,    Evalution acc 0.5908, recall 0.2731, f1 0.3735
+04/20/2022 19:15:32 - INFO - trainer -   Epoch 8, Domain BookRestaurant, train_loss 0.033770,    Evalution acc 0.5170, recall 0.2648, f1 0.3502
+04/20/2022 19:16:19 - INFO - trainer -   Epoch 8, Domain GetWeather, train_loss 0.017753,    Evalution acc 0.5200, recall 0.2458, f1 0.3338
+04/20/2022 19:17:06 - INFO - trainer -   Epoch 8, Domain PlayMusic, train_loss 0.043776,    Evalution acc 0.6268, recall 0.3608, f1 0.4580
+04/20/2022 19:17:33 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 19:18:15 - INFO - trainer -   Epoch 8, Domain RateBook, train_loss 0.039087,    Evalution acc 0.6082, recall 0.3487, f1 0.4433
+04/20/2022 19:18:59 - INFO - trainer -   Epoch 8, Domain SearchCreativeWork, train_loss 0.019888,    Evalution acc 0.6044, recall 0.1861, f1 0.2846
+04/20/2022 19:19:45 - INFO - trainer -   Epoch 8, Domain SearchScreeningEvent, train_loss 0.018273,    Evalution acc 0.6259, recall 0.2632, f1 0.3706
+04/20/2022 19:20:34 - INFO - trainer -   Epoch 9, Domain BookRestaurant, train_loss 0.029685,    Evalution acc 0.6289, recall 0.3396, f1 0.4411
+04/20/2022 19:21:20 - INFO - trainer -   Epoch 9, Domain GetWeather, train_loss 0.020474,    Evalution acc 0.6132, recall 0.3154, f1 0.4166
+04/20/2022 19:22:10 - INFO - trainer -   Epoch 9, Domain PlayMusic, train_loss 0.039926,    Evalution acc 0.5730, recall 0.3086, f1 0.4012
+04/20/2022 19:22:55 - INFO - trainer -   Epoch 9, Domain RateBook, train_loss 0.036665,    Evalution acc 0.5473, recall 0.2625, f1 0.3548
+04/20/2022 19:23:40 - INFO - trainer -   Epoch 9, Domain SearchCreativeWork, train_loss 0.012619,    Evalution acc 0.4935, recall 0.1717, f1 0.2548
+04/20/2022 19:24:23 - INFO - trainer -   Epoch 9, Domain SearchScreeningEvent, train_loss 0.020374,    Evalution acc 0.5312, recall 0.2126, f1 0.3036
+04/20/2022 19:25:15 - INFO - trainer -   Epoch 10, Domain BookRestaurant, train_loss 0.027750,    Evalution acc 0.6143, recall 0.3109, f1 0.4129
+04/20/2022 19:26:04 - INFO - trainer -   Epoch 10, Domain GetWeather, train_loss 0.015124,    Evalution acc 0.6573, recall 0.3366, f1 0.4452
+04/20/2022 19:26:50 - INFO - trainer -   Epoch 10, Domain PlayMusic, train_loss 0.038206,    Evalution acc 0.6273, recall 0.3540, f1 0.4526
+04/20/2022 19:27:34 - INFO - trainer -   Epoch 10, Domain RateBook, train_loss 0.033610,    Evalution acc 0.5630, recall 0.3109, f1 0.4006
+04/20/2022 19:28:18 - INFO - trainer -   Epoch 10, Domain SearchCreativeWork, train_loss 0.014939,    Evalution acc 0.5079, recall 0.1460, f1 0.2268
+04/20/2022 19:29:04 - INFO - trainer -   Epoch 10, Domain SearchScreeningEvent, train_loss 0.012491,    Evalution acc 0.5010, recall 0.1952, f1 0.2809
+04/20/2022 19:29:54 - INFO - trainer -   Epoch 11, Domain BookRestaurant, train_loss 0.023957,    Evalution acc 0.4800, recall 0.2451, f1 0.3245
+04/20/2022 19:30:39 - INFO - trainer -   Epoch 11, Domain GetWeather, train_loss 0.012643,    Evalution acc 0.4881, recall 0.2179, f1 0.3013
+04/20/2022 19:31:26 - INFO - trainer -   Epoch 11, Domain PlayMusic, train_loss 0.034828,    Evalution acc 0.5716, recall 0.3169, f1 0.4078
+04/20/2022 19:32:12 - INFO - trainer -   Epoch 11, Domain RateBook, train_loss 0.030414,    Evalution acc 0.5095, recall 0.2837, f1 0.3644
+04/20/2022 19:32:56 - INFO - trainer -   Epoch 11, Domain SearchCreativeWork, train_loss 0.013701,    Evalution acc 0.5210, recall 0.2436, f1 0.3320
+04/20/2022 19:32:56 - INFO - trainer -   Reach early stop count 20, training stop
+04/20/2022 19:32:57 - INFO - __main__ -   Starting test...
+04/20/2022 19:33:27 - INFO - trainer -   ***********************************************************
+04/20/2022 19:33:27 - INFO - trainer -   Test result: acc 0.6311, recall 0.3543, f1 0.4538
+04/20/2022 19:33:27 - INFO - trainer -   ***********************************************************
+04/20/2022 20:58:15 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 20:58:15 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 20:58:15 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 20:58:15 - INFO - __main__ -   Batch_size = 8
+04/20/2022 20:58:15 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 20:58:15 - INFO - __main__ -   Train epoch = 64
+04/20/2022 20:58:15 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 20:58:15 - INFO - __main__ -   Context_max_len = 64
+04/20/2022 20:58:15 - INFO - __main__ -   Label_max_len = 64
+04/20/2022 20:58:30 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 20:58:30 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 20:58:30 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 20:58:30 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 20:58:30 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 20:58:30 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 20:58:30 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 20:58:30 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 20:58:32 - INFO - dataset -   ********** Data information : **********
+04/20/2022 20:58:32 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 20:58:32 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 20:58:32 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 20:58:32 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 20:58:32 - INFO - dataset -   ********** Data information : **********
+04/20/2022 20:59:44 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 20:59:44 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 20:59:44 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 20:59:44 - INFO - __main__ -   Batch_size = 8
+04/20/2022 20:59:44 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 20:59:44 - INFO - __main__ -   Train epoch = 64
+04/20/2022 20:59:44 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 20:59:44 - INFO - __main__ -   Context_max_len = 64
+04/20/2022 20:59:44 - INFO - __main__ -   Label_max_len = 64
+04/20/2022 20:59:57 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 20:59:58 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 20:59:58 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 20:59:58 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 20:59:58 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 20:59:58 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 20:59:58 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 20:59:58 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:00:00 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:00:00 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:00:00 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:00:00 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:00:00 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:00:00 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:00:26 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:00:26 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:00:26 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:00:26 - INFO - __main__ -   Batch_size = 8
+04/20/2022 21:00:26 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:00:26 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:00:26 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:00:26 - INFO - __main__ -   Context_max_len = 64
+04/20/2022 21:00:26 - INFO - __main__ -   Label_max_len = 32
+04/20/2022 21:00:41 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:00:41 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:00:41 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:00:41 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:00:41 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:00:41 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:00:41 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:00:41 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:00:43 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:00:43 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:00:43 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:00:43 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:00:43 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:00:43 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:01:11 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:01:11 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:01:11 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:01:11 - INFO - __main__ -   Batch_size = 8
+04/20/2022 21:01:11 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:01:11 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:01:11 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:01:11 - INFO - __main__ -   Context_max_len = 48
+04/20/2022 21:01:11 - INFO - __main__ -   Label_max_len = 32
+04/20/2022 21:01:27 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:01:27 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:01:27 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:01:27 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:01:27 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:01:27 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:01:27 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:01:27 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:01:29 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:01:29 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:01:29 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:01:29 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:01:29 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:01:29 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:02:00 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:02:00 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:02:00 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:02:00 - INFO - __main__ -   Batch_size = 8
+04/20/2022 21:02:00 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:02:00 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:02:00 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:02:00 - INFO - __main__ -   Context_max_len = 40
+04/20/2022 21:02:00 - INFO - __main__ -   Label_max_len = 32
+04/20/2022 21:02:14 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:02:14 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:02:14 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:02:14 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:02:14 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:02:14 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:02:14 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:02:14 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:02:16 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:02:16 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:02:16 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:02:16 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:02:16 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:02:16 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:02:42 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:02:42 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:02:42 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:02:42 - INFO - __main__ -   Batch_size = 8
+04/20/2022 21:02:42 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:02:42 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:02:42 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:02:42 - INFO - __main__ -   Context_max_len = 32
+04/20/2022 21:02:42 - INFO - __main__ -   Label_max_len = 32
+04/20/2022 21:02:57 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:02:57 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:02:57 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:02:57 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:02:57 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:02:57 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:02:57 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:02:57 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:02:59 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:02:59 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:02:59 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:02:59 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:02:59 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:02:59 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:03:25 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:03:25 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:03:25 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:03:25 - INFO - __main__ -   Batch_size = 8
+04/20/2022 21:03:25 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:03:25 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:03:25 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:03:25 - INFO - __main__ -   Context_max_len = 32
+04/20/2022 21:03:25 - INFO - __main__ -   Label_max_len = 24
+04/20/2022 21:03:40 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:03:40 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:03:40 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:03:40 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:03:40 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:03:40 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:03:40 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:03:40 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:03:42 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:03:42 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:03:42 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:03:42 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:03:42 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:03:42 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:04:06 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:04:06 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:04:06 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:04:06 - INFO - __main__ -   Batch_size = 4
+04/20/2022 21:04:06 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:04:06 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:04:06 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:04:06 - INFO - __main__ -   Context_max_len = 32
+04/20/2022 21:04:06 - INFO - __main__ -   Label_max_len = 24
+04/20/2022 21:04:19 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:04:19 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:04:19 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:04:19 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:04:19 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:04:19 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:04:19 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:04:19 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:04:21 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:04:21 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:04:21 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:04:21 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:04:21 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:04:21 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:05:46 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:05:46 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:05:46 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:05:46 - INFO - __main__ -   Batch_size = 8
+04/20/2022 21:05:46 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:05:46 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:05:46 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:05:46 - INFO - __main__ -   Context_max_len = 48
+04/20/2022 21:05:46 - INFO - __main__ -   Label_max_len = 32
+04/20/2022 21:06:00 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:06:00 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:06:00 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:06:00 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:06:00 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:06:00 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:06:00 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:06:00 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:06:02 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:06:02 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:06:02 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:06:02 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:06:02 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:06:02 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:06:39 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:06:39 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:06:39 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:06:39 - INFO - __main__ -   Batch_size = 8
+04/20/2022 21:06:39 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:06:39 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:06:39 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:06:39 - INFO - __main__ -   Context_max_len = 64
+04/20/2022 21:06:39 - INFO - __main__ -   Label_max_len = 64
+04/20/2022 21:06:54 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:06:54 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:06:54 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:06:54 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:06:54 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:06:54 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:06:54 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:06:54 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:06:57 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:06:57 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:06:57 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:06:57 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:06:57 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:06:57 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:07:27 - INFO - __main__ -   ********************** Job Start **********************
+04/20/2022 21:07:27 - INFO - __main__ -   Learning rate = 1e-05
+04/20/2022 21:07:27 - INFO - __main__ -   Warmup rate = 0.0
+04/20/2022 21:07:27 - INFO - __main__ -   Batch_size = 8
+04/20/2022 21:07:27 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/20/2022 21:07:27 - INFO - __main__ -   Train epoch = 64
+04/20/2022 21:07:27 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/20/2022 21:07:27 - INFO - __main__ -   Context_max_len = 48
+04/20/2022 21:07:27 - INFO - __main__ -   Label_max_len = 48
+04/20/2022 21:07:40 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/20/2022 21:07:40 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/20/2022 21:07:40 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/20/2022 21:07:40 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/20/2022 21:07:40 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/20/2022 21:07:40 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/20/2022 21:07:40 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/20/2022 21:07:40 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/20/2022 21:07:43 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:07:43 - INFO - dataset -   The target domain is AddToPlaylist
+04/20/2022 21:07:43 - INFO - dataset -   Train dataset length = 12442
+04/20/2022 21:07:43 - INFO - dataset -   Valid dataset length = 500
+04/20/2022 21:07:43 - INFO - dataset -   Test dataset length = 1542
+04/20/2022 21:07:43 - INFO - dataset -   ********** Data information : **********
+04/20/2022 21:19:09 - INFO - trainer -   Epoch 1, train_loss 0.071100, Evalution acc 0.0265, recall 0.0066, f1 0.0106
+04/20/2022 21:19:43 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 21:30:39 - INFO - trainer -   Epoch 2, train_loss 0.036648, Evalution acc 0.0848, recall 0.0454, f1 0.0592
+04/20/2022 21:31:08 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 21:42:20 - INFO - trainer -   Epoch 3, train_loss 0.019294, Evalution acc 0.1693, recall 0.1026, f1 0.1277
+04/20/2022 21:42:46 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 21:53:59 - INFO - trainer -   Epoch 4, train_loss 0.012179, Evalution acc 0.1413, recall 0.0850, f1 0.1061
+04/20/2022 22:04:53 - INFO - trainer -   Epoch 5, train_loss 0.010011, Evalution acc 0.1321, recall 0.1766, f1 0.1511
+04/20/2022 22:05:22 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 22:16:47 - INFO - trainer -   Epoch 6, train_loss 0.008445, Evalution acc 0.2333, recall 0.1231, f1 0.1612
+04/20/2022 22:17:15 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 22:28:21 - INFO - trainer -   Epoch 7, train_loss 0.007585, Evalution acc 0.1805, recall 0.1033, f1 0.1314
+04/20/2022 22:39:35 - INFO - trainer -   Epoch 8, train_loss 0.006955, Evalution acc 0.1897, recall 0.1267, f1 0.1520
+04/20/2022 22:50:43 - INFO - trainer -   Epoch 9, train_loss 0.006438, Evalution acc 0.2932, recall 0.1516, f1 0.1999
+04/20/2022 22:51:18 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 23:02:34 - INFO - trainer -   Epoch 10, train_loss 0.005755, Evalution acc 0.3133, recall 0.2139, f1 0.2542
+04/20/2022 23:03:18 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 23:13:35 - INFO - trainer -   Epoch 11, train_loss 0.003958, Evalution acc 0.3333, recall 0.1875, f1 0.2400
+04/20/2022 23:24:46 - INFO - trainer -   Epoch 12, train_loss 0.002769, Evalution acc 0.4224, recall 0.2733, f1 0.3319
+04/20/2022 23:25:19 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/20/2022 23:36:37 - INFO - trainer -   Epoch 13, train_loss 0.001885, Evalution acc 0.3915, recall 0.2484, f1 0.3039
+04/20/2022 23:48:05 - INFO - trainer -   Epoch 14, train_loss 0.001630, Evalution acc 0.3678, recall 0.2161, f1 0.2723
+04/20/2022 23:59:04 - INFO - trainer -   Epoch 15, train_loss 0.001381, Evalution acc 0.3268, recall 0.1832, f1 0.2347
+04/21/2022 00:10:05 - INFO - trainer -   Epoch 16, train_loss 0.001248, Evalution acc 0.3698, recall 0.2549, f1 0.3018
+04/21/2022 00:20:43 - INFO - trainer -   Epoch 17, train_loss 0.001195, Evalution acc 0.3628, recall 0.2374, f1 0.2870
+04/21/2022 00:31:48 - INFO - trainer -   Epoch 18, train_loss 0.001039, Evalution acc 0.4451, recall 0.2938, f1 0.3539
+04/21/2022 00:32:27 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/21/2022 00:43:27 - INFO - trainer -   Epoch 19, train_loss 0.001050, Evalution acc 0.4390, recall 0.2952, f1 0.3530
+04/21/2022 00:54:33 - INFO - trainer -   Epoch 20, train_loss 0.000934, Evalution acc 0.4635, recall 0.3165, f1 0.3761
+04/21/2022 00:55:01 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/21/2022 01:06:03 - INFO - trainer -   Epoch 21, train_loss 0.000834, Evalution acc 0.4491, recall 0.2879, f1 0.3509
+04/21/2022 01:16:41 - INFO - trainer -   Epoch 22, train_loss 0.000827, Evalution acc 0.4373, recall 0.2681, f1 0.3324
+04/21/2022 01:27:30 - INFO - trainer -   Epoch 23, train_loss 0.000799, Evalution acc 0.4907, recall 0.3670, f1 0.4199
+04/21/2022 01:28:04 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/21/2022 01:38:57 - INFO - trainer -   Epoch 24, train_loss 0.000799, Evalution acc 0.4283, recall 0.3062, f1 0.3571
+04/21/2022 01:50:08 - INFO - trainer -   Epoch 25, train_loss 0.000617, Evalution acc 0.4072, recall 0.2586, f1 0.3163
+04/21/2022 02:01:01 - INFO - trainer -   Epoch 26, train_loss 0.000739, Evalution acc 0.3832, recall 0.2476, f1 0.3008
+04/21/2022 02:11:42 - INFO - trainer -   Epoch 27, train_loss 0.000552, Evalution acc 0.3489, recall 0.2513, f1 0.2922
+04/21/2022 02:22:24 - INFO - trainer -   Epoch 28, train_loss 0.000524, Evalution acc 0.4111, recall 0.2996, f1 0.3466

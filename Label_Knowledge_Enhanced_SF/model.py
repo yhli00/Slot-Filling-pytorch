@@ -76,14 +76,14 @@ class LabelEnhanceBert(nn.Module):
     def __init__(self, pretrained_model):
         super().__init__()
         self.bert = BertModel.from_pretrained(pretrained_model)
-        self.pos_embedding = nn.Embedding(19, 512)
-        self.ent_embedding = nn.Embedding(19, 512)
+        # self.pos_embedding = nn.Embedding(19, 512)
+        # self.ent_embedding = nn.Embedding(19, 512)
         self.dropout = nn.Dropout(p=0.1)
-        self.fc_1 = nn.Linear(self.bert.config.hidden_size + 1024, self.bert.config.hidden_size + 1024, bias=False)
-        self.fc_2 = nn.Linear(self.bert.config.hidden_size + 1024, self.bert.config.hidden_size + 1024, bias=False)
-        self.fc_3 = nn.Linear(self.bert.config.hidden_size + 1024, self.bert.config.hidden_size + 1024)
-        self.entity_start_classifier = nn.Linear(self.bert.config.hidden_size + 1024, 1)
-        self.entity_end_classifier = nn.Linear(self.bert.config.hidden_size + 1024, 1)
+        self.fc_1 = nn.Linear(self.bert.config.hidden_size, self.bert.config.hidden_size, bias=False)
+        self.fc_2 = nn.Linear(self.bert.config.hidden_size, self.bert.config.hidden_size, bias=False)
+        self.fc_3 = nn.Linear(self.bert.config.hidden_size, self.bert.config.hidden_size)
+        self.entity_start_classifier = nn.Linear(self.bert.config.hidden_size, 1)
+        self.entity_end_classifier = nn.Linear(self.bert.config.hidden_size, 1)
         
         # self._init_weights(self.pos_embedding)
         # self._init_weights(self.ent_embedding)
@@ -110,8 +110,7 @@ class LabelEnhanceBert(nn.Module):
 
 
     def forward(self, text_input_ids, text_attention_mask, text_token_type_ids, label_input_ids, 
-                label_attention_mask, label_token_type_ids, text_pos_token, text_ent_token,
-                label_pos_token, label_ent_token):
+                label_attention_mask, label_token_type_ids):
         '''
         text_input_ids: [B, L1]
         text_attention_mask: [B, L1]
@@ -135,14 +134,14 @@ class LabelEnhanceBert(nn.Module):
             attention_mask=label_attention_mask,
             token_type_ids=label_token_type_ids
         )
-        encode_label = label_output[0]  # [num_labels, L2, H]
-        text_pos_embed = self.pos_embedding(text_pos_token)
-        label_pos_embed = self.pos_embedding(label_pos_token)
-        text_ent_embed = self.ent_embedding(text_ent_token)
-        label_ent_embed = self.ent_embedding(label_ent_token)
+        encode_label = label_output.last_hidden_state  # [num_labels, L2, H]
+        # text_pos_embed = self.pos_embedding(text_pos_token)
+        # label_pos_embed = self.pos_embedding(label_pos_token)
+        # text_ent_embed = self.ent_embedding(text_ent_token)
+        # label_ent_embed = self.ent_embedding(label_ent_token)
         
-        encode_text = torch.cat([encode_text, text_pos_embed, text_ent_embed], dim=-1)
-        encode_label = torch.cat([encode_label, label_pos_embed, label_ent_embed], dim=-1)
+        # encode_text = torch.cat([encode_text, text_pos_embed, text_ent_embed], dim=-1)
+        # encode_label = torch.cat([encode_label, label_pos_embed, label_ent_embed], dim=-1)
         encode_text = self.dropout(encode_text)
         encode_label = self.dropout(encode_label)
 

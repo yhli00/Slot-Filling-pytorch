@@ -73,10 +73,10 @@ slot2desp = {
 
 domain_set = ["AddToPlaylist", "BookRestaurant", "GetWeather", "PlayMusic", "RateBook", "SearchCreativeWork", "SearchScreeningEvent"]
 
-domain2slots['atis'] = []
-with open("data/atis/labels.txt", 'r') as fr:
-    for line in fr:
-        slot, desp = line.strip('\n').split('\t')[:2]
-        slot2desp[slot] = desp
-        domain2slots['atis'].append(slot)
+# domain2slots['atis'] = []
+# with open("../data/atis/labels.txt", 'r') as fr:
+#     for line in fr:
+#         slot, desp = line.strip('\n').split('\t')[:2]
+#         slot2desp[slot] = desp
+#         domain2slots['atis'].append(slot)
 

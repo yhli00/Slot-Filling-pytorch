@@ -20,8 +20,8 @@ class DataProcessor():
     def get_all_data():
         data = {}
         for domain in domain_set:
-            data[domain] = DataProcessor.read_file("data/snips/" + domain + '/' + domain + '.txt')
-        data['atis'] = DataProcessor.read_file("data/atis/atis.txt")
+            data[domain] = DataProcessor.read_file("../data/snips/" + domain + '/' + domain + '.txt')
+        data['atis'] = DataProcessor.read_file("../data/atis/atis.txt")
         return data
     
     @staticmethod

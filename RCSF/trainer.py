@@ -113,8 +113,8 @@ class Trainer():
                 if (step + 1) % self.args.gradient_accumulation_steps == 0:
                     self.optimizer.step()
                     self.scheduler.step()
-
-            acc, recall, f1 = self.evaluate('valid')
+            with torch.no_grad():
+                acc, recall, f1 = self.evaluate('valid')
             logger.info(f'Epoch {epoch + 1}, train_loss {train_loss / len(self.train_data):.6f}    Evalution acc {acc:.4f}, recall {recall:.4f}, f1 {f1:.4f}')
 
             if f1 > max_f1:
@@ -236,6 +236,7 @@ class Trainer():
 
         if mode == 'test':
             logger.info('***********************************************************')
+            logger.info(f'Target domain = {self.args.target_domain}')
             logger.info(f'Test result: acc {acc:.4f}, recall {recall:.4f}, f1 {f1:.4f}')
             logger.info('***********************************************************')
         return acc, recall, f1

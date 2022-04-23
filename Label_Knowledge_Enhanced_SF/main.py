@@ -101,5 +101,5 @@ if __name__ == '__main__':
     parser.add_argument('--context_max_len', type=int, default=32)
     parser.add_argument('--label_max_len', type=int, default=16)
     args = parser.parse_args()
-    args.log_filename = os.path.join('label_enhanced_logs', args.target_domain + '_' + str(args.n_samples) + '.log')
+    args.log_filename = os.path.join(args.log_dir, args.target_domain + '_' + str(args.n_samples) + '.log')
     main(args)

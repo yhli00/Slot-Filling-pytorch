@@ -1,0 +1,57 @@
+04/22/2022 08:56:26 - INFO - __main__ -   **********************Job Start**********************
+04/22/2022 08:56:26 - INFO - __main__ -   Learning rate = 1e-05
+04/22/2022 08:56:26 - INFO - __main__ -   Warmup rate = 0.0
+04/22/2022 08:56:26 - INFO - __main__ -   Batch_size = 8
+04/22/2022 08:56:26 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/22/2022 08:56:26 - INFO - __main__ -   Train epoch = 64
+04/22/2022 08:56:26 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/22/2022 08:56:38 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/22/2022 08:56:38 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/22/2022 08:56:38 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/22/2022 08:56:38 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/22/2022 08:56:38 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/22/2022 08:56:38 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/22/2022 08:56:38 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/22/2022 08:56:38 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/22/2022 08:56:38 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:38 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:38 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:39 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:39 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:39 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:39 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:39 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:39 - INFO - dataset -   Using queries from description.
+04/22/2022 08:56:39 - INFO - dataset -   The target domain is GetWeather
+04/22/2022 08:56:39 - INFO - dataset -   train_data: 12384 -> 91045
+04/22/2022 08:56:39 - INFO - dataset -   valid_data: 500 -> 4500
+04/22/2022 08:56:39 - INFO - dataset -   test_data: 1600 -> 14400
+04/22/2022 09:38:10 - INFO - trainer -   Epoch 1, train_loss 0.043501    Evalution acc 0.6785, recall 0.6241, f1 0.6502
+04/22/2022 09:38:56 - INFO - trainer -   Saved model checkpoint to model_dir/GetWeather/0/model.pth
+04/22/2022 10:17:02 - INFO - trainer -   Epoch 2, train_loss 0.011477    Evalution acc 0.6885, recall 0.6558, f1 0.6718
+04/22/2022 10:17:29 - INFO - trainer -   Saved model checkpoint to model_dir/GetWeather/0/model.pth
+04/22/2022 10:57:25 - INFO - trainer -   Epoch 3, train_loss 0.007130    Evalution acc 0.6364, recall 0.6039, f1 0.6197
+04/22/2022 11:37:26 - INFO - trainer -   Epoch 4, train_loss 0.005166    Evalution acc 0.6648, recall 0.5361, f1 0.5936
+04/22/2022 12:15:49 - INFO - trainer -   Epoch 5, train_loss 0.003645    Evalution acc 0.7453, recall 0.6312, f1 0.6835
+04/22/2022 12:16:21 - INFO - trainer -   Saved model checkpoint to model_dir/GetWeather/0/model.pth
+04/22/2022 12:58:17 - INFO - trainer -   Epoch 6, train_loss 0.003264    Evalution acc 0.7121, recall 0.6118, f1 0.6581
+04/22/2022 13:37:12 - INFO - trainer -   Epoch 7, train_loss 0.002495    Evalution acc 0.7395, recall 0.6048, f1 0.6654
+04/22/2022 14:19:28 - INFO - trainer -   Epoch 8, train_loss 0.002399    Evalution acc 0.7450, recall 0.5863, f1 0.6562
+04/22/2022 14:59:23 - INFO - trainer -   Epoch 9, train_loss 0.002039    Evalution acc 0.7386, recall 0.5845, f1 0.6526
+04/22/2022 15:40:15 - INFO - trainer -   Epoch 10, train_loss 0.001992    Evalution acc 0.7068, recall 0.5370, f1 0.6103
+04/22/2022 16:20:21 - INFO - trainer -   Epoch 11, train_loss 0.001660    Evalution acc 0.8440, recall 0.4049, f1 0.5473
+04/22/2022 16:59:40 - INFO - trainer -   Epoch 12, train_loss 0.001732    Evalution acc 0.6652, recall 0.5299, f1 0.5899
+04/22/2022 17:42:27 - INFO - trainer -   Epoch 13, train_loss 0.001256    Evalution acc 0.7005, recall 0.5167, f1 0.5947
+04/22/2022 18:22:14 - INFO - trainer -   Epoch 14, train_loss 0.002574    Evalution acc 0.7494, recall 0.5449, f1 0.6310
+04/22/2022 19:04:15 - INFO - trainer -   Epoch 15, train_loss 0.003248    Evalution acc 0.7313, recall 0.5079, f1 0.5995
+04/22/2022 19:44:24 - INFO - trainer -   Epoch 16, train_loss 0.002482    Evalution acc 0.7096, recall 0.4798, f1 0.5725
+04/22/2022 20:25:13 - INFO - trainer -   Epoch 17, train_loss 0.001367    Evalution acc 0.7120, recall 0.5854, f1 0.6425
+04/22/2022 21:06:20 - INFO - trainer -   Epoch 18, train_loss 0.001344    Evalution acc 0.7121, recall 0.4877, f1 0.5789
+04/22/2022 21:46:32 - INFO - trainer -   Epoch 19, train_loss 0.001096    Evalution acc 0.8861, recall 0.3970, f1 0.5483
+04/22/2022 22:28:08 - INFO - trainer -   Epoch 20, train_loss 0.001398    Evalution acc 0.8450, recall 0.4129, f1 0.5547
+04/22/2022 22:28:08 - INFO - trainer -   Reach early stop count 15, training stop
+04/22/2022 22:28:09 - INFO - __main__ -   Starting test...
+04/22/2022 22:29:46 - INFO - trainer -   ***********************************************************
+04/22/2022 22:29:46 - INFO - trainer -   Target domain = GetWeather
+04/22/2022 22:29:46 - INFO - trainer -   Test result: acc 0.7557, recall 0.6430, f1 0.6948
+04/22/2022 22:29:46 - INFO - trainer -   ***********************************************************

@@ -5,7 +5,8 @@ import numpy as np
 import torch
 import logging
 import os
-
+import sys
+from logging import StreamHandler, FileHandler
 # torch.multiprocessing.set_sharing_strategy('file_system')
 
 logger = logging.getLogger(__name__)
@@ -20,11 +21,13 @@ def set_seed(args):
 
 
 def init_logger(log_filename):
+    handler1 = StreamHandler(stream=sys.stdout)
+    handler2 = FileHandler(filename=log_filename, mode='a', delay=False)
     logging.basicConfig(
         format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
         datefmt='%m/%d/%Y %H:%M:%S',
         level=logging.INFO,
-        filename=log_filename
+        handlers=[handler1, handler2]
     )
     # stream_handler = logging.StreamHandler()
     # stream_format = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s -   %(message)s')
@@ -46,9 +49,20 @@ def main(args):
         trainer = Trainer(args)
         trainer.train()
     if args.do_test:
-        trainer = Trainer.load_model(args.model_dir, args.target_domain, args.n_samples)
+        checkpoint = torch.load(os.path.join(args.model_dir, args.target_domain, str(args.n_samples), 'model.pth'))
+        # if args.num_gpus == 2:
+        #     trainer.model = nn.DataParallel(trainer.model.to('cuda'), device_ids=[0])
+        #     trainer.model.module.load_state_dict(checkpoint['model_state_dict'])
+        #     trainer.model = trainer.model.module
+        # else:
+        trainer.model.load_state_dict(checkpoint['model_state_dict'])
+        # trainer = load_model(args.model_dir, args.target_domain, args.n_samples)
         logger.info('Starting test...')
-        trainer.evaluate('test')
+        with torch.no_grad():
+            trainer.evaluate('test')
+        # trainer = Trainer.load_model(args.model_dir, args.target_domain, args.n_samples)
+        # logger.info('Starting test...')
+        # trainer.evaluate('test')
 
 
 
@@ -77,6 +91,7 @@ if __name__ == '__main__':
     parser.add_argument("--final_div_factor", type=float, default=1e4, help="final div factor of linear decay scheduler")
     parser.add_argument("--n_top", type=int, default=5)
     parser.add_argument('--model_dir', type=str, default='model_dir')
+    parser.add_argument('--log_dir', type=str, default='log_dir')
     args = parser.parse_args()
-    args.log_filename = os.path.join('logs_without_squad2', args.target_domain + '_' + str(args.n_samples) + '.log')
+    args.log_filename = os.path.join(args.log_dir, args.target_domain + '_' + str(args.n_samples) + '.log')
     main(args)
