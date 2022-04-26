@@ -1,15 +1,69 @@
-from utils import domain_set, slot2desp
+from utils import domain_set, slot2desp, domain2slots
 import logging
 # import paddle
-# import spacy
+import spacy
+from spacy.tokens import Doc
 # from paddle.io import Dataset
 from tqdm import tqdm
-# import re
+import re
 import torch
+import numpy as np
 from torch.utils.data import Dataset
 
 
 logger = logging.getLogger(__name__)
+
+
+# class WhitespaceTokenizer:
+#     def __init__(self, vocab):
+#         self.vocab = vocab
+
+#     def __call__(self, text):
+#         words = text.split()
+#         spaces = [True] * len(words)
+            
+#         return Doc(self.vocab, words=words, spaces=spaces)
+
+
+# nlp = spacy.load('en_core_web_sm', disable=['ner', 'tagger', 'lemmatizer'])
+# nlp.tokenizer = WhitespaceTokenizer(nlp.vocab)
+
+
+# def get_span_mask(text, tokenizer, max_len):
+#     doc = nlp(text)
+#     assert len(doc) == len(text.strip().split())
+#     words = [token.text for token in doc]
+#     spans = [(token.left_edge.i, token.right_edge.i + 1) for token in doc]  #左闭右开
+#     origin_to_subword = []  # 原始单词在subword序列中的左右位置
+#     pre_token_len = 0
+#     sub_span = []
+#     for word in words:
+#         tokens = tokenizer.tokenize(word)
+#         origin_to_subword.append((pre_token_len, pre_token_len + len(tokens)))  # 左闭右开
+#         pre_token_len += len(tokens)
+#     for idx, (start_query, end_query) in enumerate(spans):  # span转化到subword的场景
+#         start, end = origin_to_subword[idx]
+#         start_sub = origin_to_subword[start_query][0]
+#         end_sub = origin_to_subword[end_query - 1][1]
+#         if start + 1 != end:
+#             sub_span.append((start_sub, end_sub))
+#             for i in range(start + 1, end):
+#                 sub_span.append((i, i + 1))
+#         else:
+#             sub_span.append((start_sub, end_sub))
+#     assert len(sub_span) == pre_token_len
+#     span_mask = np.zeros((len(sub_span), len(sub_span)))
+#     for idx, (start, end) in enumerate(sub_span):
+#         assert start < end
+#         span_mask[start: end, idx] = 1
+    
+#     if len(span_mask) + 2 > max_len:
+#         span_mask = span_mask[: max_len - 2, : max_len - 2]
+    
+#     span_len = len(span_mask)
+#     input_span_mask = np.zeros((max_len, max_len))
+#     input_span_mask[1: span_len + 1, 1: span_len + 1] = span_mask
+#     return torch.tensor(input_span_mask, dtype=torch.long)
 
 # POS_SET = ['NUM', 'ADP', 'PART', 'INTJ', 'SCONJ', 'ADV', 'SPACE', 'VERB', 'AUX', 'X', 
 #            'CCONJ', 'DET', 'PRON', 'ADJ', 'NOUN', 'PROPN', 'SYM', 'PUNCT']
@@ -37,43 +91,21 @@ class DataProcessor():
         return data
     
     @staticmethod
-    def convert_rowdata_to_mrc(all_data, all_slots):
-        '''
-        label_knowledges: list[str], 长度为39, 所有slot的label_knowledge
-        all_slots: list[str], 长度为39, 和label_knowledge是一一对应的关系
-        '''
+    def convert_rowdata_to_mrc(all_data, dm_name, query_type):
         samples = []
-        # slot2query = {}
-        # label_knowleges = []
-        # if query_type == "desp":
-        #     for slot, desp in slot2desp.items():
-        #         # slot2query[slot] = "what is the {}".format(desp)
-        #         slot2query[slot] = desp
-        #         # logger.info(desp)
-        #     # logger.info('Using queries from description.')
-        # assert len(slot2query) == 39
+        slot2query = {}
+        label_knowleges = []
+        if query_type == "desp":
+            for slot, desp in slot2desp.items():
+                slot2query[slot] = "what is the {}".format(desp)
+            logger.info('Using queries from description.')
         context_id = 0
-        # for _, (label, query) in enumerate(slot2query.items()):
-        #     # if label not in domain2slots[dm_name]:
-        #     #     continue
-        #     logger.info(query)
-        #     label_knowleges.append(query)
+        for _, (label, query) in enumerate(slot2query.items()):
+            if label not in domain2slots[dm_name]:
+                continue
+            label_knowleges.append(query)
         for line in tqdm(all_data):
             src, labels = line.strip().split("\t")
-            # src = src.strip()
-            # src = re.sub(r'\.+', '', src)
-            # src = re.sub(r'\'', '', src)
-            # src = re.sub(r':', '', src)
-            # src = re.sub(r'\'', '', src)
-            # src = re.sub(r'\"', '', src)
-            # src = re.sub(r'’', '', src)
-            # src = re.sub(r'-', '', src)
-            # src = re.sub(r'&', '', src)
-            # src = re.sub(r'/', '', src)
-            # src = re.sub(r'\s+', ' ', src)
-            # doc = pipline(src)
-            # if len(doc) != len(src.split()) or len(src.split()) != len(labels.split()):
-            #     continue
             char_label_list = [(char, label) for char, label in zip(src.split(), labels.split())]
             length = len(char_label_list)
             tags = []
@@ -101,15 +133,14 @@ class DataProcessor():
             all_end_positions = []
             all_tags = []
 
-            # for _, (label, _) in enumerate(slot2query.items()):
-            for label in all_slots:
-                # if label not in domain2slots[dm_name]:
-                #     continue
+            for _, (label, _) in enumerate(slot2query.items()):
+                if label not in domain2slots[dm_name]:
+                    continue
                 start_position = [tag['begin'] for tag in tags if tag['tag'] == label]
                 end_position = [tag['end'] - 1 for tag in tags if tag['tag'] == label]
                 all_start_positions.append(start_position)
                 all_end_positions.append(end_position)
-                all_tags.append(label)  # list[str] len=num_labels
+                all_tags.append(label)
             samples.append(
                 {
                     'context_id': context_id,
@@ -121,18 +152,18 @@ class DataProcessor():
                 }
             )
             context_id += 1
-        return samples
+        return label_knowleges, samples
 
 
 class LabelEnhancedDataset(Dataset):
-    def __init__(self, all_data, tokenizer, label_knowleges, context_max_len=64, label_max_len=16):
+    def __init__(self, all_data, tokenizer, label_knowleges, domain_name, context_max_len=64, label_max_len=16):
         super().__init__()
         self.all_data = all_data
         self.tokenizer = tokenizer
         self.context_max_len = context_max_len
         self.label_max_len = label_max_len
         self.label_knowleges = label_knowleges
-        # self.domain_name = domain_name
+        self.domain_name = domain_name
         self.num_labels = len(label_knowleges)
         
         self.label_knowlege_token = []
@@ -144,15 +175,13 @@ class LabelEnhancedDataset(Dataset):
             tokens = []
             attention_mask = []
             knowledge_str = self.label_knowleges[i]
-            knowlege_words = []
+            knowlege_words = knowledge_str.strip().split()
             # pos_tokens = []
             # ents_tmp = []
             # doc = pipline(knowledge_str)
-            doc = knowledge_str.strip().split()
-            for token in doc:
-                # knowlege_words.append(token.text)
-                knowlege_words.append(token)
-                # pos_tokens.append(POS_SET.index(token.pos_) + 1)
+            # for token in doc:
+            #     knowlege_words.append(token.text)
+            #     pos_tokens.append(POS_SET.index(token.pos_) + 1)
             # ent_tokens = [0] * len(pos_tokens)
             # for ent in doc.ents:
             #     ents_tmp.append((ENT_SET.index(ent.label_) + 1, ent.start, ent.end))
@@ -202,7 +231,7 @@ class LabelEnhancedDataset(Dataset):
         # self.label_knowlege_token = torch.tensor(self.label_knowlege_token, dtype=torch.long)
         # self.label_knowlege_attention_mask = torch.tensor(self.label_knowlege_attention_mask, dtype=torch.long)
         # self.label_knowlege_token_type_ids = torch.tensor(self.label_knowlege_token_type_ids, dtype=torch.long)
-        self.label_knowlege_token = torch.tensor(self.label_knowlege_token, dtype=torch.long)  # [num_labels, L2]
+        self.label_knowlege_token = torch.tensor(self.label_knowlege_token, dtype=torch.long)
         self.label_knowlege_attention_mask = torch.tensor(self.label_knowlege_attention_mask, dtype=torch.long)
         self.label_knowlege_token_type_ids = torch.tensor(self.label_knowlege_token_type_ids, dtype=torch.long)
         # self.label_knowlege_pos_token = torch.tensor(self.label_knowlege_pos_token, dtype=torch.long)
@@ -215,7 +244,7 @@ class LabelEnhancedDataset(Dataset):
     
     def __getitem__(self, index):
         data = self.all_data[index]
-        context = []  # str
+        context = data['context_src']  # str
         label_src = data['label_src']  # str
         all_start_positions = data['all_start_positions']  # [num_labels] list
         all_end_positions = data['all_end_positions']  # [num_labels] list
@@ -226,7 +255,7 @@ class LabelEnhancedDataset(Dataset):
         sep_token = self.tokenizer.sep_token
         pad_token = self.tokenizer.pad_token
 
-        context_tmp = data['context_src']
+        # context_tmp = data['context_src']
         # doc = pipline(context_tmp)
         # pos_tokens = []
         # for token in doc:
@@ -245,7 +274,7 @@ class LabelEnhancedDataset(Dataset):
         # pos_subword_tokens = []
         # ent_subword_tokens = []
 
-        context = context_tmp.strip().split()
+        context = context.strip().split()
         context_token = []
         start_token_mask = []
         end_token_mask = []
@@ -279,7 +308,7 @@ class LabelEnhancedDataset(Dataset):
                         start_label.append(1)
                     else:
                         start_label.append(0)
-            start_labels.append(start_label)  # [num_labels, L1]
+            start_labels.append(start_label)
         for i in range(len(all_end_positions)):
             end_position = all_end_positions[i]
             end_label = []
@@ -290,9 +319,9 @@ class LabelEnhancedDataset(Dataset):
                         end_label.append(1)
                     else:
                         end_label.append(0)
-            end_labels.append(end_label)  # [num_labels, L1]
+            end_labels.append(end_label)
 
-        assert len(context_token) == len(start_labels[0]) == len(end_labels[0])
+        # assert len(context_token) == len(start_labels[0]) == len(end_labels[0]) == len(pos_subword_tokens) == len(ent_subword_tokens)
         assert len(all_end_positions) == len(all_start_positions) == self.num_labels
         assert len(start_labels) == len(end_labels) == self.num_labels
 
@@ -351,7 +380,6 @@ class LabelEnhancedDataset(Dataset):
         input_ids = self.tokenizer.convert_tokens_to_ids(context_token)
 
 
-
         return{
             'input_ids': torch.tensor(input_ids, dtype=torch.long),
             'attention_mask': torch.tensor(attention_mask, dtype=torch.long),
@@ -365,10 +393,6 @@ class LabelEnhancedDataset(Dataset):
             'context_token_to_origin_index': context_token_to_origin_index,  # [list] int
             'context_src': data['context_src'],  # str
             'context_id': data['context_id'],  # int
-            'label_knowledges_input_ids': self.label_knowlege_token,  # tensor [num_labels, L2]
-            'label_knowledges_attention_mask': self.label_knowlege_attention_mask,  # tensor [num_labels, L2]
-            'label_knowledges_token_type_ids': self.label_knowlege_token_type_ids,  # tensor [num_labels, L2]
-            'num_labels': self.num_labels  # int
             # 'pos_token': torch.tensor(pos_subword_tokens, dtype=torch.long),
             # 'ent_token': torch.tensor(ent_subword_tokens, dtype=torch.long)
         }
@@ -383,6 +407,8 @@ def collate_fn(batch):  # batch是字典的列表
     output['end_labels'] = torch.stack([x['end_labels'] for x in batch], dim=0)
     output['start_token_mask'] = torch.stack([x['start_token_mask'] for x in batch], dim=0)
     output['end_token_mask'] = torch.stack([x['end_token_mask'] for x in batch], dim=0)
+    output['start_labels'] = torch.stack([x['start_labels'] for x in batch], dim=0)
+    output['end_labels'] = torch.stack([x['end_labels'] for x in batch], dim=0)
     # output['pos_token'] = torch.stack([x['pos_token'] for x in batch], dim=0)
     # output['ent_token'] = torch.stack([x['ent_token'] for x in batch], dim=0)
     output['label_src'] = []
@@ -395,105 +421,73 @@ def collate_fn(batch):  # batch是字典的列表
     output['context_src'].extend([x['context_src'] for x in batch])
     output['context_id'] = []
     output['context_id'].extend([x['context_id'] for x in batch])
-    output['label_knowledges_input_ids'] = batch[0]['label_knowledges_input_ids']  # tensor, [num_labels, L1]
-    output['label_knowledges_attention_mask'] = batch[0]['label_knowledges_attention_mask']  # tensor, [num_labels, L1]
-    output['label_knowledges_token_type_ids'] = batch[0]['label_knowledges_token_type_ids']  # tensor, [num_labels, L1]
-    output['num_labels'] = batch[0]['num_labels']  # int
     return output
 
 
 def get_dataset(tgt_domain, n_samples, tokenizer, context_max_len=64, label_max_len=16, query_type="desp"):
-    label_knowledges = []
-    all_slots = []
-    if query_type == "desp":
-        for slot, desp in slot2desp.items():
-            label_knowledges.append(desp)
-            all_slots.append(slot)
-
-    assert len(label_knowledges) == 39
     all_row_data = DataProcessor.get_all_data()
-    all_row_valid_data = []
-    all_row_test_data = []
-    all_row_train_data = []
-    for domain_name, data in all_row_data.items():
-        if domain_name == tgt_domain:
-            all_row_train_data = all_row_train_data + data[: n_samples]
-            all_row_valid_data = data[n_samples: 500]
-            all_row_test_data = data[500:]
-            continue
-        if domain_name != 'atis':
-            all_row_train_data = all_row_train_data + data
+    train_datasets = []
+    for dm_name, dm_row_data in all_row_data.items():  # dm_data是原始字符串的列表
+        if dm_name != tgt_domain and dm_name != 'atis':  # atis只做测试用
+            label_knowleges, domain_data = DataProcessor.convert_rowdata_to_mrc(dm_row_data, dm_name, query_type=query_type)
+            dataset = LabelEnhancedDataset(domain_data, tokenizer, label_knowleges, dm_name, context_max_len=context_max_len, label_max_len=label_max_len)
+            train_datasets.append(dataset)
+
+    if n_samples != 0:
+        label_knowleges, domain_data = DataProcessor.convert_rowdata_to_mrc(
+            all_row_data[tgt_domain][:n_samples],
+            tgt_domain,
+            query_type=query_type
+        )
+        dataset = LabelEnhancedDataset(
+            domain_data, 
+            tokenizer, 
+            label_knowleges, 
+            tgt_domain, 
+            context_max_len=context_max_len, 
+            label_max_len=label_max_len
+        )
+        train_datasets.append(dataset)
     
 
-    all_train_data = DataProcessor.convert_rowdata_to_mrc(all_row_train_data, all_slots)
-    all_valid_data = DataProcessor.convert_rowdata_to_mrc(all_row_valid_data, all_slots)
-    all_test_data = DataProcessor.convert_rowdata_to_mrc(all_row_test_data, all_slots)
+    valid_label_knowleges, valid_domain_data = DataProcessor.convert_rowdata_to_mrc(
+        all_row_data[tgt_domain][n_samples:500],
+        tgt_domain,
+        query_type=query_type
+    )
+    valid_dataset = LabelEnhancedDataset(
+        valid_domain_data,
+        tokenizer,
+        valid_label_knowleges,
+        tgt_domain,
+        context_max_len=context_max_len,
+        label_max_len=label_max_len 
+    )
 
-    train_dataset = LabelEnhancedDataset(all_train_data, tokenizer, label_knowledges, context_max_len=context_max_len,
-                                         label_max_len=label_max_len)
-    valid_dataset = LabelEnhancedDataset(all_valid_data, tokenizer, label_knowledges, context_max_len=context_max_len,
-                                         label_max_len=label_max_len)
-    test_dataset = LabelEnhancedDataset(all_test_data, tokenizer, label_knowledges, context_max_len=context_max_len,
-                                         label_max_len=label_max_len)
+    test_label_knowleges, test_domain_data = DataProcessor.convert_rowdata_to_mrc(
+        all_row_data[tgt_domain][500:],
+        tgt_domain,
+        query_type=query_type
+    )
+    test_dataset = LabelEnhancedDataset(
+        test_domain_data,
+        tokenizer,
+        test_label_knowleges,
+        tgt_domain,
+        context_max_len=context_max_len,
+        label_max_len=label_max_len
+    )
 
-    # train_datasets = []
-    # for dm_name, dm_row_data in all_row_data.items():  # dm_data是原始字符串的列表
-    #     if dm_name != tgt_domain and dm_name != 'atis':  # atis只做测试用
-    #         domain_data = DataProcessor.convert_rowdata_to_mrc(dm_row_data, all_slots=all_slots)
-    #         dataset = LabelEnhancedDataset(domain_data, tokenizer, label_knowleges, dm_name, context_max_len=context_max_len, label_max_len=label_max_len)
-    #         train_datasets.append(dataset)
-
-    # if n_samples != 0:
-    #     domain_data = DataProcessor.convert_rowdata_to_mrc(
-    #         all_row_data[tgt_domain][:n_samples],
-    #         all_slots=all_slots
-    #     )
-    #     dataset = LabelEnhancedDataset(
-    #         domain_data, 
-    #         tokenizer, 
-    #         label_knowleges, 
-    #         tgt_domain, 
-    #         context_max_len=context_max_len, 
-    #         label_max_len=label_max_len
-    #     )
-    #     train_datasets.append(dataset)
-    
-
-    # valid_label_knowleges, valid_domain_data = DataProcessor.convert_rowdata_to_mrc(
-    #     all_row_data[tgt_domain][n_samples:500],
-    #     all_slots=all_slots
-    # )
-    # valid_dataset = LabelEnhancedDataset(
-    #     valid_domain_data,
-    #     tokenizer,
-    #     valid_label_knowleges,
-    #     tgt_domain,
-    #     context_max_len=context_max_len,
-    #     label_max_len=label_max_len 
-    # )
-
-    # test_label_knowleges, test_domain_data = DataProcessor.convert_rowdata_to_mrc(
-    #     all_row_data[tgt_domain][500:],
-    #     all_slots=all_slots
-    # )
-    # test_dataset = LabelEnhancedDataset(
-    #     test_domain_data,
-    #     tokenizer,
-    #     test_label_knowleges,
-    #     tgt_domain,
-    #     context_max_len=context_max_len,
-    #     label_max_len=label_max_len
-    # )
-
-    logger.info('********** Data information : **********')
     logger.info(f'The target domain is {tgt_domain}')
-    logger.info(f'Train dataset length = {len(train_dataset)}')
-    # logger.info('********** Valid data information : **********')
-    logger.info(f'Valid dataset length = {len(valid_dataset)}')
-    # logger.info('********** Test data information : **********')
-    logger.info(f'Test dataset length = {len(test_dataset)}')
-    logger.info('********** Data information : **********')
-    return train_dataset, valid_dataset, test_dataset
+    logger.info('********** Train data information : **********')
+    for train_dataset in train_datasets:
+        logger.info(f'domain name: {train_dataset.domain_name},    data_size={len(train_dataset)}')
+    logger.info('********** Valid data information : **********')
+    logger.info(f'domain name: {valid_dataset.domain_name},    data_size={len(valid_dataset)}')
+    logger.info('********** Test data information : **********')
+    logger.info(f'domain name: {test_dataset.domain_name},    data_size={len(test_dataset)}')
+
+    return train_datasets, valid_dataset, test_dataset
 
 
 
@@ -501,11 +495,11 @@ if __name__ == '__main__':
     # from paddlenlp.transformers import BertTokenizer
     # from paddle.io import DataLoader
     # paddle.device.set_device('cpu')
-    logging.basicConfig(
-        format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
-        datefmt='%m/%d/%Y %H:%M:%S',
-        level=logging.INFO
-    )
+    # logging.basicConfig(
+    #     format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
+    #     datefmt='%m/%d/%Y %H:%M:%S',
+    #     level=logging.INFO
+    # )
     # tokenizer = BertTokenizer.from_pretrained('bert-large-uncased')
     # tgt_domain = 'BookRestaurant'
     # n_samples = 0
@@ -517,8 +511,4 @@ if __name__ == '__main__':
     # valid_data = DataLoader(valid_dataset, batch_size=2, shuffle=True, collate_fn=collate_fn)
     # for i in valid_data:
     #     print(i)
-    from transformers import BertTokenizer
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    train_dataset, valid_dataset, test_dataset = get_dataset('AddToPlaylist', 0, tokenizer)
     pass
-

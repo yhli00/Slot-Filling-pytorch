@@ -9,7 +9,7 @@
 #$ -j y
 # export LD_LIBRARY_PATH=/Work21/2021/liyuhang/system
 # export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64
-export HF_HOME=/Work21/2021/liyuhang/huggingface_cache
+# export HF_HOME=/Work21/2021/liyuhang/huggingface_cache
 
 echo "job start time: `date`"
 
@@ -25,23 +25,23 @@ for tgt_domain in ${tgt_domains[@]}
 do
     for n in ${n_samples[@]}
     do
-        CUDA_VISIBLE_DEVICES=3 /Work21/2021/liyuhang/envs/py3.7/BERT_TAGGER/bin/python main.py \
+        CUDA_VISIBLE_DEVICES=0 /root/autodl-tmp/envs/BERT_TAGGER/bin/python main.py \
         --do_train \
         --do_test \
         --batch_size 8 \
         --num_epochs 64 \
         --use_gpu \
         --target_domain $tgt_domain \
-        --pretrained_model bert-large-uncased \
+        --pretrained_model microsoft/deberta-v3-large \
         --n_samples $n \
         --num_workers 4 \
-        --context_max_len 48 \
-        --label_max_len 48 \
+        --context_max_len 64 \
+        --label_max_len 32 \
         --warmup_rate 0.0 \
-        --early_stop 15 \
+        --early_stop 64 \
         --lr 1e-5 \
-        --model_dir model_dir \
-        --log_dir log_dir
+        --model_dir model_dir2 \
+        --log_dir log_dir2
     done
 done
 
