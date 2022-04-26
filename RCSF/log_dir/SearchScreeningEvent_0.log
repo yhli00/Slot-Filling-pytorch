@@ -49,3 +49,79 @@
 04/22/2022 08:56:18 - INFO - trainer -   Target domain = SearchScreeningEvent
 04/22/2022 08:56:18 - INFO - trainer -   Test result: acc 0.5469, recall 0.2828, f1 0.3728
 04/22/2022 08:56:18 - INFO - trainer -   ***********************************************************
+04/24/2022 01:28:52 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 01:28:52 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 01:28:52 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 01:28:52 - INFO - __main__ -   Batch_size = 8
+04/24/2022 01:28:52 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 01:28:52 - INFO - __main__ -   Train epoch = 64
+04/24/2022 01:28:52 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 01:29:06 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 01:29:06 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 01:29:06 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 01:29:06 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 01:29:06 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 01:29:06 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 01:29:06 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 01:29:06 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 01:29:06 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:06 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:06 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:07 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:07 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:07 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:07 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:07 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:07 - INFO - dataset -   Using queries from description.
+04/24/2022 01:29:07 - INFO - dataset -   The target domain is SearchScreeningEvent
+04/24/2022 01:29:07 - INFO - dataset -   train_data: 12425 -> 95532
+04/24/2022 01:29:07 - INFO - dataset -   valid_data: 500 -> 3500
+04/24/2022 01:29:07 - INFO - dataset -   test_data: 1559 -> 10913
+04/24/2022 08:12:26 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 08:12:26 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 08:12:26 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 08:12:26 - INFO - __main__ -   Batch_size = 8
+04/24/2022 08:12:26 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 08:12:26 - INFO - __main__ -   Train epoch = 64
+04/24/2022 08:12:26 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 08:12:40 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 08:12:40 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 08:12:40 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 08:12:40 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 08:12:40 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 08:12:40 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 08:12:40 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 08:12:40 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 08:12:40 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:40 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:40 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:40 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:41 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:41 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:41 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:41 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:41 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:41 - INFO - dataset -   The target domain is SearchScreeningEvent
+04/24/2022 08:12:41 - INFO - dataset -   train_data: 12425 -> 95532
+04/24/2022 08:12:41 - INFO - dataset -   valid_data: 500 -> 3500
+04/24/2022 08:12:41 - INFO - dataset -   test_data: 1559 -> 10913
+04/24/2022 09:10:40 - INFO - trainer -   Epoch 1, train_loss 0.056207    Evalution acc 0.4715, recall 0.1341, f1 0.2088
+04/24/2022 09:11:09 - INFO - trainer -   Saved model checkpoint to model_dir/SearchScreeningEvent/0/model.pth
+04/24/2022 10:09:07 - INFO - trainer -   Epoch 2, train_loss 0.011388    Evalution acc 0.4458, recall 0.2664, f1 0.3335
+04/24/2022 10:09:34 - INFO - trainer -   Saved model checkpoint to model_dir/SearchScreeningEvent/0/model.pth
+04/24/2022 11:07:42 - INFO - trainer -   Epoch 3, train_loss 0.006594    Evalution acc 0.4246, recall 0.1926, f1 0.2650
+04/24/2022 12:05:01 - INFO - trainer -   Epoch 4, train_loss 0.004810    Evalution acc 0.3948, recall 0.2196, f1 0.2822
+04/24/2022 13:01:52 - INFO - trainer -   Epoch 5, train_loss 0.003654    Evalution acc 0.4680, recall 0.2502, f1 0.3261
+04/24/2022 13:58:52 - INFO - trainer -   Epoch 6, train_loss 0.002845    Evalution acc 0.3085, recall 0.1530, f1 0.2046
+04/24/2022 14:55:31 - INFO - trainer -   Epoch 7, train_loss 0.002731    Evalution acc 0.3922, recall 0.1998, f1 0.2648
+04/24/2022 15:52:12 - INFO - trainer -   Epoch 8, train_loss 0.002644    Evalution acc 0.3128, recall 0.1647, f1 0.2158
+04/24/2022 16:49:25 - INFO - trainer -   Epoch 9, train_loss 0.002309    Evalution acc 0.4220, recall 0.2214, f1 0.2904
+04/24/2022 17:46:25 - INFO - trainer -   Epoch 10, train_loss 0.002158    Evalution acc 0.3776, recall 0.1971, f1 0.2590
+04/24/2022 18:46:08 - INFO - trainer -   Epoch 11, train_loss 0.001693    Evalution acc 0.3429, recall 0.1512, f1 0.2099
+04/24/2022 19:42:54 - INFO - trainer -   Epoch 12, train_loss 0.001722    Evalution acc 0.2618, recall 0.1395, f1 0.1820
+04/24/2022 19:42:54 - INFO - trainer -   Reach early stop count 10, training stop
+04/24/2022 19:42:55 - INFO - __main__ -   Starting test...
+04/24/2022 19:45:33 - INFO - trainer -   ***********************************************************
+04/24/2022 19:45:33 - INFO - trainer -   Target domain = SearchScreeningEvent
+04/24/2022 19:45:33 - INFO - trainer -   Test result: acc 0.4576, recall 0.2651, f1 0.3358
+04/24/2022 19:45:33 - INFO - trainer -   ***********************************************************

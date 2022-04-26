@@ -82,3 +82,48 @@
 |SearchCreativeWork| 0.6922| 0.7956|
 |SearchScreeningEvent|0.3354|0.3694|
 |avg|0.5576|0.5031|
+
+# 实验三
+RCSF模型，用自己的代码实现
+
+AddToPlaylist RateBook PlayMusic BookRestaurant这四个domain的参数：
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|15|
+|n_top|5|
+| batch_size | 32|
+|max_len|128|
+|显卡|3090|
+SearchScreeningEvent GetWeather SearchCreativeWork这三个domain的参数：
+
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|15|
+|n_top|5|
+| batch_size | 8|
+|max_len|128|
+|显卡|3090|
+
+结果
+|domain|baseline|baseline我的实现|
+|---|---|---|
+|AddToPlaylist| 0.6870 |0.6676|
+|BookRestaurant| 0.6349 |0.6260|
+|GetWeather| 0.6536|0.6948|
+|PlayMusic| 0.5351| 0.5574|
+|RateBook| 0.3651| 0.4094|
+|SearchCreativeWork| 0.6922| 0.6593|
+|SearchScreeningEvent|0.3354|0.3728|
+|avg|0.5576|0.5696|
+
+从实验结果来看，early_stop设成大于10比较好

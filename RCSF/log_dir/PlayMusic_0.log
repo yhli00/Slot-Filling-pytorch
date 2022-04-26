@@ -163,3 +163,42 @@
 04/23/2022 13:02:36 - INFO - trainer -   Target domain = PlayMusic
 04/23/2022 13:02:36 - INFO - trainer -   Test result: acc 0.6919, recall 0.4667, f1 0.5574
 04/23/2022 13:02:36 - INFO - trainer -   ***********************************************************
+04/24/2022 02:57:14 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 02:57:14 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 02:57:14 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 02:57:14 - INFO - __main__ -   Batch_size = 32
+04/24/2022 02:57:14 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 02:57:14 - INFO - __main__ -   Train epoch = 64
+04/24/2022 02:57:14 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 02:57:28 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 02:57:28 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 02:57:28 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 02:57:28 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 02:57:28 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 02:57:28 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 02:57:28 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 02:57:28 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 02:57:28 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:28 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:28 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:28 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:28 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:28 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:29 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:29 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:29 - INFO - dataset -   Using queries from description.
+04/24/2022 02:57:29 - INFO - dataset -   The target domain is PlayMusic
+04/24/2022 02:57:29 - INFO - dataset -   train_data: 12384 -> 91045
+04/24/2022 02:57:29 - INFO - dataset -   valid_data: 500 -> 4500
+04/24/2022 02:57:29 - INFO - dataset -   test_data: 1600 -> 14400
+04/25/2022 14:45:29 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 14:45:29 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 14:45:29 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 14:45:29 - INFO - __main__ -   Batch_size = 32
+04/25/2022 14:45:29 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 14:45:29 - INFO - __main__ -   Train epoch = 64
+04/25/2022 14:45:29 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 14:45:46 - INFO - dataset -   The target domain is PlayMusic
+04/25/2022 14:45:46 - INFO - dataset -   train_data length = 91045
+04/25/2022 14:45:46 - INFO - dataset -   valid_data length = 4500
+04/25/2022 14:45:46 - INFO - dataset -   test_data length = 14400

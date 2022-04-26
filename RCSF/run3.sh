@@ -32,7 +32,7 @@ do
         --model_dir model_dir \
         --log_dir log_dir \
         --max_len 128 \
-        --early_stop 15
+        --early_stop 10
     done
 done
 

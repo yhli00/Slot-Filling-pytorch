@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
-from transformers import AdamW, BertTokenizer
+from transformers import AdamW, BertTokenizer, RobertaTokenizer
 from model import BertMRC
 import logging
 from dataset import get_dataset, collate_fn
@@ -23,6 +23,8 @@ class Trainer():
             self.tokenizer = BertTokenizer.from_pretrained('bert-large-uncased')
         if self.args.pretrained_model == 'bert-large-uncased-whole-word-masking':
             self.tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking')
+        if self.args.pretrained_model == 'roberta-large':
+            self.tokenizer = RobertaTokenizer.from_pretrained('roberta-large')
         train_dataset, valid_datset, test_dataset = get_dataset(
             self.args.target_domain,
             self.args.n_samples,
@@ -30,8 +32,8 @@ class Trainer():
             max_len=self.args.max_len
         )
         self.train_data = DataLoader(train_dataset, shuffle=True, batch_size=self.args.batch_size, num_workers=self.args.num_workers, collate_fn=collate_fn)
-        self.valid_data = DataLoader(valid_datset, shuffle=False, batch_size=16, num_workers=self.args.num_workers, collate_fn=collate_fn)
-        self.test_data = DataLoader(test_dataset, shuffle=False, batch_size=16, num_workers=self.args.num_workers, collate_fn=collate_fn)
+        self.valid_data = DataLoader(valid_datset, shuffle=False, batch_size=8, num_workers=self.args.num_workers, collate_fn=collate_fn)
+        self.test_data = DataLoader(test_dataset, shuffle=False, batch_size=8, num_workers=self.args.num_workers, collate_fn=collate_fn)
 
         self.optimizer, self.scheduler = self._get_optimizer_and_schedule()
         self.loss_fn = self._get_loss_function()
@@ -72,6 +74,7 @@ class Trainer():
     
     def _get_loss_function(self):
         return nn.BCEWithLogitsLoss(reduction='none')
+        # return nn.CrossEntropyLoss(reduction='mean')
     
 
     def train(self):
@@ -89,15 +92,23 @@ class Trainer():
                 token_type_ids = batch['token_type_ids'].to(self.device)
                 start_token_mask = batch['start_token_mask'].to(self.device)  # [B, seq_len]
                 end_token_mask = batch['end_token_mask'].to(self.device)
-                start_labels = batch['start_labels'].to(self.device)  # [B, seq_len]
-                end_labels = batch['end_labels'].to(self.device)
+                start_labels = batch['start_labels'].to(self.device)  # [B, L]
+                end_labels = batch['end_labels'].to(self.device)  # [B, L]
+                # start_label = batch['start_label'].to(self.device)  # [B]
+                # end_label = batch['end_label'].to(self.device)
+
+                input_span_mask = batch['input_span_mask'].to(self.device)
 
                 start_logits, end_logits = self.model(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
-                    token_type_ids=token_type_ids
-                )
+                    token_type_ids=token_type_ids,
+                    input_span_mask=input_span_mask
+                )  # [B, L]
 
+                # start_loss = self.loss_fn(start_logits, start_label)
+                # end_loss = self.loss_fn(end_logits, end_label)
+                # total_loss = start_loss + end_loss
                 start_loss = self.loss_fn(start_logits.reshape(-1), start_labels.reshape(-1).float())
                 start_loss = (start_loss * start_token_mask.reshape(-1)).sum() / start_token_mask.sum()
                 end_loss = self.loss_fn(end_logits.reshape(-1), end_labels.reshape(-1).float())
@@ -115,8 +126,8 @@ class Trainer():
                     self.scheduler.step()
             with torch.no_grad():
                 acc, recall, f1 = self.evaluate('valid')
-            logger.info(f'Epoch {epoch + 1}, train_loss {train_loss / len(self.train_data):.6f}    Evalution acc {acc:.4f}, recall {recall:.4f}, f1 {f1:.4f}')
-
+            # logger.info(f'Epoch {epoch + 1}, train_loss {train_loss / len(self.train_data):.6f}, MRC acc = {acc: .4f}, Evalution acc {acc:.4f}, recall {recall:.4f}, f1 {f1:.4f}')
+            logger.info(f'Epoch {epoch + 1}, train_loss {train_loss / len(self.train_data):.6f}, Evalution acc {acc:.4f}, recall {recall:.4f}, f1 {f1:.4f}')
             if f1 > max_f1:
                 max_f1 = f1
                 early_stop_cnt = 0
@@ -134,7 +145,10 @@ class Trainer():
         if mode == 'test':
             valid_data = self.test_data
         
+        # total_num = 0.
+        # right_num = 0.
         pred_spans = []
+        # all_cls_logits = []
         all_tags = []
         all_context_srcs = []
         all_context_ids = []
@@ -156,6 +170,10 @@ class Trainer():
             token_to_origin_index = batch['token_to_origin_index'].detach().cpu().numpy()
             label_srcs = batch['label_src']  # [B]str
 
+            input_span_mask = batch['input_span_mask'].to(self.device)
+            # start_label = batch['start_label'].to(self.device)  # [B]
+            # end_label = batch['end_label'].to(self.device)  # [B]
+            
 
             all_context_srcs.extend(context_srcs)
             all_tags.extend(tags)
@@ -167,31 +185,55 @@ class Trainer():
                 start_logits, end_logits = self.model(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
-                    token_type_ids=token_type_ids
-                )
+                    token_type_ids=token_type_ids,
+                    input_span_mask=input_span_mask
+                )  # [B, L]
             
             start_preds = torch.softmax(start_logits, -1).detach().cpu().numpy()  # [B, seq_len]
             end_preds = torch.softmax(end_logits, -1).detach().cpu().numpy()  # [B, seq_len]
             
+            # start_preds = start_logits.detach().cpu().numpy()
+            # end_preds = end_logits.detach().cpu().numpy()
 
+            # with torch.no_grad():
+            #     total_num += len(batch)
+            #     start_hat = start_logits.argmax(dim=-1)  # [B]
+            #     end_hat = end_logits.argmax(dim=-1)  # [B]
+            #     start_right = start_hat == start_label
+            #     end_right = end_hat == end_label
+            #     right_num += torch.sum(start_right == end_right).detach().cpu().numpy()
+
+
+            
             for i in range(len(start_preds)):
                 spans_pro = []
                 start_pred = start_preds[i]  # [seq_len]
                 end_pred = end_preds[i]  # [seq_len]
                 start_sorted = np.argsort(-start_pred)  # 返回的是从大到小的index
                 end_sorted = np.argsort(-end_pred)
-                for start in start_sorted[:self.args.n_top]:
-                    if start_token_mask[i][start] == 0:
-                        break
-                    for end in end_sorted[:self.args.n_top]:
+                # all_cls_logits.append(start_pred[0] + end_pred[0])
+                for start in start_sorted[: self.args.n_top]:
+                    for end in end_sorted[: self.args.n_top]:
+                        if start_token_mask[i][start] == 0:
+                            continue
                         if end_token_mask[i][end] == 0:
-                            break
-                        if start <= end and end - start < 8:
-                            spans_pro.append((start, end, start_pred[start] + end_pred[end]))
+                            continue
+                        if start > end:
+                            continue
+                        spans_pro.append((start, end, start_pred[start] + end_pred[end]))
+                # for start in start_sorted[:self.args.n_top]:
+                #     if start_token_mask[i][start] == 0:
+                #         break
+                #     for end in end_sorted[:self.args.n_top]:
+                #         if end_token_mask[i][end] == 0:
+                #             break
+                #         if start <= end and end - start < 8:
+                #             spans_pro.append((start, end, start_pred[start] + end_pred[end]))
                 pred_spans.append(spans_pro)
             
         t_pred = {}
         t_gold = {}
+        # t_cls = {}
         contexts = {}
 
 
@@ -205,6 +247,9 @@ class Trainer():
         ):
             t_pred.setdefault(idx, list())
             t_gold[idx] = label_src.split()
+            # if idx not in t_cls:
+            #     t_cls[idx] = {}
+            # t_cls[idx][tag] = cls_logits
             contexts[idx] = context_src
             for start, end, p in pred_span:
                 t_pred[idx].append((tag, (start, end), token_to_origin_index, p))
@@ -216,7 +261,9 @@ class Trainer():
             context = contexts[idx]
             pred_tag = ['O'] * len(context.split())
             elem_pred = sorted(elem_pred, key=lambda x: x[1][1])  # 根据start从小到大排序
-            for tag, (start, end), token_to_origin_index, _ in elem_pred:
+            for tag, (start, end), token_to_origin_index, p in elem_pred:
+                # if p < t_cls[idx][tag]:
+                #     continue
                 origin_start = token_to_origin_index[start]
                 origin_end = token_to_origin_index[end]
                 pred_tag[origin_start] = 'B-' + tag
@@ -233,11 +280,13 @@ class Trainer():
         acc = precision_score(all_gold_tags, all_pred_tags)
         recall = recall_score(all_gold_tags, all_pred_tags)
         f1 = f1_score(all_gold_tags, all_pred_tags)
+        # acc = right_num / total_num
 
         if mode == 'test':
             logger.info('***********************************************************')
             logger.info(f'Target domain = {self.args.target_domain}')
             logger.info(f'Test result: acc {acc:.4f}, recall {recall:.4f}, f1 {f1:.4f}')
+            # logger.info(f'MRC acc = {acc: .4f}')
             logger.info('***********************************************************')
         return acc, recall, f1
 

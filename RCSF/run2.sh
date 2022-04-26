@@ -13,6 +13,7 @@ export HF_HOME=/Work21/2021/liyuhang/huggingface_cache
 echo "job start time: `date`"
 
 # tgt_domains="AddToPlaylist RateBook PlayMusic BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
+# tgt_domains="
 tgt_domains="AddToPlaylist RateBook PlayMusic BookRestaurant"
 n_samples=(0)
 
@@ -32,7 +33,7 @@ do
         --model_dir model_dir \
         --log_dir log_dir \
         --max_len 128 \
-        --early_stop 15
+        --early_stop 10
     done
 done
 

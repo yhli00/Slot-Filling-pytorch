@@ -45,8 +45,8 @@ def main(args):
     logger.info(f'Gradient_accumulation_steps = {args.gradient_accumulation_steps}')
     logger.info(f'Train epoch = {args.num_epochs}')
     logger.info(f'Pretrained_model name = {args.pretrained_model}')
+    trainer = Trainer(args)
     if args.do_train:
-        trainer = Trainer(args)
         trainer.train()
     if args.do_test:
         checkpoint = torch.load(os.path.join(args.model_dir, args.target_domain, str(args.n_samples), 'model.pth'))

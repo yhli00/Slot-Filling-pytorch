@@ -392,3 +392,401 @@
 04/22/2022 10:40:49 - INFO - trainer -   Target domain = AddToPlaylist
 04/22/2022 10:40:49 - INFO - trainer -   Test result: acc 0.8611, recall 0.5452, f1 0.6676
 04/22/2022 10:40:49 - INFO - trainer -   ***********************************************************
+04/24/2022 00:47:24 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 00:47:24 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 00:47:24 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 00:47:24 - INFO - __main__ -   Batch_size = 8
+04/24/2022 00:47:24 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 00:47:24 - INFO - __main__ -   Train epoch = 64
+04/24/2022 00:47:24 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 00:47:38 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 00:47:38 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 00:47:38 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 00:47:38 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 00:47:38 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 00:47:38 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 00:47:38 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 00:47:38 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 00:47:38 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:38 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:38 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:38 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:38 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:38 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:39 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:39 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:39 - INFO - dataset -   Using queries from description.
+04/24/2022 00:47:39 - INFO - dataset -   The target domain is AddToPlaylist
+04/24/2022 00:47:39 - INFO - dataset -   train_data: 12442 -> 99735
+04/24/2022 00:47:39 - INFO - dataset -   valid_data: 500 -> 2500
+04/24/2022 00:47:39 - INFO - dataset -   test_data: 1542 -> 7710
+04/24/2022 00:50:01 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 00:50:01 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 00:50:01 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 00:50:01 - INFO - __main__ -   Batch_size = 8
+04/24/2022 00:50:01 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 00:50:01 - INFO - __main__ -   Train epoch = 64
+04/24/2022 00:50:01 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 00:50:15 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 00:50:15 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 00:50:15 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 00:50:15 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 00:50:15 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 00:50:15 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 00:50:15 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 00:50:15 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 00:50:15 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:15 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:16 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:16 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:16 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:16 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:16 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:16 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:16 - INFO - dataset -   Using queries from description.
+04/24/2022 00:50:16 - INFO - dataset -   The target domain is AddToPlaylist
+04/24/2022 00:50:16 - INFO - dataset -   train_data: 12442 -> 99735
+04/24/2022 00:50:16 - INFO - dataset -   valid_data: 500 -> 2500
+04/24/2022 00:50:16 - INFO - dataset -   test_data: 1542 -> 7710
+04/24/2022 00:50:49 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 00:50:49 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 00:50:49 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 00:50:49 - INFO - __main__ -   Batch_size = 8
+04/24/2022 00:50:49 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 00:50:49 - INFO - __main__ -   Train epoch = 64
+04/24/2022 00:50:49 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 00:51:03 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 00:51:03 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 00:51:03 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 00:51:03 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 00:51:03 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 00:51:03 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 00:51:03 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 00:51:03 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 00:51:03 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:03 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:03 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:03 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:03 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:03 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:04 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:04 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:04 - INFO - dataset -   Using queries from description.
+04/24/2022 00:51:04 - INFO - dataset -   The target domain is AddToPlaylist
+04/24/2022 00:51:04 - INFO - dataset -   train_data: 12442 -> 99735
+04/24/2022 00:51:04 - INFO - dataset -   valid_data: 500 -> 2500
+04/24/2022 00:51:04 - INFO - dataset -   test_data: 1542 -> 7710
+04/24/2022 00:53:12 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 00:53:12 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 00:53:12 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 00:53:12 - INFO - __main__ -   Batch_size = 8
+04/24/2022 00:53:12 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 00:53:12 - INFO - __main__ -   Train epoch = 64
+04/24/2022 00:53:12 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 00:53:26 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 00:53:26 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 00:53:26 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 00:53:26 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 00:53:26 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 00:53:26 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 00:53:26 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 00:53:26 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 00:53:26 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   Using queries from description.
+04/24/2022 00:53:27 - INFO - dataset -   The target domain is AddToPlaylist
+04/24/2022 00:53:27 - INFO - dataset -   train_data: 12442 -> 99735
+04/24/2022 00:53:27 - INFO - dataset -   valid_data: 500 -> 2500
+04/24/2022 00:53:27 - INFO - dataset -   test_data: 1542 -> 7710
+04/24/2022 00:54:07 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 00:54:07 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 00:54:07 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 00:54:07 - INFO - __main__ -   Batch_size = 8
+04/24/2022 00:54:07 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 00:54:07 - INFO - __main__ -   Train epoch = 64
+04/24/2022 00:54:07 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 00:54:21 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 00:54:21 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 00:54:21 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 00:54:21 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 00:54:21 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 00:54:21 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 00:54:21 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 00:54:21 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 00:54:21 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:21 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:21 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:21 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:21 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:21 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:22 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:22 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:22 - INFO - dataset -   Using queries from description.
+04/24/2022 00:54:22 - INFO - dataset -   The target domain is AddToPlaylist
+04/24/2022 00:54:22 - INFO - dataset -   train_data: 12442 -> 99735
+04/24/2022 00:54:22 - INFO - dataset -   valid_data: 500 -> 2500
+04/24/2022 00:54:22 - INFO - dataset -   test_data: 1542 -> 7710
+04/24/2022 01:28:23 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 01:28:23 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 01:28:23 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 01:28:23 - INFO - __main__ -   Batch_size = 32
+04/24/2022 01:28:23 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 01:28:23 - INFO - __main__ -   Train epoch = 64
+04/24/2022 01:28:23 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 01:28:36 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 01:28:36 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 01:28:36 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 01:28:36 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 01:28:36 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 01:28:36 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 01:28:36 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 01:28:36 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 01:28:36 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:36 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:37 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:37 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:37 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:37 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:37 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:37 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:37 - INFO - dataset -   Using queries from description.
+04/24/2022 01:28:37 - INFO - dataset -   The target domain is AddToPlaylist
+04/24/2022 01:28:37 - INFO - dataset -   train_data: 12442 -> 99735
+04/24/2022 01:28:37 - INFO - dataset -   valid_data: 500 -> 2500
+04/24/2022 01:28:37 - INFO - dataset -   test_data: 1542 -> 7710
+04/24/2022 08:11:54 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 08:11:54 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 08:11:54 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 08:11:54 - INFO - __main__ -   Batch_size = 32
+04/24/2022 08:11:54 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 08:11:54 - INFO - __main__ -   Train epoch = 64
+04/24/2022 08:11:54 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 08:12:08 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 08:12:08 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 08:12:08 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 08:12:08 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 08:12:08 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 08:12:08 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 08:12:08 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 08:12:08 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 08:12:08 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:08 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:08 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:09 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:09 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:09 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:09 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:09 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:09 - INFO - dataset -   Using queries from description.
+04/24/2022 08:12:09 - INFO - dataset -   The target domain is AddToPlaylist
+04/24/2022 08:12:09 - INFO - dataset -   train_data: 12442 -> 99735
+04/24/2022 08:12:09 - INFO - dataset -   valid_data: 500 -> 2500
+04/24/2022 08:12:09 - INFO - dataset -   test_data: 1542 -> 7710
+04/24/2022 08:58:14 - INFO - trainer -   Epoch 1, train_loss 0.050164    Evalution acc 0.7920, recall 0.4799, f1 0.5976
+04/24/2022 08:58:43 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/24/2022 09:44:23 - INFO - trainer -   Epoch 2, train_loss 0.010149    Evalution acc 0.8722, recall 0.4549, f1 0.5980
+04/24/2022 09:44:55 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/24/2022 10:30:10 - INFO - trainer -   Epoch 3, train_loss 0.005842    Evalution acc 0.7981, recall 0.4864, f1 0.6045
+04/24/2022 10:30:40 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/24/2022 11:16:05 - INFO - trainer -   Epoch 4, train_loss 0.003878    Evalution acc 0.9018, recall 0.4374, f1 0.5890
+04/24/2022 12:01:23 - INFO - trainer -   Epoch 5, train_loss 0.002614    Evalution acc 0.8611, recall 0.4586, f1 0.5985
+04/24/2022 12:46:14 - INFO - trainer -   Epoch 6, train_loss 0.001838    Evalution acc 0.8333, recall 0.3480, f1 0.4910
+04/24/2022 13:30:59 - INFO - trainer -   Epoch 7, train_loss 0.001499    Evalution acc 0.8200, recall 0.3905, f1 0.5290
+04/24/2022 14:15:31 - INFO - trainer -   Epoch 8, train_loss 0.001227    Evalution acc 0.8606, recall 0.3121, f1 0.4581
+04/24/2022 15:00:26 - INFO - trainer -   Epoch 9, train_loss 0.000876    Evalution acc 0.7958, recall 0.3853, f1 0.5192
+04/24/2022 15:45:21 - INFO - trainer -   Epoch 10, train_loss 0.001057    Evalution acc 0.6387, recall 0.2344, f1 0.3430
+04/24/2022 16:30:19 - INFO - trainer -   Epoch 11, train_loss 0.000826    Evalution acc 0.6999, recall 0.3656, f1 0.4803
+04/24/2022 17:15:12 - INFO - trainer -   Epoch 12, train_loss 0.000759    Evalution acc 0.6962, recall 0.4029, f1 0.5104
+04/24/2022 18:00:13 - INFO - trainer -   Epoch 13, train_loss 0.000662    Evalution acc 0.6955, recall 0.3414, f1 0.4580
+04/24/2022 18:00:13 - INFO - trainer -   Reach early stop count 10, training stop
+04/24/2022 18:00:14 - INFO - __main__ -   Starting test...
+04/24/2022 18:02:07 - INFO - trainer -   ***********************************************************
+04/24/2022 18:02:07 - INFO - trainer -   Target domain = AddToPlaylist
+04/24/2022 18:02:07 - INFO - trainer -   Test result: acc 0.7870, recall 0.4732, f1 0.5911
+04/24/2022 18:02:07 - INFO - trainer -   ***********************************************************
+04/24/2022 23:57:16 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 23:57:16 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 23:57:16 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 23:57:16 - INFO - __main__ -   Batch_size = 32
+04/24/2022 23:57:16 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 23:57:16 - INFO - __main__ -   Train epoch = 64
+04/24/2022 23:57:16 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 23:57:32 - INFO - dataset -   The target domain is AddToPlaylist
+04/24/2022 23:57:32 - INFO - dataset -   train_data length = 99735
+04/24/2022 23:57:32 - INFO - dataset -   valid_data length = 2500
+04/24/2022 23:57:32 - INFO - dataset -   test_data length = 7710
+04/25/2022 00:29:41 - INFO - trainer -   Epoch 1, train_loss 0.527048    Evalution acc 0.1199, recall 0.0996, f1 0.1088
+04/25/2022 00:30:29 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 01:02:51 - INFO - trainer -   Epoch 2, train_loss 0.082272    Evalution acc 0.0225, recall 0.0183, f1 0.0202
+04/25/2022 01:06:24 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 01:06:24 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 01:06:24 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 01:06:24 - INFO - __main__ -   Batch_size = 32
+04/25/2022 01:06:24 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 01:06:24 - INFO - __main__ -   Train epoch = 64
+04/25/2022 01:06:24 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 01:06:42 - INFO - dataset -   The target domain is AddToPlaylist
+04/25/2022 01:06:42 - INFO - dataset -   train_data length = 99735
+04/25/2022 01:06:42 - INFO - dataset -   valid_data length = 2500
+04/25/2022 01:06:42 - INFO - dataset -   test_data length = 7710
+04/25/2022 01:39:08 - INFO - trainer -   Epoch 1, train_loss 0.527048    Evalution acc 0.5175, recall 0.5414, f1 0.5292
+04/25/2022 01:39:45 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 02:12:02 - INFO - trainer -   Epoch 2, train_loss 0.082272    Evalution acc 0.4420, recall 0.5670, f1 0.4968
+04/25/2022 02:44:14 - INFO - trainer -   Epoch 3, train_loss 0.047331    Evalution acc 0.4602, recall 0.5333, f1 0.4941
+04/25/2022 03:16:40 - INFO - trainer -   Epoch 4, train_loss 0.032765    Evalution acc 0.4212, recall 0.5897, f1 0.4915
+04/25/2022 03:48:58 - INFO - trainer -   Epoch 5, train_loss 0.021712    Evalution acc 0.5130, recall 0.5619, f1 0.5364
+04/25/2022 03:49:33 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 04:21:51 - INFO - trainer -   Epoch 6, train_loss 0.014499    Evalution acc 0.4372, recall 0.5223, f1 0.4760
+04/25/2022 04:54:05 - INFO - trainer -   Epoch 7, train_loss 0.011054    Evalution acc 0.4041, recall 0.5553, f1 0.4678
+04/25/2022 05:26:29 - INFO - trainer -   Epoch 8, train_loss 0.008615    Evalution acc 0.4437, recall 0.5516, f1 0.4918
+04/25/2022 05:58:36 - INFO - trainer -   Epoch 9, train_loss 0.007224    Evalution acc 0.4874, recall 0.5648, f1 0.5232
+04/25/2022 06:30:53 - INFO - trainer -   Epoch 10, train_loss 0.005237    Evalution acc 0.4224, recall 0.5641, f1 0.4831
+04/25/2022 07:03:08 - INFO - trainer -   Epoch 11, train_loss 0.005642    Evalution acc 0.5640, recall 0.5553, f1 0.5596
+04/25/2022 07:03:43 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 07:36:05 - INFO - trainer -   Epoch 12, train_loss 0.003676    Evalution acc 0.5485, recall 0.5509, f1 0.5497
+04/25/2022 08:08:12 - INFO - trainer -   Epoch 13, train_loss 0.003373    Evalution acc 0.4940, recall 0.5451, f1 0.5183
+04/25/2022 08:40:27 - INFO - trainer -   Epoch 14, train_loss 0.002740    Evalution acc 0.5489, recall 0.5473, f1 0.5481
+04/25/2022 09:12:42 - INFO - trainer -   Epoch 15, train_loss 0.002936    Evalution acc 0.5203, recall 0.5634, f1 0.5410
+04/25/2022 09:45:00 - INFO - trainer -   Epoch 16, train_loss 0.002751    Evalution acc 0.5133, recall 0.5663, f1 0.5385
+04/25/2022 10:17:08 - INFO - trainer -   Epoch 17, train_loss 0.002696    Evalution acc 0.4993, recall 0.5575, f1 0.5268
+04/25/2022 10:46:51 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 10:46:51 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 10:46:51 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 10:46:51 - INFO - __main__ -   Batch_size = 32
+04/25/2022 10:46:51 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 10:46:51 - INFO - __main__ -   Train epoch = 64
+04/25/2022 10:46:51 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 10:47:10 - INFO - dataset -   The target domain is AddToPlaylist
+04/25/2022 10:47:10 - INFO - dataset -   train_data length = 99735
+04/25/2022 10:47:10 - INFO - dataset -   valid_data length = 2500
+04/25/2022 10:47:10 - INFO - dataset -   test_data length = 7710
+04/25/2022 11:17:50 - INFO - trainer -   Epoch 1, train_loss 0.627333    Evalution acc 0.4305, recall 0.4630, f1 0.4462
+04/25/2022 11:18:27 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 11:49:07 - INFO - trainer -   Epoch 2, train_loss 0.094259    Evalution acc 0.4988, recall 0.6029, f1 0.5459
+04/25/2022 11:49:55 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 12:20:19 - INFO - trainer -   Epoch 3, train_loss 0.054673    Evalution acc 0.4618, recall 0.5495, f1 0.5018
+04/25/2022 12:50:43 - INFO - trainer -   Epoch 4, train_loss 0.033488    Evalution acc 0.4321, recall 0.5363, f1 0.4786
+04/25/2022 13:21:20 - INFO - trainer -   Epoch 5, train_loss 0.021415    Evalution acc 0.5177, recall 0.5560, f1 0.5362
+04/25/2022 13:51:52 - INFO - trainer -   Epoch 6, train_loss 0.013864    Evalution acc 0.4600, recall 0.5597, f1 0.5050
+04/25/2022 14:22:20 - INFO - trainer -   Epoch 7, train_loss 0.009950    Evalution acc 0.4725, recall 0.5736, f1 0.5182
+04/25/2022 14:44:31 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 14:44:31 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 14:44:31 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 14:44:31 - INFO - __main__ -   Batch_size = 32
+04/25/2022 14:44:31 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 14:44:31 - INFO - __main__ -   Train epoch = 64
+04/25/2022 14:44:31 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 14:44:48 - INFO - dataset -   The target domain is AddToPlaylist
+04/25/2022 14:44:48 - INFO - dataset -   train_data length = 99735
+04/25/2022 14:44:48 - INFO - dataset -   valid_data length = 2500
+04/25/2022 14:44:48 - INFO - dataset -   test_data length = 7710
+04/25/2022 14:46:46 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 14:46:46 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 14:46:46 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 14:46:46 - INFO - __main__ -   Batch_size = 32
+04/25/2022 14:46:46 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 14:46:46 - INFO - __main__ -   Train epoch = 64
+04/25/2022 14:46:46 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 14:47:03 - INFO - dataset -   The target domain is AddToPlaylist
+04/25/2022 14:47:03 - INFO - dataset -   train_data length = 99735
+04/25/2022 14:47:03 - INFO - dataset -   valid_data length = 2500
+04/25/2022 14:47:03 - INFO - dataset -   test_data length = 7710
+04/25/2022 15:25:00 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 15:25:00 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 15:25:00 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 15:25:00 - INFO - __main__ -   Batch_size = 32
+04/25/2022 15:25:00 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 15:25:00 - INFO - __main__ -   Train epoch = 64
+04/25/2022 15:25:00 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 15:25:17 - INFO - dataset -   The target domain is AddToPlaylist
+04/25/2022 15:25:17 - INFO - dataset -   train_data length = 99735
+04/25/2022 15:25:17 - INFO - dataset -   valid_data length = 2500
+04/25/2022 15:25:17 - INFO - dataset -   test_data length = 7710
+04/25/2022 15:56:35 - INFO - trainer -   Epoch 1, train_loss 0.482232, MRC acc =  0.4814, Evalution acc 0.4814, recall 0.4469, f1 0.4453
+04/25/2022 15:57:17 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 16:28:28 - INFO - trainer -   Epoch 2, train_loss 0.082938, MRC acc =  0.4897, Evalution acc 0.4897, recall 0.4044, f1 0.4187
+04/25/2022 16:59:31 - INFO - trainer -   Epoch 3, train_loss 0.046328, MRC acc =  0.4944, Evalution acc 0.4944, recall 0.5231, f1 0.5016
+04/25/2022 17:00:12 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 17:31:34 - INFO - trainer -   Epoch 4, train_loss 0.028232, MRC acc =  0.4958, Evalution acc 0.4958, recall 0.5487, f1 0.4955
+04/25/2022 18:02:48 - INFO - trainer -   Epoch 5, train_loss 0.020063, MRC acc =  0.5029, Evalution acc 0.5029, recall 0.5678, f1 0.5297
+04/25/2022 18:03:32 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 18:34:47 - INFO - trainer -   Epoch 6, train_loss 0.013382, MRC acc =  0.5022, Evalution acc 0.5022, recall 0.5458, f1 0.5047
+04/25/2022 19:05:54 - INFO - trainer -   Epoch 7, train_loss 0.009947, MRC acc =  0.5080, Evalution acc 0.5080, recall 0.5106, f1 0.4514
+04/25/2022 19:37:21 - INFO - trainer -   Epoch 8, train_loss 0.007561, MRC acc =  0.5033, Evalution acc 0.5033, recall 0.5582, f1 0.5085
+04/25/2022 19:42:55 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 19:42:55 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 19:42:55 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 19:42:55 - INFO - __main__ -   Batch_size = 32
+04/25/2022 19:42:55 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 19:42:55 - INFO - __main__ -   Train epoch = 64
+04/25/2022 19:42:55 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 19:43:12 - INFO - dataset -   The target domain is AddToPlaylist
+04/25/2022 19:43:12 - INFO - dataset -   train_data length = 1000
+04/25/2022 19:43:12 - INFO - dataset -   valid_data length = 2500
+04/25/2022 19:43:12 - INFO - dataset -   test_data length = 7710
+04/25/2022 19:45:28 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 19:45:28 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 19:45:28 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 19:45:28 - INFO - __main__ -   Batch_size = 32
+04/25/2022 19:45:28 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 19:45:28 - INFO - __main__ -   Train epoch = 64
+04/25/2022 19:45:28 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 19:45:46 - INFO - dataset -   The target domain is AddToPlaylist
+04/25/2022 19:45:46 - INFO - dataset -   train_data length = 1000
+04/25/2022 19:45:46 - INFO - dataset -   valid_data length = 2500
+04/25/2022 19:45:46 - INFO - dataset -   test_data length = 7710
+04/25/2022 19:46:30 - INFO - trainer -   Epoch 1, train_loss 0.427276, Evalution acc 0.0087, recall 0.0015, f1 0.0025
+04/25/2022 19:47:25 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 19:47:25 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 19:47:25 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 19:47:25 - INFO - __main__ -   Batch_size = 32
+04/25/2022 19:47:25 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 19:47:25 - INFO - __main__ -   Train epoch = 64
+04/25/2022 19:47:25 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 19:47:49 - INFO - dataset -   The target domain is AddToPlaylist
+04/25/2022 19:47:49 - INFO - dataset -   train_data length = 99735
+04/25/2022 19:47:49 - INFO - dataset -   valid_data length = 2500
+04/25/2022 19:47:49 - INFO - dataset -   test_data length = 7710
+04/25/2022 20:18:58 - INFO - trainer -   Epoch 1, train_loss 0.060880, Evalution acc 0.7623, recall 0.5216, f1 0.6194
+04/25/2022 20:19:46 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 20:50:43 - INFO - trainer -   Epoch 2, train_loss 0.010769, Evalution acc 0.7565, recall 0.5509, f1 0.6376
+04/25/2022 20:51:19 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 21:22:10 - INFO - trainer -   Epoch 3, train_loss 0.006319, Evalution acc 0.7954, recall 0.5355, f1 0.6401
+04/25/2022 21:23:10 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 21:53:59 - INFO - trainer -   Epoch 4, train_loss 0.003964, Evalution acc 0.8017, recall 0.5480, f1 0.6510
+04/25/2022 21:54:35 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/25/2022 22:25:30 - INFO - trainer -   Epoch 5, train_loss 0.002573, Evalution acc 0.7980, recall 0.5267, f1 0.6346
+04/25/2022 22:56:11 - INFO - trainer -   Epoch 6, train_loss 0.001841, Evalution acc 0.7414, recall 0.5187, f1 0.6103
+04/25/2022 23:26:39 - INFO - trainer -   Epoch 7, train_loss 0.001380, Evalution acc 0.7781, recall 0.5370, f1 0.6355
+04/25/2022 23:57:36 - INFO - trainer -   Epoch 8, train_loss 0.001093, Evalution acc 0.7885, recall 0.5407, f1 0.6415
+04/26/2022 00:28:22 - INFO - trainer -   Epoch 9, train_loss 0.000960, Evalution acc 0.8138, recall 0.5443, f1 0.6523
+04/26/2022 00:29:00 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/26/2022 00:59:51 - INFO - trainer -   Epoch 10, train_loss 0.001029, Evalution acc 0.7813, recall 0.5443, f1 0.6416
+04/26/2022 01:30:46 - INFO - trainer -   Epoch 11, train_loss 0.000721, Evalution acc 0.7734, recall 0.5502, f1 0.6430
+04/26/2022 02:01:48 - INFO - trainer -   Epoch 12, train_loss 0.000760, Evalution acc 0.7731, recall 0.5692, f1 0.6557
+04/26/2022 02:02:26 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/26/2022 02:33:31 - INFO - trainer -   Epoch 13, train_loss 0.000669, Evalution acc 0.7897, recall 0.5612, f1 0.6561
+04/26/2022 02:34:09 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/26/2022 03:05:15 - INFO - trainer -   Epoch 14, train_loss 0.000566, Evalution acc 0.7835, recall 0.5619, f1 0.6544
+04/26/2022 03:36:02 - INFO - trainer -   Epoch 15, train_loss 0.000479, Evalution acc 0.7743, recall 0.5604, f1 0.6502
+04/26/2022 04:07:02 - INFO - trainer -   Epoch 16, train_loss 0.000406, Evalution acc 0.7945, recall 0.5465, f1 0.6476
+04/26/2022 04:37:49 - INFO - trainer -   Epoch 17, train_loss 0.000489, Evalution acc 0.6881, recall 0.5026, f1 0.5809
+04/26/2022 05:08:36 - INFO - trainer -   Epoch 18, train_loss 0.000324, Evalution acc 0.7877, recall 0.5355, f1 0.6376
+04/26/2022 05:39:20 - INFO - trainer -   Epoch 19, train_loss 0.000341, Evalution acc 0.7757, recall 0.5575, f1 0.6488
+04/26/2022 06:10:16 - INFO - trainer -   Epoch 20, train_loss 0.000459, Evalution acc 0.7967, recall 0.5656, f1 0.6615
+04/26/2022 06:10:50 - INFO - trainer -   Saved model checkpoint to model_dir/AddToPlaylist/0/model.pth
+04/26/2022 06:41:35 - INFO - trainer -   Epoch 21, train_loss 0.000361, Evalution acc 0.7510, recall 0.5348, f1 0.6247
+04/26/2022 07:12:26 - INFO - trainer -   Epoch 22, train_loss 0.000382, Evalution acc 0.7500, recall 0.5297, f1 0.6209
+04/26/2022 07:43:14 - INFO - trainer -   Epoch 23, train_loss 0.000203, Evalution acc 0.7307, recall 0.5128, f1 0.6027
+04/26/2022 08:14:10 - INFO - trainer -   Epoch 24, train_loss 0.000198, Evalution acc 0.7471, recall 0.5260, f1 0.6174
+04/26/2022 08:44:52 - INFO - trainer -   Epoch 25, train_loss 0.000240, Evalution acc 0.7457, recall 0.5114, f1 0.6067
+04/26/2022 09:15:19 - INFO - trainer -   Epoch 26, train_loss 0.000272, Evalution acc 0.7431, recall 0.5150, f1 0.6084
+04/26/2022 09:46:05 - INFO - trainer -   Epoch 27, train_loss 0.000221, Evalution acc 0.7633, recall 0.5363, f1 0.6299
+04/26/2022 10:16:47 - INFO - trainer -   Epoch 28, train_loss 0.000240, Evalution acc 0.7789, recall 0.5524, f1 0.6464
+04/26/2022 10:47:37 - INFO - trainer -   Epoch 29, train_loss 0.000105, Evalution acc 0.7387, recall 0.5260, f1 0.6145

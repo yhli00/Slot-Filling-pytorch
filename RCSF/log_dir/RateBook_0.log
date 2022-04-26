@@ -269,3 +269,93 @@
 04/23/2022 06:37:32 - INFO - trainer -   Target domain = RateBook
 04/23/2022 06:37:32 - INFO - trainer -   Test result: acc 0.5419, recall 0.3289, f1 0.4094
 04/23/2022 06:37:32 - INFO - trainer -   ***********************************************************
+04/24/2022 02:13:49 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 02:13:49 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 02:13:49 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 02:13:49 - INFO - __main__ -   Batch_size = 32
+04/24/2022 02:13:49 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 02:13:49 - INFO - __main__ -   Train epoch = 64
+04/24/2022 02:13:49 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 02:14:03 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 02:14:03 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 02:14:03 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 02:14:03 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 02:14:03 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 02:14:03 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 02:14:03 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 02:14:03 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 02:14:03 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:03 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:03 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:03 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:03 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:03 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:04 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:04 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:04 - INFO - dataset -   Using queries from description.
+04/24/2022 02:14:04 - INFO - dataset -   The target domain is RateBook
+04/24/2022 02:14:04 - INFO - dataset -   train_data: 12428 -> 95553
+04/24/2022 02:14:04 - INFO - dataset -   valid_data: 500 -> 3500
+04/24/2022 02:14:04 - INFO - dataset -   test_data: 1556 -> 10892
+04/24/2022 19:40:14 - INFO - __main__ -   **********************Job Start**********************
+04/24/2022 19:40:14 - INFO - __main__ -   Learning rate = 1e-05
+04/24/2022 19:40:14 - INFO - __main__ -   Warmup rate = 0.0
+04/24/2022 19:40:14 - INFO - __main__ -   Batch_size = 32
+04/24/2022 19:40:14 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/24/2022 19:40:14 - INFO - __main__ -   Train epoch = 64
+04/24/2022 19:40:14 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/24/2022 19:40:28 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+04/24/2022 19:40:28 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+04/24/2022 19:40:28 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+04/24/2022 19:40:28 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+04/24/2022 19:40:28 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+04/24/2022 19:40:28 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+04/24/2022 19:40:28 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+04/24/2022 19:40:28 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+04/24/2022 19:40:28 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:28 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:28 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:28 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:28 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:28 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:29 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:29 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:29 - INFO - dataset -   Using queries from description.
+04/24/2022 19:40:29 - INFO - dataset -   The target domain is RateBook
+04/24/2022 19:40:29 - INFO - dataset -   train_data: 12428 -> 95553
+04/24/2022 19:40:29 - INFO - dataset -   valid_data: 500 -> 3500
+04/24/2022 19:40:29 - INFO - dataset -   test_data: 1556 -> 10892
+04/24/2022 20:23:21 - INFO - trainer -   Epoch 1, train_loss 0.054821    Evalution acc 0.3378, recall 0.1656, f1 0.2222
+04/24/2022 20:23:54 - INFO - trainer -   Saved model checkpoint to model_dir/RateBook/0/model.pth
+04/24/2022 21:06:37 - INFO - trainer -   Epoch 2, train_loss 0.011887    Evalution acc 0.3946, recall 0.1601, f1 0.2278
+04/24/2022 21:07:07 - INFO - trainer -   Saved model checkpoint to model_dir/RateBook/0/model.pth
+04/24/2022 21:49:31 - INFO - trainer -   Epoch 3, train_loss 0.006609    Evalution acc 0.4005, recall 0.1776, f1 0.2460
+04/24/2022 21:50:01 - INFO - trainer -   Saved model checkpoint to model_dir/RateBook/0/model.pth
+04/24/2022 22:32:16 - INFO - trainer -   Epoch 4, train_loss 0.004242    Evalution acc 0.4357, recall 0.1754, f1 0.2501
+04/24/2022 22:32:58 - INFO - trainer -   Saved model checkpoint to model_dir/RateBook/0/model.pth
+04/24/2022 23:15:28 - INFO - trainer -   Epoch 5, train_loss 0.002801    Evalution acc 0.4263, recall 0.1781, f1 0.2512
+04/24/2022 23:16:17 - INFO - trainer -   Saved model checkpoint to model_dir/RateBook/0/model.pth
+04/25/2022 14:45:00 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 14:45:00 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 14:45:00 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 14:45:00 - INFO - __main__ -   Batch_size = 32
+04/25/2022 14:45:00 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 14:45:00 - INFO - __main__ -   Train epoch = 64
+04/25/2022 14:45:00 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 14:45:17 - INFO - dataset -   The target domain is RateBook
+04/25/2022 14:45:17 - INFO - dataset -   train_data length = 95553
+04/25/2022 14:45:17 - INFO - dataset -   valid_data length = 3500
+04/25/2022 14:45:17 - INFO - dataset -   test_data length = 10892
+04/25/2022 14:47:14 - INFO - __main__ -   **********************Job Start**********************
+04/25/2022 14:47:14 - INFO - __main__ -   Learning rate = 1e-05
+04/25/2022 14:47:14 - INFO - __main__ -   Warmup rate = 0.0
+04/25/2022 14:47:14 - INFO - __main__ -   Batch_size = 32
+04/25/2022 14:47:14 - INFO - __main__ -   Gradient_accumulation_steps = 1
+04/25/2022 14:47:14 - INFO - __main__ -   Train epoch = 64
+04/25/2022 14:47:14 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+04/25/2022 14:47:31 - INFO - dataset -   The target domain is RateBook
+04/25/2022 14:47:31 - INFO - dataset -   train_data length = 95553
+04/25/2022 14:47:31 - INFO - dataset -   valid_data length = 3500
+04/25/2022 14:47:31 - INFO - dataset -   test_data length = 10892
+04/25/2022 15:17:44 - INFO - trainer -   Epoch 1, train_loss 0.672962, MRC acc =  0.4303, Evalution acc 0.4303, recall 0.3257, f1 0.3647
+04/25/2022 15:18:18 - INFO - trainer -   Saved model checkpoint to model_dir/RateBook/0/model.pth

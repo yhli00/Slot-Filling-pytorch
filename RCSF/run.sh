@@ -24,15 +24,16 @@ do
         --do_train \
         --do_test \
         --batch_size 8 \
-        --num_epochs 300 \
+        --num_epochs 64 \
         --target_domain $tgt_domain \
-        --pretrained_model bert-large-uncased \
+        --pretrained_model roberta-large \
         --n_samples $n \
         --num_workers 0 \
         --model_dir model_dir2 \
         --log_dir log_dir2 \
         --max_len 128 \
-        --early_stop 150
+        --lr 1e-5 \
+        --early_stop 10
     done
 done
 
