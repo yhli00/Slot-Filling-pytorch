@@ -1,7 +1,8 @@
 import torch
 import torch.nn as nn
 # from transformers import BertModel
-from transformers import DebertaV2Model
+import sys
+from transformers import DebertaV2Model, BertModel
 import torch.nn.functional as F
 import math
 
@@ -201,7 +202,10 @@ class BertLayer(nn.Module):
 class LabelEnhanceBert(nn.Module):
     def __init__(self, pretrained_model):
         super().__init__()
-        self.bert = DebertaV2Model.from_pretrained(pretrained_model)
+        if pretrained_model == 'microsoft/deberta-v3-large':
+            self.bert = DebertaV2Model.from_pretrained(pretrained_model)
+        elif pretrained_model == 'bert-large-uncased':
+            self.bert = BertModel.from_pretrained(pretrained_model)
         self.config = self.bert.config
         # self.pos_embedding = nn.Embedding(19, 512)
         # self.ent_embedding = nn.Embedding(19, 512)

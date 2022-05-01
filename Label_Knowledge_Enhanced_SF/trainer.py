@@ -3,8 +3,7 @@ import torch
 # from paddlenlp.transformers import LinearDecayWithWarmup
 # from paddle.io import DataLoader
 from torch.utils.data import DataLoader
-# from transformers import BertTokenizer
-from transformers import DebertaV2Tokenizer
+from transformers import DebertaV2Tokenizer, BertTokenizer
 # import paddle.nn as nn
 import torch.nn as nn
 # import paddle
