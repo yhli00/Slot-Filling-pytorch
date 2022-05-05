@@ -1,0 +1,44 @@
+05/02/2022 15:58:50 - INFO - __main__ -   ********************** Job Start **********************
+05/02/2022 15:58:50 - INFO - __main__ -   Learning rate = 1e-05
+05/02/2022 15:58:50 - INFO - __main__ -   Warmup rate = 0.0
+05/02/2022 15:58:50 - INFO - __main__ -   Batch_size = 4
+05/02/2022 15:58:50 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/02/2022 15:58:50 - INFO - __main__ -   Train epoch = 64
+05/02/2022 15:58:50 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/02/2022 15:58:50 - INFO - __main__ -   Context_max_len = 64
+05/02/2022 15:58:50 - INFO - __main__ -   Label_max_len = 32
+05/02/2022 16:03:10 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/02/2022 16:03:10 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/02/2022 16:03:10 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/02/2022 16:03:10 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/02/2022 16:03:10 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/02/2022 16:03:10 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/02/2022 16:03:10 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/02/2022 16:03:10 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/02/2022 16:03:10 - INFO - dataset -   Using queries from description.
+05/02/2022 16:03:11 - INFO - dataset -   Using queries from description.
+05/02/2022 16:03:11 - INFO - dataset -   Using queries from description.
+05/02/2022 16:03:11 - INFO - dataset -   Using queries from description.
+05/02/2022 16:03:11 - INFO - dataset -   Using queries from description.
+05/02/2022 16:03:11 - INFO - dataset -   Using queries from description.
+05/02/2022 16:03:11 - INFO - dataset -   Using queries from description.
+05/02/2022 16:03:11 - INFO - dataset -   Using queries from description.
+05/02/2022 16:03:11 - INFO - dataset -   The target domain is AddToPlaylist
+05/02/2022 16:03:11 - INFO - dataset -   ********** Train data information : **********
+05/02/2022 16:03:11 - INFO - dataset -   domain name: BookRestaurant,    data_size=2073
+05/02/2022 16:03:11 - INFO - dataset -   domain name: GetWeather,    data_size=2100
+05/02/2022 16:03:11 - INFO - dataset -   domain name: PlayMusic,    data_size=2100
+05/02/2022 16:03:11 - INFO - dataset -   domain name: RateBook,    data_size=2056
+05/02/2022 16:03:11 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=2054
+05/02/2022 16:03:11 - INFO - dataset -   domain name: SearchScreeningEvent,    data_size=2059
+05/02/2022 16:03:11 - INFO - dataset -   ********** Valid data information : **********
+05/02/2022 16:03:11 - INFO - dataset -   domain name: AddToPlaylist,    data_size=500
+05/02/2022 16:03:11 - INFO - dataset -   ********** Test data information : **********
+05/02/2022 16:03:11 - INFO - dataset -   domain name: AddToPlaylist,    data_size=1542
+05/02/2022 16:08:22 - INFO - trainer -   Epoch 1, Domain BookRestaurant, train_loss 11.071242,    Evalution acc 0.0149, recall 0.0015, f1 0.0027
+05/02/2022 16:10:27 - INFO - trainer -   Saved model checkpoint to ../model_dir_tmp/Label_Knowledge_Enhanced_SF/AddToPlaylist/0/model.pth
+05/02/2022 16:13:24 - INFO - trainer -   Epoch 1, Domain GetWeather, train_loss 7.091758,    Evalution acc 0.1775, recall 0.0740, f1 0.1044
+05/02/2022 16:15:28 - INFO - trainer -   Saved model checkpoint to ../model_dir_tmp/Label_Knowledge_Enhanced_SF/AddToPlaylist/0/model.pth
+05/02/2022 16:18:24 - INFO - trainer -   Epoch 1, Domain PlayMusic, train_loss 6.149066,    Evalution acc 0.5962, recall 0.5084, f1 0.5488
+05/02/2022 16:20:30 - INFO - trainer -   Saved model checkpoint to ../model_dir_tmp/Label_Knowledge_Enhanced_SF/AddToPlaylist/0/model.pth
+05/02/2022 16:23:10 - INFO - trainer -   Epoch 1, Domain RateBook, train_loss 3.823020,    Evalution acc 0.3599, recall 0.2850, f1 0.3181

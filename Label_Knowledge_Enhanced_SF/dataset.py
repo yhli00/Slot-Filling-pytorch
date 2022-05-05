@@ -1,8 +1,8 @@
 from utils import domain_set, slot2desp, domain2slots
 import logging
 # import paddle
-import spacy
-from spacy.tokens import Doc
+# import spacy
+# from spacy.tokens import Doc
 # from paddle.io import Dataset
 from tqdm import tqdm
 import re

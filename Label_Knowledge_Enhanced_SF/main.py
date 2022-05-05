@@ -50,6 +50,8 @@ def main(args):
     logger.info(f'Pretrained_model name = {args.pretrained_model}')
     logger.info(f'Context_max_len = {args.context_max_len}')
     logger.info(f'Label_max_len = {args.label_max_len}')
+    logger.info(f'dropout_rate = {args.dropout_rate}')
+    logger.info(f'{args.log_message}')
     if args.use_gpu:
         args.device = torch.device('cuda:0')
     else:
@@ -85,7 +87,7 @@ if __name__ == '__main__':
     parser.add_argument("--do_train", action="store_true", help="Whether to run training.")
     parser.add_argument("--do_test", action="store_true", help="Whether to run eval on the test set.")
     parser.add_argument('--use_gpu', action='store_true', help='Whether to use gpu.')
-    # parser.add_argument("--dropout_rate", default=0.1, type=float, help="Dropout for fully-connected layers")
+    parser.add_argument("--dropout_rate", default=0.1, type=float, help="Dropout for fully-connected layers")
     parser.add_argument("--warmup_rate", default=0.0, type=float, help="Linear warmup rate")
     parser.add_argument("--adam_epsilon", default=1e-8, type=float, help="Epsilon for Adam optimizer.")
     parser.add_argument("--weight_decay", default=0.0, type=float, help="Weight decay if we apply some.")
@@ -100,6 +102,7 @@ if __name__ == '__main__':
     parser.add_argument('--log_dir', type=str, default='label_enhanced_logs')
     parser.add_argument('--context_max_len', type=int, default=32)
     parser.add_argument('--label_max_len', type=int, default=16)
+    parser.add_argument('--log_message', type=str, default='none')
     args = parser.parse_args()
     args.log_filename = os.path.join(args.log_dir, args.target_domain + '_' + str(args.n_samples) + '.log')
     main(args)
