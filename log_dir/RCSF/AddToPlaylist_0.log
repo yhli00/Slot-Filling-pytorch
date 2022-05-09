@@ -1,0 +1,113 @@
+05/06/2022 22:41:57 - INFO - __main__ -   **********************Job Start**********************
+05/06/2022 22:41:57 - INFO - __main__ -   Learning rate = 1e-05
+05/06/2022 22:41:57 - INFO - __main__ -   Warmup rate = 0.0
+05/06/2022 22:41:57 - INFO - __main__ -   Batch_size = 16
+05/06/2022 22:41:57 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/06/2022 22:41:57 - INFO - __main__ -   Train epoch = 64
+05/06/2022 22:41:57 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/06/2022 22:42:13 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/06/2022 22:42:13 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/06/2022 22:42:13 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/06/2022 22:42:13 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/06/2022 22:42:13 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/06/2022 22:42:13 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/06/2022 22:42:13 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/06/2022 22:42:13 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/06/2022 22:42:13 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:13 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:13 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:14 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:14 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:14 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:14 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:14 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:14 - INFO - dataset -   Using queries from description.
+05/06/2022 22:42:14 - INFO - dataset -   The target domain is AddToPlaylist
+05/06/2022 22:42:14 - INFO - dataset -   train_data: 12442 -> 99735
+05/06/2022 22:42:14 - INFO - dataset -   valid_data: 500 -> 2500
+05/06/2022 22:42:14 - INFO - dataset -   test_data: 1542 -> 7710
+05/06/2022 22:48:36 - INFO - trainer -   Train epoch 1, step[500 / 6234], Evalution acc=0.0290, recall=0.0081, f1=0.0126
+05/06/2022 22:54:44 - INFO - trainer -   Train epoch 1, step[1000 / 6234], Evalution acc=0.0976, recall=0.0484, f1=0.0647
+05/06/2022 22:59:15 - INFO - trainer -   Train epoch 1, step[1500 / 6234], Evalution acc=0.1159, recall=0.0549, f1=0.0746
+05/06/2022 23:05:08 - INFO - trainer -   Train epoch 1, step[2000 / 6234], Evalution acc=0.4069, recall=0.2945, f1=0.3417
+05/06/2022 23:11:05 - INFO - trainer -   Train epoch 1, step[2500 / 6234], Evalution acc=0.4465, recall=0.3824, f1=0.4120
+05/06/2022 23:16:38 - INFO - trainer -   Train epoch 1, step[3000 / 6234], Evalution acc=0.5183, recall=0.4051, f1=0.4548
+05/06/2022 23:22:22 - INFO - trainer -   Train epoch 1, step[3500 / 6234], Evalution acc=0.5663, recall=0.4286, f1=0.4879
+05/06/2022 23:26:55 - INFO - trainer -   Train epoch 1, step[4000 / 6234], Evalution acc=0.6035, recall=0.4527, f1=0.5174
+05/06/2022 23:30:59 - INFO - trainer -   Train epoch 1, step[4500 / 6234], Evalution acc=0.5720, recall=0.4828, f1=0.5236
+05/06/2022 23:35:12 - INFO - trainer -   Train epoch 1, step[5000 / 6234], Evalution acc=0.5341, recall=0.4930, f1=0.5128
+05/06/2022 23:39:49 - INFO - trainer -   Train epoch 1, step[5500 / 6234], Evalution acc=0.6820, recall=0.5092, f1=0.5831
+05/06/2022 23:42:41 - INFO - trainer -   Train epoch 1, step[6000 / 6234], Evalution acc=0.6777, recall=0.5238, f1=0.5909
+05/06/2022 23:44:23 - INFO - trainer -   Epoch 1, train_loss 0.110779, Evalution acc 0.6908, recall 0.5304, f1 0.6001
+05/06/2022 23:45:09 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/AddToPlaylist/0/model.pth
+05/06/2022 23:48:09 - INFO - trainer -   Train epoch 2, step[500 / 6234], Evalution acc=0.6817, recall=0.5084, f1=0.5825
+05/06/2022 23:51:09 - INFO - trainer -   Train epoch 2, step[1000 / 6234], Evalution acc=0.6272, recall=0.4806, f1=0.5442
+05/06/2022 23:54:07 - INFO - trainer -   Train epoch 2, step[1500 / 6234], Evalution acc=0.7102, recall=0.5582, f1=0.6251
+05/06/2022 23:57:04 - INFO - trainer -   Train epoch 2, step[2000 / 6234], Evalution acc=0.7065, recall=0.5502, f1=0.6186
+05/07/2022 00:00:10 - INFO - trainer -   Train epoch 2, step[2500 / 6234], Evalution acc=0.7022, recall=0.5458, f1=0.6142
+05/07/2022 00:03:08 - INFO - trainer -   Train epoch 2, step[3000 / 6234], Evalution acc=0.6232, recall=0.5392, f1=0.5782
+05/07/2022 00:06:08 - INFO - trainer -   Train epoch 2, step[3500 / 6234], Evalution acc=0.7116, recall=0.5531, f1=0.6224
+05/07/2022 00:09:06 - INFO - trainer -   Train epoch 2, step[4000 / 6234], Evalution acc=0.6880, recall=0.5267, f1=0.5967
+05/07/2022 00:12:03 - INFO - trainer -   Train epoch 2, step[4500 / 6234], Evalution acc=0.6592, recall=0.5201, f1=0.5815
+05/07/2022 00:15:02 - INFO - trainer -   Train epoch 2, step[5000 / 6234], Evalution acc=0.6455, recall=0.5216, f1=0.5770
+05/07/2022 00:18:03 - INFO - trainer -   Train epoch 2, step[5500 / 6234], Evalution acc=0.6603, recall=0.4842, f1=0.5587
+05/07/2022 00:21:03 - INFO - trainer -   Train epoch 2, step[6000 / 6234], Evalution acc=0.6374, recall=0.4945, f1=0.5569
+05/07/2022 00:22:48 - INFO - trainer -   Epoch 2, train_loss 0.013963, Evalution acc 0.6544, recall 0.5092, f1 0.5727
+05/07/2022 00:25:49 - INFO - trainer -   Train epoch 3, step[500 / 6234], Evalution acc=0.6859, recall=0.5487, f1=0.6097
+05/07/2022 00:28:50 - INFO - trainer -   Train epoch 3, step[1000 / 6234], Evalution acc=0.7037, recall=0.5289, f1=0.6039
+05/07/2022 00:34:11 - INFO - trainer -   Train epoch 3, step[1500 / 6234], Evalution acc=0.6667, recall=0.5348, f1=0.5935
+05/07/2022 00:40:18 - INFO - trainer -   Train epoch 3, step[2000 / 6234], Evalution acc=0.6521, recall=0.5150, f1=0.5755
+05/07/2022 00:46:16 - INFO - trainer -   Train epoch 3, step[2500 / 6234], Evalution acc=0.6467, recall=0.4989, f1=0.5633
+05/07/2022 00:52:26 - INFO - trainer -   Train epoch 3, step[3000 / 6234], Evalution acc=0.5827, recall=0.5187, f1=0.5488
+05/07/2022 00:57:52 - INFO - trainer -   Train epoch 3, step[3500 / 6234], Evalution acc=0.6796, recall=0.5253, f1=0.5926
+05/07/2022 01:03:47 - INFO - trainer -   Train epoch 3, step[4000 / 6234], Evalution acc=0.6537, recall=0.5033, f1=0.5687
+05/07/2022 01:09:30 - INFO - trainer -   Train epoch 3, step[4500 / 6234], Evalution acc=0.6790, recall=0.5253, f1=0.5923
+05/07/2022 01:15:27 - INFO - trainer -   Train epoch 3, step[5000 / 6234], Evalution acc=0.6874, recall=0.5495, f1=0.6107
+05/07/2022 01:21:10 - INFO - trainer -   Train epoch 3, step[5500 / 6234], Evalution acc=0.6963, recall=0.5341, f1=0.6045
+05/07/2022 01:27:22 - INFO - trainer -   Train epoch 3, step[6000 / 6234], Evalution acc=0.5667, recall=0.5385, f1=0.5522
+05/07/2022 01:31:57 - INFO - trainer -   Epoch 3, train_loss 0.007163, Evalution acc 0.5805, recall 0.5333, f1 0.5559
+05/07/2022 01:37:55 - INFO - trainer -   Train epoch 4, step[500 / 6234], Evalution acc=0.6027, recall=0.5480, f1=0.5741
+05/07/2022 01:43:42 - INFO - trainer -   Train epoch 4, step[1000 / 6234], Evalution acc=0.6488, recall=0.5509, f1=0.5959
+05/07/2022 01:49:47 - INFO - trainer -   Train epoch 4, step[1500 / 6234], Evalution acc=0.6128, recall=0.5392, f1=0.5737
+05/07/2022 01:55:24 - INFO - trainer -   Train epoch 4, step[2000 / 6234], Evalution acc=0.6612, recall=0.4989, f1=0.5687
+05/07/2022 02:01:03 - INFO - trainer -   Train epoch 4, step[2500 / 6234], Evalution acc=0.5947, recall=0.5128, f1=0.5507
+05/07/2022 02:06:50 - INFO - trainer -   Train epoch 4, step[3000 / 6234], Evalution acc=0.6299, recall=0.5223, f1=0.5711
+05/07/2022 02:12:47 - INFO - trainer -   Train epoch 4, step[3500 / 6234], Evalution acc=0.6512, recall=0.5333, f1=0.5864
+05/07/2022 02:18:26 - INFO - trainer -   Train epoch 4, step[4000 / 6234], Evalution acc=0.6860, recall=0.5553, f1=0.6138
+05/07/2022 02:24:19 - INFO - trainer -   Train epoch 4, step[4500 / 6234], Evalution acc=0.6421, recall=0.5546, f1=0.5951
+05/07/2022 02:29:28 - INFO - trainer -   Train epoch 4, step[5000 / 6234], Evalution acc=0.6455, recall=0.5670, f1=0.6037
+05/07/2022 02:35:31 - INFO - trainer -   Train epoch 4, step[5500 / 6234], Evalution acc=0.6184, recall=0.5355, f1=0.5740
+05/07/2022 02:41:45 - INFO - trainer -   Train epoch 4, step[6000 / 6234], Evalution acc=0.5438, recall=0.5179, f1=0.5306
+05/07/2022 02:46:04 - INFO - trainer -   Epoch 4, train_loss 0.004794, Evalution acc 0.5476, recall 0.5055, f1 0.5257
+05/07/2022 02:52:24 - INFO - trainer -   Train epoch 5, step[500 / 6234], Evalution acc=0.5339, recall=0.5245, f1=0.5292
+05/07/2022 02:58:28 - INFO - trainer -   Train epoch 5, step[1000 / 6234], Evalution acc=0.5724, recall=0.5187, f1=0.5442
+05/07/2022 03:04:19 - INFO - trainer -   Train epoch 5, step[1500 / 6234], Evalution acc=0.6546, recall=0.5289, f1=0.5851
+05/07/2022 03:10:11 - INFO - trainer -   Train epoch 5, step[2000 / 6234], Evalution acc=0.6072, recall=0.5165, f1=0.5582
+05/07/2022 03:13:47 - INFO - trainer -   Train epoch 5, step[2500 / 6234], Evalution acc=0.5484, recall=0.4982, f1=0.5221
+05/07/2022 03:16:44 - INFO - trainer -   Train epoch 5, step[3000 / 6234], Evalution acc=0.5809, recall=0.5158, f1=0.5464
+05/07/2022 03:19:41 - INFO - trainer -   Train epoch 5, step[3500 / 6234], Evalution acc=0.5022, recall=0.5062, f1=0.5042
+05/07/2022 03:22:39 - INFO - trainer -   Train epoch 5, step[4000 / 6234], Evalution acc=0.6265, recall=0.5370, f1=0.5783
+05/07/2022 03:25:37 - INFO - trainer -   Train epoch 5, step[4500 / 6234], Evalution acc=0.6259, recall=0.5209, f1=0.5686
+05/07/2022 03:28:34 - INFO - trainer -   Train epoch 5, step[5000 / 6234], Evalution acc=0.6031, recall=0.5421, f1=0.5710
+05/07/2022 03:31:33 - INFO - trainer -   Train epoch 5, step[5500 / 6234], Evalution acc=0.5732, recall=0.5333, f1=0.5526
+05/07/2022 03:34:32 - INFO - trainer -   Train epoch 5, step[6000 / 6234], Evalution acc=0.5820, recall=0.4916, f1=0.5330
+05/07/2022 03:36:14 - INFO - trainer -   Epoch 5, train_loss 0.003930, Evalution acc 0.6383, recall 0.5158, f1 0.5705
+05/07/2022 03:39:14 - INFO - trainer -   Train epoch 6, step[500 / 6234], Evalution acc=0.6007, recall=0.4960, f1=0.5433
+05/07/2022 03:42:12 - INFO - trainer -   Train epoch 6, step[1000 / 6234], Evalution acc=0.6329, recall=0.5355, f1=0.5802
+05/07/2022 03:45:10 - INFO - trainer -   Train epoch 6, step[1500 / 6234], Evalution acc=0.6125, recall=0.4886, f1=0.5436
+05/07/2022 03:48:08 - INFO - trainer -   Train epoch 6, step[2000 / 6234], Evalution acc=0.6359, recall=0.5092, f1=0.5655
+05/07/2022 03:51:05 - INFO - trainer -   Train epoch 6, step[2500 / 6234], Evalution acc=0.6310, recall=0.4974, f1=0.5563
+05/07/2022 03:54:04 - INFO - trainer -   Train epoch 6, step[3000 / 6234], Evalution acc=0.6418, recall=0.5355, f1=0.5839
+05/07/2022 03:57:03 - INFO - trainer -   Train epoch 6, step[3500 / 6234], Evalution acc=0.6646, recall=0.5414, f1=0.5967
+05/07/2022 04:00:03 - INFO - trainer -   Train epoch 6, step[4000 / 6234], Evalution acc=0.6636, recall=0.5245, f1=0.5859
+05/07/2022 04:02:51 - INFO - trainer -   Train epoch 6, step[4500 / 6234], Evalution acc=0.6296, recall=0.5106, f1=0.5639
+05/07/2022 04:08:43 - INFO - trainer -   Train epoch 6, step[5000 / 6234], Evalution acc=0.6350, recall=0.4894, f1=0.5528
+05/07/2022 04:14:48 - INFO - trainer -   Train epoch 6, step[5500 / 6234], Evalution acc=0.6275, recall=0.5121, f1=0.5639
+05/07/2022 04:20:41 - INFO - trainer -   Train epoch 6, step[6000 / 6234], Evalution acc=0.6348, recall=0.5018, f1=0.5606
+05/07/2022 04:25:18 - INFO - trainer -   Epoch 6, train_loss 0.003029, Evalution acc 0.5944, recall 0.5143, f1 0.5515
+05/07/2022 04:25:18 - INFO - trainer -   Reach early stop count 5, training stop
+05/07/2022 04:25:20 - INFO - __main__ -   Starting test...
+05/07/2022 04:32:03 - INFO - trainer -   ***********************************************************
+05/07/2022 04:32:03 - INFO - trainer -   Target domain = AddToPlaylist
+05/07/2022 04:32:03 - INFO - trainer -   Test result: acc 0.6912, recall 0.5320, f1 0.6012
+05/07/2022 04:32:03 - INFO - trainer -   ***********************************************************

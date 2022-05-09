@@ -92,6 +92,8 @@ if __name__ == '__main__':
     parser.add_argument("--n_top", type=int, default=5)
     parser.add_argument('--model_dir', type=str, default='model_dir')
     parser.add_argument('--log_dir', type=str, default='log_dir')
+    parser.add_argument('--context_max_len', type=int, default=64)
+    parser.add_argument('--query_max_len', type=int, default=64)
     args = parser.parse_args()
     args.log_filename = os.path.join(args.log_dir, args.target_domain + '_' + str(args.n_samples) + '.log')
     main(args)

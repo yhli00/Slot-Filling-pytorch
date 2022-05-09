@@ -12,20 +12,19 @@
 export HF_HOME=/Work21/2021/liyuhang/huggingface_cache
 
 echo "job start time: `date`"
-
 # tgt_domains="RateBook PlayMusic BookRestaurant"
 # tgt_domains="SearchScreeningEvent GetWeather SearchCreativeWork"
 # tgt_domains="AddToPlaylist RateBook PlayMusic BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
 # tgt_domains="PlayMusic BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
-# tgt_domains="BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
-tgt_domains="AddToPlaylist"
+# tgt_domains="AddToPlaylist RateBook PlayMusic"
+tgt_domains="BookRestaurant"
 n_samples=(0)
-
+message="bert-large-uncased后接2层self-attention,dropout0.2"
 for tgt_domain in ${tgt_domains[@]}
 do
     for n in ${n_samples[@]}
     do
-        CUDA_VISIBLE_DEVICES=0 /Work21/2021/liyuhang/envs/py3.7/BERT_TAGGER/bin/python main.py \
+        CUDA_VISIBLE_DEVICES=2 /Work21/2021/liyuhang/envs/py3.7/BERT_TAGGER/bin/python main.py \
         --do_train \
         --do_test \
         --batch_size 4 \
@@ -35,13 +34,15 @@ do
         --pretrained_model bert-large-uncased \
         --n_samples $n \
         --num_workers 4 \
-        --context_max_len 24 \
+        --context_max_len 64 \
         --label_max_len 32 \
         --warmup_rate 0.0 \
-        --early_stop 60 \
+        --early_stop 12 \
         --lr 1e-5 \
-        --model_dir model_dir2 \
-        --log_dir log_dir2
+        --model_dir ../model_dir/Label_Knowledge_Enhanced_SF \
+        --log_dir ../log_dir/Label_Knowledge_Enhanced_SF \
+        --log_message $message \
+        --dropout_rate 0.2
     done
 done
 

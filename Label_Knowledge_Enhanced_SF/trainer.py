@@ -3,13 +3,13 @@ import torch
 # from paddlenlp.transformers import LinearDecayWithWarmup
 # from paddle.io import DataLoader
 from torch.utils.data import DataLoader
-from transformers import DebertaV2Tokenizer, BertTokenizer
+from transformers import DebertaV2Tokenizer, BertTokenizer, BartTokenizer
 # import paddle.nn as nn
 import torch.nn as nn
 # import paddle
 import torch.nn.functional as F
 from transformers import AdamW, get_linear_schedule_with_warmup
-from model import LabelEnhanceBert
+from model import LabelEnhancedBartMrc, LabelEnhanceBert
 import logging
 from dataset import get_dataset, collate_fn
 from tqdm import tqdm
@@ -28,10 +28,18 @@ class Trainer:
             self.tokenizer = BertTokenizer.from_pretrained('bert-large-uncased') 
         if self.args.pretrained_model == 'bert-large-uncased':
             self.tokenizer = BertTokenizer.from_pretrained('bert-large-uncased')
+        if self.args.pretrained_model == 'bert-base-uncased':
+            self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+        if self.args.pretrained_model == 'bert-large-uncased':
+            self.tokenizer = BertTokenizer.from_pretrained('bert-large-uncased')
         if self.args.pretrained_model == 'bert-large-uncased-whole-word-masking':
             self.tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking')
         if self.args.pretrained_model == 'microsoft/deberta-v3-large':
             self.tokenizer = DebertaV2Tokenizer.from_pretrained('microsoft/deberta-v3-large')
+        if self.args.pretrained_model == 'facebook/bart-large':
+            self.tokenizer = BartTokenizer.from_pretrained('facebook/bart-large')
+        if self.args.pretrained_model == 'facebook/bart-base':
+            self.tokenizer = BartTokenizer.from_pretrained('facebook/bart-base')
         train_datasets, valid_dataset, test_dataset = get_dataset(
             self.args.target_domain,
             self.args.n_samples,

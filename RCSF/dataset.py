@@ -2,11 +2,8 @@ from utils import domain_set, slot2desp, domain2slots
 import logging
 from torch.utils.data import Dataset
 import torch
-import numpy as np
-import json
 
 logger = logging.getLogger(__name__)
-
 
 class DataProcessor():
     @staticmethod
@@ -80,9 +77,362 @@ class DataProcessor():
             context_id += 1
         return samples
 
+# 这是RCSF原始的dataset实现
+# class MrcAndTagDataset(Dataset):
+#     def __init__(self, all_data, tokenizer, tag_schema='IO', max_len=128):
+#         super().__init__()
+#         self.all_data = all_data
+#         self.tokenizer = tokenizer
+#         self.tag_schema = tag_schema
+#         self.max_len = max_len
+    
+#     def __len__(self):
+#         return len(self.all_data)
+    
+#     def __getitem__(self, index):
+#         data = self.all_data[index]
+#         context = data['context_src']
+#         query = data['query_src']
+#         cls_token = self.tokenizer.cls_token
+#         sep_token = self.tokenizer.sep_token
+#         pad_token = self.tokenizer.pad_token
+#         context = context.strip().split()
+#         query = query.strip().split()
+#         tokens = []
+#         start_token_mask = [0, 0]  # cls and sep
+#         end_token_mask = [0, 0]
+#         start_labels = [0, 0]
+#         end_labels = [0, 0]
+#         context_mask = [0, 0]
+#         context_token_to_origin_index = [0, 0]
+#         for word in query:
+#             token = self.tokenizer.tokenize(word)
+#             for _ in range(len(token)):
+#                 context_mask.append(0)
+#                 context_token_to_origin_index.append(0)
+#                 start_token_mask.append(0)
+#                 end_token_mask.append(0)
+#                 start_labels.append(0)
+#                 end_labels.append(0)
+#             tokens.extend(token)
+#         tokens = [cls_token] + tokens + [sep_token]
+#         token_type_ids = [0] * len(tokens)
+#         for idx, word in enumerate(context):
+#             token = self.tokenizer.tokenize(word)
+#             tokens.extend(token)
+#             for i, _ in enumerate(token):
+#                 if i == 0:
+#                     start_token_mask.append(1)
+#                 else:
+#                     start_token_mask.append(0)
+#                 if i == len(token) - 1:
+#                     end_token_mask.append(1)
+#                 else:
+#                     end_token_mask.append(0)
+#                 if i == 0 and idx in data['start_positions']:
+#                     start_labels.append(1)
+#                 else:
+#                     start_labels.append(0)
+#                 if i == len(token) - 1 and idx in data['end_positions']:
+#                     end_labels.append(1)
+#                 else:
+#                     end_labels.append(0)
+#                 context_token_to_origin_index.append(idx)
+#                 context_mask.append(1)
+#                 token_type_ids.append(1)
 
+#         # truncate
+#         if len(tokens) > self.max_len - 1:
+#             tokens = tokens[:self.max_len - 1]
+#             context_mask = context_mask[:self.max_len - 1]
+#             context_token_to_origin_index = context_token_to_origin_index[:self.max_len - 1]
+#             start_labels = start_labels[:self.max_len - 1]
+#             end_labels = end_labels[:self.max_len - 1]
+#             start_token_mask = start_token_mask[:self.max_len - 1]
+#             end_token_mask = end_token_mask[:self.max_len - 1]
+#             token_type_ids = token_type_ids[:self.max_len - 1]
+        
+#         tokens = tokens + [sep_token]
+#         context_mask = context_mask + [0]
+#         context_token_to_origin_index = context_token_to_origin_index + [0]
+#         start_labels = start_labels + [0]
+#         end_labels = end_labels + [0]
+#         start_token_mask = start_token_mask + [0]
+#         end_token_mask = end_token_mask + [0]
+#         token_type_ids = token_type_ids + [1]
+
+
+#         # pad
+#         token_len = len(tokens)
+#         attention_mask = [1] * token_len + [0] * (self.max_len - token_len)
+#         token_type_ids = token_type_ids + [0] * (self.max_len - token_len)
+#         for _ in range(self.max_len - token_len):
+#             tokens.append(pad_token)
+#             context_mask.append(0)
+#             context_token_to_origin_index.append(0)
+#             start_labels.append(0)
+#             end_labels.append(0)
+#             start_token_mask.append(0)
+#             end_token_mask.append(0)
+        
+#         input_ids = self.tokenizer.convert_tokens_to_ids(tokens)
+#         return{
+#             'input_ids': torch.tensor(input_ids, dtype=torch.long),
+#             'attention_mask': torch.tensor(attention_mask, dtype=torch.long),
+#             'token_type_ids': torch.tensor(token_type_ids, dtype=torch.long),
+#             'start_token_mask': torch.tensor(start_token_mask, dtype=torch.long),
+#             'end_token_mask': torch.tensor(end_token_mask, dtype=torch.long),
+#             'start_labels': torch.tensor(start_labels, dtype=torch.long),
+#             'end_labels': torch.tensor(end_labels, dtype=torch.long),
+#             'token_to_origin_index': torch.tensor(context_token_to_origin_index, dtype=torch.long),
+#             'context_id': data['context_id'],
+#             'tag_id': data['tag_id'],
+#             'label_src': data['label_src'],
+#             'query_src': data['query_src'],
+#             'context_src': data['context_src'],
+#             'tag': data['tag']
+#         }
+
+# # 这是RCSF原始的baseline实现
+# def collate_fn(batch):  # batch是字典的列表
+#     output = {}
+#     output['input_ids'] = torch.stack([x['input_ids'] for x in batch])
+#     output['attention_mask'] = torch.stack([x['attention_mask'] for x in batch])
+#     output['token_type_ids'] = torch.stack([x['token_type_ids'] for x in batch])
+#     output['start_token_mask'] = torch.stack([x['start_token_mask'] for x in batch])
+#     output['end_token_mask'] = torch.stack([x['end_token_mask'] for x in batch])
+#     output['start_labels'] = torch.stack([x['start_labels'] for x in batch])
+#     output['end_labels'] = torch.stack([x['end_labels'] for x in batch])
+#     output['token_to_origin_index'] = torch.stack([x['token_to_origin_index'] for x in batch])
+#     output['context_id'] = []
+#     output['context_id'].extend([x['context_id'] for x in batch])
+#     output['tag_id'] = []
+#     output['tag_id'].extend([x['tag_id'] for x in batch])
+#     output['label_src'] = []
+#     output['label_src'].extend([x['label_src'] for x in batch])
+#     output['query_src'] = []
+#     output['query_src'].extend([x['query_src'] for x in batch])
+#     output['context_src'] = []
+#     output['context_src'].extend([x['context_src'] for x in batch])
+#     output['tag'] = []
+#     output['tag'].extend([x['tag'] for x in batch])
+#     return output
+
+
+# 实验七
+# class MrcAndTagDataset(Dataset):
+#     def __init__(self, all_data, tokenizer, query_max_len, context_max_len):
+#         super().__init__()
+#         self.all_data = all_data
+#         self.tokenizer = tokenizer
+#         self.context_max_len = context_max_len
+#         self.query_max_len = query_max_len
+    
+#     def __len__(self):
+#         return len(self.all_data)
+    
+#     def __getitem__(self, index):
+#         data = self.all_data[index]
+#         context = data['context_src']
+#         query = data['query_src']
+#         cls_token = self.tokenizer.cls_token
+#         sep_token = self.tokenizer.sep_token
+#         pad_token = self.tokenizer.pad_token
+#         context = context.strip().split()
+#         query = query.strip().split()
+
+#         query_tokens = []
+#         query_start_mask = []
+#         query_end_mask = []
+#         query_token_to_origin_index = []
+
+
+#         for idx, word in enumerate(query):
+#             tokens = self.tokenizer.tokenize(word)
+#             query_start_mask.append(1)
+#             query_start_mask = query_start_mask + [0] * (len(tokens) - 1)
+#             query_end_mask = query_end_mask + [0] * (len(tokens) - 1)
+#             query_end_mask.append(1)
+#             query_tokens = query_tokens + tokens
+#             query_token_to_origin_index = query_token_to_origin_index + [idx] * len(tokens)
+
+#         # cls
+#         query_tokens = [cls_token] + query_tokens
+#         query_start_mask = [0] + query_start_mask
+#         query_end_mask = [0] + query_end_mask
+#         query_token_to_origin_index = [0] + query_token_to_origin_index
+#         # truncate
+#         if len(query_tokens) > self.query_max_len - 1:
+#             query_tokens = query_tokens[: self.query_max_len - 1]
+#             query_start_mask = query_start_mask[: self.query_max_len - 1]
+#             query_end_mask = query_end_mask[: self.query_max_len - 1]
+#             query_token_to_origin_index = query_token_to_origin_index[: self.query_max_len - 1]
+#         # sep
+#         query_tokens = query_tokens + [sep_token]
+#         query_start_mask = query_start_mask + [0]
+#         query_end_mask = query_end_mask + [0]
+#         query_token_to_origin_index == query_token_to_origin_index + [0]
+#         query_attention_mask = [1] * len(query_tokens)
+#         query_token_type_ids = [0] * len(query_tokens)
+#         # pad
+#         pad_len = self.query_max_len - len(query_tokens)
+#         query_tokens = query_tokens + [pad_token] * pad_len
+#         query_start_mask = query_start_mask + [0] * pad_len
+#         query_end_mask = query_end_mask + [0] * pad_len
+#         query_attention_mask = query_attention_mask + [0] * pad_len
+#         query_token_type_ids = query_token_type_ids + [0] * pad_len
+#         query_token_to_origin_index = query_token_to_origin_index + [0] * pad_len
+
+
+#         context_tokens = []
+#         context_start_mask = []
+#         context_end_mask = []
+#         context_token_to_origin_index = []
+#         start_labels = []
+#         end_labels =[]
+
+#         for idx, word in enumerate(context):
+#             tokens = self.tokenizer.tokenize(word)
+#             context_start_mask.append(1)
+#             context_start_mask = context_start_mask + [0] * (len(tokens) - 1)
+#             context_end_mask = context_end_mask + [0] * (len(tokens) - 1)
+#             context_end_mask.append(1)
+#             context_tokens = context_tokens + tokens
+#             context_token_to_origin_index = context_token_to_origin_index + [idx] * len(tokens)
+#             if idx in data['start_positions']:
+#                 start_labels.append(1)
+#                 start_labels = start_labels + [0] * (len(tokens) - 1)
+#             else:
+#                 start_labels = start_labels + [0] * len(tokens)
+#             if idx in data['end_positions']:
+#                 end_labels = end_labels + [0] * (len(tokens) - 1)
+#                 end_labels.append(1)
+#             else:
+#                 end_labels = end_labels + [0] * len(tokens)
+        
+#         # cls
+#         context_tokens = [cls_token] + context_tokens
+#         context_start_mask = [0] + context_start_mask
+#         context_end_mask = [0] + context_end_mask
+#         context_token_to_origin_index = [0] + context_token_to_origin_index
+#         start_labels = [0] + start_labels
+#         end_labels = [0] + end_labels
+#         # truncate
+#         if len(context_tokens) > self.context_max_len - 1:
+#             context_tokens = context_tokens[: self.context_max_len - 1]
+#             context_start_mask = context_start_mask[: self.context_max_len - 1]
+#             context_end_mask = context_end_mask[: self.context_max_len - 1]
+#             context_token_to_origin_index = context_token_to_origin_index[: self.context_max_len - 1]
+#             start_labels = start_labels[: self.context_max_len - 1]
+#             end_labels = end_labels[: self.context_max_len - 1]
+#         # sep
+#         context_tokens = context_tokens + [sep_token]
+#         context_start_mask = context_start_mask + [0]
+#         context_end_mask = context_end_mask + [0]
+#         context_token_to_origin_index = context_token_to_origin_index + [0]
+#         start_labels = start_labels + [0]
+#         end_labels = end_labels + [0]
+#         context_attention_mask = [1] * len(context_tokens)
+#         context_token_type_ids = [0] * len(context_tokens)
+#         # pad
+#         pad_len = self.context_max_len - len(context_tokens)
+#         context_tokens = context_tokens + [pad_token] * pad_len
+#         context_start_mask = context_start_mask + [0] * pad_len
+#         context_end_mask = context_end_mask + [0] * pad_len
+#         context_token_to_origin_index = context_token_to_origin_index + [0] * pad_len
+#         start_labels = start_labels + [0] * pad_len
+#         end_labels = end_labels + [0] * pad_len
+#         context_attention_mask = context_attention_mask + [0] * pad_len
+#         context_token_type_ids = context_token_type_ids + [0] * pad_len
+
+#         query_input_ids = self.tokenizer.convert_tokens_to_ids(query_tokens)
+#         context_input_ids = self.tokenizer.convert_tokens_to_ids(context_tokens)
+#         return{
+#             'query_input_ids': torch.tensor(query_input_ids, dtype=torch.long),
+#             'query_attention_mask': torch.tensor(query_attention_mask, dtype=torch.long),
+#             'query_token_type_ids': torch.tensor(query_token_type_ids, dtype=torch.long),
+#             'query_start_mask': torch.tensor(query_start_mask, dtype=torch.long),
+#             'query_end_mask': torch.tensor(query_end_mask, dtype=torch.long),
+#             'start_labels': torch.tensor(start_labels, dtype=torch.long),
+#             'end_labels': torch.tensor(end_labels, dtype=torch.long),
+#             'context_input_ids': torch.tensor(context_input_ids, dtype=torch.long),
+#             'context_attention_mask': torch.tensor(context_attention_mask, dtype=torch.long),
+#             'context_token_type_ids': torch.tensor(context_token_type_ids, dtype=torch.long),
+#             'context_start_mask': torch.tensor(context_start_mask, dtype=torch.long),
+#             'context_end_mask': torch.tensor(context_end_mask, dtype=torch.long),
+#             'query_token_to_origin_index': query_token_to_origin_index,
+#             'context_token_to_origin_index': context_token_to_origin_index,
+#             'context_id': data['context_id'],
+#             'tag_id': data['tag_id'],
+#             'label_src': data['label_src'],
+#             'query_src': data['query_src'],
+#             'context_src': data['context_src'],
+#             'tag': data['tag']
+#         }
+
+
+# # 这是RCSF原始的baseline实现
+# def collate_fn(batch):  # batch是字典的列表
+#     output = {}
+#     output['input_ids'] = torch.stack([x['input_ids'] for x in batch])
+#     output['attention_mask'] = torch.stack([x['attention_mask'] for x in batch])
+#     output['token_type_ids'] = torch.stack([x['token_type_ids'] for x in batch])
+#     output['start_token_mask'] = torch.stack([x['start_token_mask'] for x in batch])
+#     output['end_token_mask'] = torch.stack([x['end_token_mask'] for x in batch])
+#     output['start_labels'] = torch.stack([x['start_labels'] for x in batch])
+#     output['end_labels'] = torch.stack([x['end_labels'] for x in batch])
+#     output['token_to_origin_index'] = torch.stack([x['token_to_origin_index'] for x in batch])
+#     output['context_id'] = []
+#     output['context_id'].extend([x['context_id'] for x in batch])
+#     output['tag_id'] = []
+#     output['tag_id'].extend([x['tag_id'] for x in batch])
+#     output['label_src'] = []
+#     output['label_src'].extend([x['label_src'] for x in batch])
+#     output['query_src'] = []
+#     output['query_src'].extend([x['query_src'] for x in batch])
+#     output['context_src'] = []
+#     output['context_src'].extend([x['context_src'] for x in batch])
+#     output['tag'] = []
+#     output['tag'].extend([x['tag'] for x in batch])
+#     return output
+
+# 实验七
+# def collate_fn(batch):  # batch是字典的列表
+#     output = {}
+#     output['query_input_ids'] = torch.stack([x['query_input_ids'] for x in batch])
+#     output['query_attention_mask'] = torch.stack([x['query_attention_mask'] for x in batch])
+#     output['query_token_type_ids'] = torch.stack([x['query_token_type_ids'] for x in batch])
+#     output['query_start_mask'] = torch.stack([x['query_start_mask'] for x in batch])
+#     output['query_end_mask'] = torch.stack([x['query_end_mask'] for x in batch])
+#     output['start_labels'] = torch.stack([x['start_labels'] for x in batch])
+#     output['end_labels'] = torch.stack([x['end_labels'] for x in batch])
+#     output['context_input_ids'] = torch.stack([x['context_input_ids'] for x in batch])
+#     output['context_attention_mask'] = torch.stack([x['context_attention_mask'] for x in batch])
+#     output['context_token_type_ids'] = torch.stack([x['context_token_type_ids'] for x in batch])
+#     output['context_start_mask'] = torch.stack([x['context_start_mask'] for x in batch])
+#     output['context_end_mask'] = torch.stack([x['context_end_mask'] for x in batch])
+
+#     output['query_token_to_origin_index'] = [x['query_token_to_origin_index'] for x in batch]
+#     output['context_token_to_origin_index'] = [x['context_token_to_origin_index'] for x in batch]
+
+#     output['context_id'] = []
+#     output['context_id'].extend([x['context_id'] for x in batch])
+#     output['tag_id'] = []
+#     output['tag_id'].extend([x['tag_id'] for x in batch])
+#     output['label_src'] = []
+#     output['label_src'].extend([x['label_src'] for x in batch])
+#     output['query_src'] = []
+#     output['query_src'].extend([x['query_src'] for x in batch])
+#     output['context_src'] = []
+#     output['context_src'].extend([x['context_src'] for x in batch])
+#     output['tag'] = []
+#     output['tag'].extend([x['tag'] for x in batch])
+#     return output
+
+
+# 实验八(把query和context concatenate起来中间不加[sep])
 class MrcAndTagDataset(Dataset):
-    def __init__(self, all_data, tokenizer, max_len=128):
+    def __init__(self, all_data, tokenizer, max_len):
         super().__init__()
         self.all_data = all_data
         self.tokenizer = tokenizer
@@ -98,186 +448,104 @@ class MrcAndTagDataset(Dataset):
         cls_token = self.tokenizer.cls_token
         sep_token = self.tokenizer.sep_token
         pad_token = self.tokenizer.pad_token
-        query_span = data['query_span']  # 左闭右开
-        context_span = data['context_span']  # 左闭右开
-        query = query.strip().split()
         context = context.strip().split()
-        assert len(query_span) == len(query)
-        assert len(context_span) == len(context)
-        start_token_mask = [0, 0]  # cls and sep
-        end_token_mask = [0, 0]
-        start_labels = [0, 0]
-        end_labels = [0, 0]
-        context_token_to_origin_index = [0, 0]
+        query = query.strip().split()
+
+
         tokens = []
-        sub_query_span = []
-        query_origin_to_subword = []  # 原始单词在subword序列中的左右位置
-        
-        for idx, word in enumerate(query):
-            token = self.tokenizer.tokenize(word)
-            query_origin_to_subword.append((len(tokens), len(tokens) + len(token)))  # 左闭右开
-            for _ in range(len(token)):
-                context_token_to_origin_index.append(0)
-                start_token_mask.append(0)
-                end_token_mask.append(0)
-                start_labels.append(0)
-                end_labels.append(0)
-            tokens.extend(token)
-        for idx, (start_query, end_query) in enumerate(query_span):  # query_span转化到subword的场景
-            start, end = query_origin_to_subword[idx]
-            start_sub_query = query_origin_to_subword[start_query][0]
-            end_sub_query = query_origin_to_subword[end_query - 1][1]
-            if start + 1 != end:
-                sub_query_span.append((start_sub_query, end_sub_query + 1))
-                for i in range(start + 1, end):
-                    sub_query_span.append((i, i + 1))
-            else:
-                sub_query_span.append((start_sub_query, end_sub_query + 1))
-        assert len(sub_query_span) == len(tokens)
-        tokens = [cls_token] + tokens + [sep_token]
-        token_type_ids = [0] * len(tokens)
+        start_token_mask = []
+        end_token_mask = []
+        start_labels = []
+        end_labels = []
+        token_to_origin_index = []
 
-        query_token_len = len(tokens)
-        start_positions = data['start_positions']  # 左闭
-        end_positions = data['end_positions']  # 右闭
-        if len(start_positions) >= 1:
-            start_positions = start_positions[0]
-            end_positions = end_positions[0]
-        else:
-            start_positions = -1
-            end_positions = -1
-            start_label = 0
-            end_label = 0
-        sub_context_span = []
-        context_origin_to_subword = []
-        pre_token_len = 0
+        for _, word in enumerate(query):
+            sub_words = self.tokenizer.tokenize(word)
+            start_token_mask = start_token_mask + [0] * len(sub_words)
+            end_token_mask = end_token_mask + [0] * len(sub_words)
+            token_to_origin_index = token_to_origin_index + [0] * len(sub_words)
+            tokens = tokens + sub_words
+            start_labels = start_labels + [0] * len(sub_words)
+            end_labels = end_labels + [0] * len(sub_words)
+        
         for idx, word in enumerate(context):
-            token = self.tokenizer.tokenize(word)
-            context_origin_to_subword.append((pre_token_len, len(token) + pre_token_len))
-            pre_token_len += len(token)
-            if idx == start_positions:
-                start_label = query_token_len + (pre_token_len - len(token))
-            if idx == end_positions:
-                end_label = query_token_len + pre_token_len - 1
-            tokens.extend(token)
-            for i, _ in enumerate(token):
-                if i == 0:
-                    start_token_mask.append(1)
-                else:
-                    start_token_mask.append(0)
-                if i == len(token) - 1:
-                    end_token_mask.append(1)
-                else:
-                    end_token_mask.append(0)
-                if i == 0 and idx in data['start_positions']:
-                    start_labels.append(1)
-                else:
-                    start_labels.append(0)
-                if i == len(token) - 1 and idx in data['end_positions']:
-                    end_labels.append(1)
-                else:
-                    end_labels.append(0)
-                context_token_to_origin_index.append(idx)
-                token_type_ids.append(1)
-
-        # context_span转化到subword的场景
-        for idx, (start_context, end_context) in enumerate(context_span):
-            start, end = context_origin_to_subword[idx]
-            sub_start_context = context_origin_to_subword[start_context][0]
-            sub_end_context = context_origin_to_subword[end_context - 1][1]
-            if start + 1 != end:
-                sub_context_span.append((sub_start_context, sub_end_context + 1))
-                for i in range(start + 1, end):
-                    sub_context_span.append((i, i + 1))
+            sub_words = self.tokenizer.tokenize(word)
+            start_token_mask = start_token_mask + [1]
+            start_token_mask = start_token_mask + [0] * (len(sub_words) - 1)
+            end_token_mask = end_token_mask + [0] * (len(sub_words) - 1)
+            end_token_mask = end_token_mask + [1]
+            token_to_origin_index = token_to_origin_index + [idx] * len(sub_words)
+            tokens = tokens + sub_words
+            if idx in data['start_positions']:
+                start_labels = start_labels + [1]
+                start_labels = start_labels + [0] * (len(sub_words) - 1)
             else:
-                sub_context_span.append((sub_start_context, sub_end_context + 1))
-        
-        assert len(sub_context_span) == pre_token_len
+                start_labels = start_labels + [0] * len(sub_words)
+            if idx in data['end_positions']:
+                end_labels = end_labels + [0] * (len(sub_words) - 1)
+                end_labels = end_labels + [1]
+            else:
+                end_labels = end_labels + [0] * len(sub_words)
 
-        query_span_mask = np.zeros((len(sub_query_span), len(sub_query_span)))
-        for idx, (start, end) in enumerate(sub_query_span):
-            assert start < end
-            query_span_mask[start: end, idx] = 1
-        
-        context_span_mask = np.zeros((len(sub_context_span), len(sub_context_span)))
-        for idx, (start, end) in enumerate(sub_context_span):
-            assert start < end
-            context_span_mask[start: end, idx] = 1
-
-        # truncate context_span_mask
-        if len(query_span_mask) + 3 + len(context_span_mask) > self.max_len:
-            context_span_len = self.max_len - 3 - len(query_span_mask)
-            context_span_mask = context_span_mask[: context_span_len, : context_span_len]
+        # cls
+        tokens = [cls_token] + tokens
+        start_token_mask = [0] + start_token_mask
+        end_token_mask = [0] + end_token_mask
+        start_labels = [0] + start_labels
+        end_labels = [0] + end_labels
+        token_to_origin_index = [0] + token_to_origin_index
 
         # truncate
         if len(tokens) > self.max_len - 1:
-            tokens = tokens[:self.max_len - 1]
-            context_token_to_origin_index = context_token_to_origin_index[:self.max_len - 1]
-            start_labels = start_labels[:self.max_len - 1]
-            end_labels = end_labels[:self.max_len - 1]
-            start_token_mask = start_token_mask[:self.max_len - 1]
-            end_token_mask = end_token_mask[:self.max_len - 1]
-            token_type_ids = token_type_ids[:self.max_len - 1]
+            tokens = tokens[: self.max_len - 1]
+            start_token_mask = start_token_mask[: self.max_len - 1]
+            end_token_mask = end_token_mask[: self.max_len - 1]
+            start_labels = start_labels[: self.max_len - 1]
+            end_labels = end_labels[: self.max_len - 1]
+            token_to_origin_index = token_to_origin_index[: self.max_len - 1]
         
+        # sep
         tokens = tokens + [sep_token]
-        context_token_to_origin_index = context_token_to_origin_index + [0]
-        start_labels = start_labels + [0]
-        end_labels = end_labels + [0]
         start_token_mask = start_token_mask + [0]
         end_token_mask = end_token_mask + [0]
-        token_type_ids = token_type_ids + [1]
-
+        start_labels = start_labels + [0]
+        end_labels = end_labels + [0]
+        token_to_origin_index = token_to_origin_index + [0]
+        attention_mask = [1] * len(tokens)
+        token_type_ids = [0] * len(tokens)
 
         # pad
-        token_len = len(tokens)
-        attention_mask = [1] * token_len + [0] * (self.max_len - token_len)
-        token_type_ids = token_type_ids + [0] * (self.max_len - token_len)
-        for _ in range(self.max_len - token_len):
-            tokens.append(pad_token)
-            context_token_to_origin_index.append(0)
-            start_labels.append(0)
-            end_labels.append(0)
-            start_token_mask.append(0)
-            end_token_mask.append(0)
-        
+        pad_len = self.max_len - len(tokens)
+        tokens = tokens + [pad_token] * pad_len
+        start_token_mask = start_token_mask + [0] * pad_len
+        end_token_mask = end_token_mask + [0] * pad_len
+        start_labels = start_labels + [0] * pad_len
+        end_labels = end_labels + [0] * pad_len
+        attention_mask = attention_mask + [0] * pad_len
+        token_type_ids = token_type_ids + [0] * pad_len
+        token_to_origin_index = token_to_origin_index + [0] * pad_len
+
+
         input_ids = self.tokenizer.convert_tokens_to_ids(tokens)
 
-
-        input_span_mask = np.zeros((self.max_len, self.max_len))
-        assert len(query_span_mask) + 3 + len(context_span_mask) + (self.max_len - token_len) == self.max_len
-        query_span_len = len(query_span_mask)
-        context_span_len = len(context_span_mask)
-        input_span_mask[1: query_span_len + 1, 1:query_span_len + 1] = query_span_mask
-        input_span_mask[query_span_len + 2: query_span_len + 2 + context_span_len,
-                        query_span_len + 2: query_span_len + 2 + context_span_len] = context_span_mask
-
-        if len(data['start_positions']) == 0:
-            assert start_label == 0
-            assert end_label == 0
-        else:
-            assert start_label != 0
-            assert end_label != 0
         return{
             'input_ids': torch.tensor(input_ids, dtype=torch.long),
             'attention_mask': torch.tensor(attention_mask, dtype=torch.long),
             'token_type_ids': torch.tensor(token_type_ids, dtype=torch.long),
             'start_token_mask': torch.tensor(start_token_mask, dtype=torch.long),
             'end_token_mask': torch.tensor(end_token_mask, dtype=torch.long),
-            # 'start_label': start_label,  # int
-            # 'end_label': end_label,  # int
-            'start_labels': torch.tensor(start_labels, dtype=torch.long),  # [L]
-            'end_labels': torch.tensor(end_labels, dtype=torch.long),  # [L]
-            'token_to_origin_index': torch.tensor(context_token_to_origin_index, dtype=torch.long),
+            'start_labels': torch.tensor(start_labels, dtype=torch.long),
+            'end_labels': torch.tensor(end_labels, dtype=torch.long),
+            'token_to_origin_index': token_to_origin_index,
             'context_id': data['context_id'],
             'tag_id': data['tag_id'],
             'label_src': data['label_src'],
             'query_src': data['query_src'],
             'context_src': data['context_src'],
-            'tag': data['tag'],
-            'input_span_mask': torch.tensor(input_span_mask, dtype=torch.long)
+            'tag': data['tag']
         }
 
-
+# 实验八(把query和context concatenate起来中间不加[sep])
 def collate_fn(batch):  # batch是字典的列表
     output = {}
     output['input_ids'] = torch.stack([x['input_ids'] for x in batch])
@@ -285,10 +553,11 @@ def collate_fn(batch):  # batch是字典的列表
     output['token_type_ids'] = torch.stack([x['token_type_ids'] for x in batch])
     output['start_token_mask'] = torch.stack([x['start_token_mask'] for x in batch])
     output['end_token_mask'] = torch.stack([x['end_token_mask'] for x in batch])
-    output['start_labels'] = torch.stack([x['start_labels'] for x in batch])  # [B, L]
-    output['end_labels'] = torch.stack([x['end_labels'] for x in batch])  # [B, L]
-    output['input_span_mask'] = torch.stack([x['input_span_mask'] for x in batch])
-    output['token_to_origin_index'] = torch.stack([x['token_to_origin_index'] for x in batch])
+    output['start_labels'] = torch.stack([x['start_labels'] for x in batch])
+    output['end_labels'] = torch.stack([x['end_labels'] for x in batch])
+
+    output['token_to_origin_index'] = [x['token_to_origin_index'] for x in batch]
+
     output['context_id'] = []
     output['context_id'].extend([x['context_id'] for x in batch])
     output['tag_id'] = []
@@ -301,76 +570,41 @@ def collate_fn(batch):  # batch是字典的列表
     output['context_src'].extend([x['context_src'] for x in batch])
     output['tag'] = []
     output['tag'].extend([x['tag'] for x in batch])
-    # output['start_label'] = torch.tensor([x['start_label'] for x in batch], dtype=torch.long)
-    # output['end_label'] = torch.tensor([x['end_label'] for x in batch], dtype=torch.long)
     return output
 
 
-def get_dataset(tgt_domain, n_samples, tokenizer, max_len):
-    assert n_samples == 0
-    with open(f'../data/snips_processed/{tgt_domain}/train.json', 'r', encoding='utf-8') as f:
-        train_data = json.load(f)
-    with open(f'../data/snips_processed/{tgt_domain}/valid.json', 'r', encoding='utf-8') as f:
-        valid_data = json.load(f)
-    with open(f'../data/snips_processed/{tgt_domain}/test.json', 'r', encoding='utf-8') as f:
-        test_data = json.load(f)
+def get_dataset(tgt_domain, n_samples, tokenizer, max_len, query_type="desp"):
+    all_data = DataProcessor.get_all_data()
+    train_data = []
+    valid_data = []
+    test_data = []
+    train_data_orig = []
+    valid_data_orig = []
+    test_data_orig = []
+    for dm_name, dm_data in all_data.items():  # dm_data是原始字符串的列表
+        if dm_name != tgt_domain and dm_name != 'atis':  # atis只做测试用
+            train_data.extend(DataProcessor.convert_rowdata_to_mrc(dm_data, dm_name, query_type=query_type))
+            train_data_orig.extend(dm_data)
+    
+    train_data.extend(DataProcessor.convert_rowdata_to_mrc(all_data[tgt_domain][:n_samples], tgt_domain, query_type=query_type))  # 使用tgt_domain里的n_samples个训练样本
+    train_data_orig.extend(all_data[tgt_domain][:n_samples])
+    valid_data = DataProcessor.convert_rowdata_to_mrc(all_data[tgt_domain][n_samples:500], tgt_domain, query_type=query_type)
+    valid_data_orig.extend(all_data[tgt_domain][n_samples:500])
+    test_data = DataProcessor.convert_rowdata_to_mrc(all_data[tgt_domain][500:], tgt_domain, query_type=query_type)
+    test_data_orig.extend(all_data[tgt_domain][500:])
 
     train_dataset = MrcAndTagDataset(train_data, tokenizer, max_len)
     valid_dataset = MrcAndTagDataset(valid_data, tokenizer, max_len)
     test_dataset = MrcAndTagDataset(test_data, tokenizer, max_len)
 
     logger.info(f'The target domain is {tgt_domain}')
-    logger.info(f'train_data length = {len(train_data)}')
-    logger.info(f'valid_data length = {len(valid_data)}')
-    logger.info(f'test_data length = {len(test_data)}')
+    logger.info(f'train_data: {len(train_data_orig)} -> {len(train_data)}')
+    logger.info(f'valid_data: {len(valid_data_orig)} -> {len(valid_data)}')
+    logger.info(f'test_data: {len(test_data_orig)} -> {len(test_data)}')
 
     return train_dataset, valid_dataset, test_dataset
 
 
 
 if __name__ == '__main__':
-    # from transformers import BertTokenizer
-    # # from tqdm import tqdm
-    # # import json
-    # from torch.utils.data import DataLoader
-    # logging.basicConfig(
-    #     format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
-    #     datefmt='%m/%d/%Y %H:%M:%S',
-    #     level=logging.INFO
-    # )
-    # tokenizer = BertTokenizer.from_pretrained('bert-large-uncased')
-    # tgt_domain = 'BookRestaurant'
-    # n_samples = 0
-    # data = ['play a chant by mj cole	O O B-music_item O B-artist I-artist']
-    # all_data = DataProcessor.convert_rowdata_to_mrc(data, dm_name=tgt_domain, query_type='desp')
-    # # for data in all_data:
-    # #     print(data)
-    # dataset = MrcAndTagDataset(all_data, tokenizer, max_len=20)
-    # train_data = DataLoader(
-    #     dataset,
-    #     batch_size=2,
-    #     collate_fn=collate_fn
-    # )
-    # for i in train_data:
-    #     a = 1
-    # print(len(dataset))
-    # for i in dataset:
-    #     print(i)
-    # train_dataset, valid_dataset, test_dataset = get_dataset(tgt_domain, n_samples, tokenizer)
-    # print(len(train_dataset))
-    # print(len(valid_dataset))
-    # print(len(test_dataset))
-    # no_cnt = 0
-    # multi_cnt = 0
-    # single_cnt = 0
-    # for i in tqdm(train_dataset):
-    #     if len(i['start_end_positions']) == 0:
-    #         no_cnt += 1
-    #     if len(i['start_end_positions']) == 1:
-    #         single_cnt += 1
-    #     if len(i['start_end_positions']) > 1:
-    #         multi_cnt += 1
-    # print(no_cnt)
-    # print(single_cnt)
-    # print(multi_cnt)
     pass

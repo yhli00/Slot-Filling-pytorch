@@ -90,7 +90,7 @@ class Trainer():
                 input_ids = batch['input_ids'].to(self.device)  # [B, seq_len]
                 attention_mask = batch['attention_mask'].to(self.device)
                 token_type_ids = batch['token_type_ids'].to(self.device)
-                start_token_mask = batch['start_token_mask'].to(self.device)
+                start_token_mask = batch['start_token_mask'].to(self.device)  # [B, seq_len]
                 end_token_mask = batch['end_token_mask'].to(self.device)
                 start_labels = batch['start_labels'].to(self.device)  # [B, L]
                 end_labels = batch['end_labels'].to(self.device)  # [B, L]
@@ -122,7 +122,7 @@ class Trainer():
                 if (step + 1) % self.args.gradient_accumulation_steps == 0:
                     self.optimizer.step()
                     self.scheduler.step()
-                if (step + 1) % 1000 == 0:
+                if (step + 1) % 2000 == 0:
                     with torch.no_grad():
                         acc, recall, f1 = self.evaluate('valid')
                         logger.info(f'Train epoch {epoch + 1}, step[{step + 1} / {len(self.train_data)}], Evalution acc={acc:.4f}, recall={recall:.4f}, f1={f1:.4f}')
@@ -163,13 +163,13 @@ class Trainer():
             input_ids = batch['input_ids'].to(self.device)  # [B, seq_len]
             attention_mask = batch['attention_mask'].to(self.device)
             token_type_ids = batch['token_type_ids'].to(self.device)
-            start_token_mask = batch['start_token_mask'].to(self.device)
-            end_token_mask = batch['end_token_mask'].to(self.device)
+            start_token_mask = batch['start_token_mask'].detach().cpu().numpy()  # [B, seq_len]
+            end_token_mask = batch['end_token_mask'].detach().cpu().numpy()
 
             context_srcs = batch['context_src']  # [B]str
             context_ids = batch['context_id']  # [B]int
             tags = batch['tag']  # [B]str
-            token_to_origin_index = batch['token_to_origin_index']
+            token_to_origin_index = batch['token_to_origin_index'].detach().cpu().numpy()
             label_srcs = batch['label_src']  # [B]str
 
             # start_label = batch['start_label'].to(self.device)  # [B]
@@ -216,7 +216,7 @@ class Trainer():
                     for end in end_sorted[: self.args.n_top]:
                         if start_token_mask[i][start] == 0:
                             continue
-                        if start_token_mask[i][end] == 0:
+                        if end_token_mask[i][end] == 0:
                             continue
                         if start > end:
                             continue

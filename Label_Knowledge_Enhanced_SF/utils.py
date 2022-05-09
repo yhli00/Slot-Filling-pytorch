@@ -19,6 +19,47 @@ slot2desp = {'playlist': 'playlist', 'music_item': 'music item', 'geographic_poi
              'rating_unit': 'rating unit', 'year': 'year', 'party_size_number': 'number', 'condition_description': 'weather', 'condition_temperature': 'temperature'}
 
 
+# slot2desp = {
+#     'music_item': 'what is the music item ?',
+#     'playlist_owner': 'who is the owner ?',
+#     'entity_name': 'what is the entity name ?',
+#     'playlist': 'what is the playlist ?',
+#     'artist': 'who is the artist?',
+#     'facility': 'what is the facility ?',
+#     'timeRange': 'when is the time range ?',
+#     'restaurant_name': 'what is the name ?',
+#     'country': 'what is the country ?',
+#     'cuisine': 'what is the cuisine ?',
+#     'restaurant_type': 'what is the restaurant type ?',
+#     'served_dish': 'what is the served dish ?',
+#     'party_size_number': 'how many people ?',
+#     'poi': 'where is the location ?',
+#     'sort': 'what is the type ?',
+#     'spatial_relation': 'what is the spatial relation ?',
+#     'state': 'what is the state ?',
+#     'party_size_description': 'who are the persons ?',
+#     'current_location': 'what is the current location ?',
+#     'geographic_poi': 'where is the location ?',
+#     'condition_temperature': 'how is the temperature ?',
+#     'condition_description': 'how is the weather?',
+#     'genre': 'what is the genre ?',
+#     'music_item': 'what is the music item ?',
+#     'service': 'what is the service ?',
+#     'year': 'when is the year ?',
+#     'album': 'what is the album ?',
+#     'track': 'what is the track ?',
+#     'object_part_of_series_type': 'what is the series ?',
+#     'object_select': 'which to select ?',
+#     'rating_value': 'how many rating value ?',
+#     'object_name': 'what is the object name ?',
+#     'object_type': 'what is the object type ?',
+#     'rating_unit': 'what is the rating unit ?',
+#     'best_rating': 'how many rating points in total ?',
+#     'movie_type': 'what is the movie type ?',
+#     'object_location_type': 'what is the location type ?',
+#     'location_name': 'where is the location name ?',
+#     'movie_name': 'what is the movie name ?'
+# }
 
 
 # slot2desp = {

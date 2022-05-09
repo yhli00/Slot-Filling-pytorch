@@ -1,10 +1,107 @@
+from unicodedata import bidirectional
 import torch
 import torch.nn as nn
 # from transformers import BertModel
 import sys
 from transformers import DebertaV2Model, BertModel
+from modeling_bart import BartModel
 import torch.nn.functional as F
 import math
+
+
+
+
+
+class LabelEnhancedBartMrc(nn.Module):
+    def __init__(self, pretrained_model):
+        super().__init__()
+        self.bart = BartModel.from_pretrained(pretrained_model)
+        self.config = self.bart.config
+        self.entity_start_classifier = nn.Linear(self.bart.config.d_model, 1)
+        self.entity_end_classifier = nn.Linear(self.bart.config.d_model, 1)
+        self.entity_start_classifier.apply(self._init_weights)
+        self.entity_end_classifier.apply(self._init_weights)
+    
+    def _init_weights(self, module):
+        if isinstance(module, nn.Linear):
+            module.weight.data.normal_(mean=0.0, std=self.config.init_std)
+            if module.bias is not None:
+                module.bias.data.zero_()
+        elif isinstance(module, nn.Embedding):
+            module.weight.data.normal_(mean=0.0, std=self.config.init_std)
+            if module.padding_idx is not None:
+                module.weight.data[module.padding_idx].zero_()
+        elif isinstance(module, nn.LayerNorm):
+            module.bias.data.zero_()
+            module.weight.data.fill_(1.0)
+
+
+    def forward(self, text_input_ids, text_attention_mask, label_input_ids, label_attention_mask):
+        '''
+        text_input_ids: [B, L1]
+        text_attention_mask: [B, L1]
+        label_input_ids: [num_labels, L2]
+        label_attention_mask: [num_labels, L2]
+        '''
+        B, L1 = text_input_ids.shape
+        num_labels, L2 = label_input_ids.shape
+        encoder_output = self.bart.encoder(
+            input_ids=label_input_ids,
+            attention_mask=label_attention_mask
+        )
+        encoder_output = encoder_output.last_hidden_state  # [num_labels, L2, H]
+        _, _, H = encoder_output.shape
+        encoder_output = encoder_output.unsqueeze(0).repeat(B, 1, 1, 1)  # [B, num_labels, L2, H]
+        encoder_output = encoder_output.reshape(B * num_labels, L2, H)  # [B*num_labels, L2, H]
+        encoder_attention_mask = label_attention_mask.unsqueeze(0).repeat(B, 1, 1)  # [B, num_labels, L2]
+        encoder_attention_mask = encoder_attention_mask.reshape(B * num_labels, L2)
+
+        decoder_input_ids = text_input_ids  # [B, L1]
+        decoder_input_ids = decoder_input_ids.unsqueeze(1).repeat(1, num_labels, 1)  # [B, num_labels, L1]
+        decoder_input_ids = decoder_input_ids.reshape(B * num_labels, L1)
+        decoder_attention_mask = text_attention_mask  # [B, L1]
+        decoder_attention_mask = decoder_attention_mask.unsqueeze(1).repeat(1, num_labels, 1)  # [B, num_labels, L1]
+        decoder_attention_mask = decoder_attention_mask.reshape(B * num_labels, L1)
+
+        decoder_output = self.bart.decoder(
+            input_ids=decoder_input_ids,
+            attention_mask=decoder_attention_mask,
+            encoder_hidden_states=encoder_output,
+            encoder_attention_mask=encoder_attention_mask
+        )
+        decoder_output = decoder_output.last_hidden_state  # [B*num_labels, L1, H]
+        
+        start_logits = self.entity_start_classifier(decoder_output)
+        end_logits = self.entity_end_classifier(decoder_output)
+
+        start_logits = start_logits.squeeze(-1)  # [B*num_labels, L1]
+        end_logits = end_logits.squeeze(-1)  # [B*num_labels, L1]
+
+        start_logits = start_logits.reshape(B, num_labels, L1)
+        end_logits = end_logits.reshape(B, num_labels, L1)
+        start_logits = start_logits.transpose(1, 2)
+        end_logits = end_logits.transpose(1, 2)
+
+        return start_logits, end_logits  # [B, L1, num_labels]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class BertLayerNorm(nn.Module):
@@ -204,9 +301,8 @@ class LabelEnhanceBert(nn.Module):
         pretrained_model = args.pretrained_model
         if pretrained_model == 'microsoft/deberta-v3-large':
             self.bert = DebertaV2Model.from_pretrained(pretrained_model)
-        elif pretrained_model == 'bert-large-uncased':
+        else:
             self.bert = BertModel.from_pretrained(pretrained_model)
-        self.bert.config.hidden_dropout_prob = args.dropout_rate
         self.config = self.bert.config
         # self.pos_embedding = nn.Embedding(19, 512)
         # self.ent_embedding = nn.Embedding(19, 512)
@@ -217,8 +313,10 @@ class LabelEnhanceBert(nn.Module):
         self.entity_start_classifier = nn.Linear(self.bert.config.hidden_size, 1)
         self.entity_end_classifier = nn.Linear(self.bert.config.hidden_size, 1)
 
-        self.attention_layer = BertLayer(self.config)
-        self.attention_layer2 = BertLayer(self.config)
+        self.attention_layers = nn.ModuleList([BertLayer(self.config) for _ in range(2)])
+        # self.attention_layer = BertLayer(self.config)
+        # self.attention_layer2 = BertLayer(self.config)
+        # self.attention_layer3 = BertLayer(self.config)
         
         # self._init_weights(self.pos_embedding)
         # self._init_weights(self.ent_embedding)
@@ -227,10 +325,67 @@ class LabelEnhanceBert(nn.Module):
         # self.fc_3.apply(self._init_weights)
         self.entity_start_classifier.apply(self._init_weights)
         self.entity_end_classifier.apply(self._init_weights)
-        self.attention_layer.apply(self._init_weights)
-        self.attention_layer2.apply(self._init_weights)
+        for attention_layer in self.attention_layers:
+            attention_layer.apply(self._init_weights)
+        # self.attention_layer.apply(self._init_weights)
+        # self.attention_layer2.apply(self._init_weights)
+        # self.attention_layer3.apply(self._init_weights)
+
+        # self.att_weight_c = nn.Linear(self.config.hidden_size, 1)
+        # self.att_weight_q = nn.Linear(self.config.hidden_size, 1)
+        # self.att_weight_cq = nn.Linear(self.config.hidden_size, 1)
+        # self.att_weight_c.apply(self._init_weights)
+        # self.att_weight_q.apply(self._init_weights)
+        # self.att_weight_cq.apply(self._init_weights)
 
 
+    def attention_flow_layer(self, c, q):
+        """
+        :param c: (B, c_len, H)
+        :param q: (batch, q_len, H)
+        :return: (batch, c_len, q_len)
+        """
+        c_len = c.size(1)
+        q_len = q.size(1)
+
+        # (batch, c_len, q_len, hidden_size * 2)
+        #c_tiled = c.unsqueeze(2).expand(-1, -1, q_len, -1)
+        # (batch, c_len, q_len, hidden_size * 2)
+        #q_tiled = q.unsqueeze(1).expand(-1, c_len, -1, -1)
+        # (batch, c_len, q_len, hidden_size * 2)
+        #cq_tiled = c_tiled * q_tiled
+        #cq_tiled = c.unsqueeze(2).expand(-1, -1, q_len, -1) * q.unsqueeze(1).expand(-1, c_len, -1, -1)
+
+        cq = []
+        for i in range(q_len):
+            #(batch, 1, hidden_size * 2)
+            qi = q.select(1, i).unsqueeze(1)
+            #(batch, c_len, 1)
+            ci = self.att_weight_cq(c * qi).squeeze()
+            cq.append(ci)
+        # (batch, c_len, q_len)
+        cq = torch.stack(cq, dim=-1)
+
+        # (batch, c_len, q_len)
+        s = self.att_weight_c(c).expand(-1, -1, q_len) + \
+            self.att_weight_q(q).permute(0, 2, 1).expand(-1, c_len, -1) + \
+            cq
+
+        # (batch, c_len, q_len)
+        a = F.softmax(s, dim=2)
+        # (batch, c_len, q_len) * (batch, q_len, hidden_size * 2) -> (batch, c_len, hidden_size * 2)
+        c2q_att = torch.bmm(a, q)
+        # (batch, 1, c_len)
+        b = F.softmax(torch.max(s, dim=2)[0], dim=1).unsqueeze(1)
+        # (batch, 1, c_len) * (batch, c_len, hidden_size * 2) -> (batch, hidden_size * 2)
+        q2c_att = torch.bmm(b, c).squeeze()
+        # (batch, c_len, hidden_size * 2) (tiled)
+        q2c_att = q2c_att.unsqueeze(1).expand(-1, c_len, -1)
+        # q2c_att = torch.stack([q2c_att] * c_len, dim=1)
+
+        # (batch, c_len, H * 4)
+        x = torch.cat([c, c2q_att, c * c2q_att, c * q2c_att], dim=-1)
+        return x
 
 
     def _init_weights(self, module):
@@ -265,15 +420,25 @@ class LabelEnhanceBert(nn.Module):
         text_output = self.bert(
             input_ids=text_input_ids,
             attention_mask=text_attention_mask,
-            token_type_ids=text_token_type_ids
+            token_type_ids=text_token_type_ids,
+            # output_hidden_states=True
         )
         encode_text = text_output[0]  # [B, L1, H]
         label_output = self.bert(
             input_ids=label_input_ids,
             attention_mask=label_attention_mask,
-            token_type_ids=label_token_type_ids
+            token_type_ids=label_token_type_ids,
+            # output_hidden_states=True
         )
         encode_label = label_output[0]  # [num_labels, L2, H]
+        
+        # label_output = torch.stack(label_output[1:], dim=0)
+        # text_output = torch.stack(text_output[1:], dim=0)
+
+
+        # encode_text = torch.mean(text_output, dim=0)  # [B, L1, H]
+        # encode_label = torch.mean(label_output, dim=0)  # [B, L2, H]
+
 
         encode_text = self.dropout(encode_text)
         encode_label = self.dropout(encode_label)
@@ -285,27 +450,35 @@ class LabelEnhanceBert(nn.Module):
         encode_text = encode_text.unsqueeze(1).repeat(1, num_labels, 1, 1)  # [B, L1, H]->[B, 1, L1, H]->[B, num_labels, L1, H]
         encode_label = encode_label.unsqueeze(0).repeat(B, 1, 1, 1)  # [num_labels, L2, H]->[1, num_labels, L2, H]->[B, num_labels, L2, H]
 
+        encode_text = encode_text.reshape(B * num_labels, L1, H)
+        encode_label = encode_label.reshape(B * num_labels, L2, H)
+
+        # context_output = self.attention_flow_layer(encode_text, encode_label)  # [B*num_labels, L1, H*4]
+        # context_output = context_output.reshape(B, num_labels, L1, H * 4)
+
+
         label_attn_mask_extend = label_attention_mask.unsqueeze(0).repeat(B, 1, 1)  # [num_labels, L2]->[1, num_labels, L2]->[B, num_labels, L2]
         text_attn_mask_extend = text_attention_mask.unsqueeze(1).repeat(1, num_labels, 1)  # [B, L1]->[B, 1, L1]->[B, num_labels, L1]
 
         attention_mask_extend_tmp = torch.cat([label_attn_mask_extend, text_attn_mask_extend], dim=-1)  # [B, num_labels, L1+L2]
-        attention_mask_extend = attention_mask_extend_tmp.unsqueeze(-2).repeat(1, 1, L1+L2, 1)  # [B, num_labels, L1+L2]->[B, num_labels, L1+L2, L1+L2]
+        attention_mask_extend = attention_mask_extend_tmp[:, :, None, :]  # [B, num_labels, 1, L1+L2]
+        # attention_mask_extend = attention_mask_extend_tmp.unsqueeze(-2).repeat(1, 1, L1+L2, 1)  # [B, num_labels, L1+L2]->[B, num_labels, L1+L2, L1+L2]
         # attention_mask_extend_2 = attention_mask_extend_tmp.unsqueeze(-1).repeat(1, 1, 1, L1+L2)  # [B, num_labels, L1+L2]->[B, num_labels, L1+L2, L1+L2]
         # attention_mask_extend = attention_mask_extend_1 + attention_mask_extend_2
         # attention_mask_extend = attention_mask_extend == 2
         # attention_mask_extend = attention_mask_extend.long()
-        attention_mask_extend = attention_mask_extend.reshape(B * num_labels, L1+L2, L1+L2)  # [B*num_labels, L1+L2, L1+L2]
+        attention_mask_extend = attention_mask_extend.reshape(B * num_labels, 1, L1+L2)  # [B*num_labels, L1+L2, L1+L2]
         attention_mask_extend = attention_mask_extend.unsqueeze(1)
         attention_mask_extend = (1.0 - attention_mask_extend) * (-100000.0)
 
         hidden_state_extend = torch.cat([encode_label, encode_text], dim=-2)  # [B, num_labels, L1+L2, H]
         hidden_state_extend = hidden_state_extend.reshape(B * num_labels, L1+L2, H)  # [B*num_labels, L1+L2, H]
 
-
-        seq_output = self.attention_layer(hidden_state_extend, attention_mask_extend)  # [B*num_labels, L1+L2, H]
-        seq_output = self.attention_layer2(seq_output, attention_mask_extend)  # [B*num_labels, L1+L2, H]
-        seq_output = seq_output.reshape(B, num_labels, L1+L2, H)
-        context_output = seq_output[:, :, L2:, :]  # [B, num_labels, L2, H]
+        hidden_state = hidden_state_extend
+        for attention_layer in self.attention_layers:
+            hidden_state = attention_layer(hidden_state, attention_mask_extend)
+        seq_output = hidden_state.reshape(B, num_labels, L1+L2, H)
+        context_output = seq_output[:, :, L2:, :]  # [B, num_labels, L1, H]
         assert context_output.shape[2] == L1
 
         start_logits = self.entity_start_classifier(context_output)  # [B, num_labels, L1, 1]

@@ -1,0 +1,523 @@
+05/06/2022 16:55:12 - INFO - __main__ -   **********************Job Start**********************
+05/06/2022 16:55:12 - INFO - __main__ -   Learning rate = 1e-05
+05/06/2022 16:55:12 - INFO - __main__ -   Warmup rate = 0.0
+05/06/2022 16:55:12 - INFO - __main__ -   Batch_size = 4
+05/06/2022 16:55:12 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/06/2022 16:55:12 - INFO - __main__ -   Train epoch = 64
+05/06/2022 16:55:12 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/06/2022 16:55:31 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/06/2022 16:55:31 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/06/2022 16:55:31 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/06/2022 16:55:31 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/06/2022 16:55:31 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/06/2022 16:55:31 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/06/2022 16:55:31 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/06/2022 16:55:31 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/06/2022 16:55:31 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:31 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:31 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:31 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:31 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:31 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:32 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:32 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:32 - INFO - dataset -   Using queries from description.
+05/06/2022 16:55:32 - INFO - dataset -   The target domain is BookRestaurant
+05/06/2022 16:55:32 - INFO - dataset -   train_data: 12411 -> 80923
+05/06/2022 16:55:32 - INFO - dataset -   valid_data: 500 -> 7000
+05/06/2022 16:55:32 - INFO - dataset -   test_data: 1573 -> 22022
+05/06/2022 17:04:59 - INFO - trainer -   Train epoch 1, step[2000 / 20231], Evalution acc=0.4590, recall=0.4618, f1=0.4604
+05/06/2022 17:13:45 - INFO - trainer -   Train epoch 1, step[4000 / 20231], Evalution acc=0.4951, recall=0.5230, f1=0.5087
+05/06/2022 17:22:30 - INFO - trainer -   Train epoch 1, step[6000 / 20231], Evalution acc=0.5849, recall=0.5885, f1=0.5867
+05/06/2022 17:30:31 - INFO - trainer -   Train epoch 1, step[8000 / 20231], Evalution acc=0.6926, recall=0.5776, f1=0.6299
+05/06/2022 17:39:14 - INFO - trainer -   Train epoch 1, step[10000 / 20231], Evalution acc=0.6097, recall=0.5727, f1=0.5906
+05/06/2022 17:47:57 - INFO - trainer -   Train epoch 1, step[12000 / 20231], Evalution acc=0.6365, recall=0.5976, f1=0.6164
+05/06/2022 17:56:34 - INFO - trainer -   Train epoch 1, step[14000 / 20231], Evalution acc=0.6549, recall=0.4818, f1=0.5552
+05/06/2022 18:05:07 - INFO - trainer -   Train epoch 1, step[16000 / 20231], Evalution acc=0.6928, recall=0.5412, f1=0.6077
+05/06/2022 18:13:05 - INFO - trainer -   Train epoch 1, step[18000 / 20231], Evalution acc=0.6630, recall=0.5115, f1=0.5775
+05/06/2022 18:21:42 - INFO - trainer -   Train epoch 1, step[20000 / 20231], Evalution acc=0.7480, recall=0.5667, f1=0.6448
+05/06/2022 18:23:43 - INFO - trainer -   Epoch 1, train_loss 0.049012, Evalution acc 0.7017, recall 0.5461, f1 0.6142
+05/06/2022 18:24:24 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/BookRestaurant/0/model.pth
+05/06/2022 18:31:51 - INFO - trainer -   Train epoch 2, step[2000 / 20231], Evalution acc=0.5873, recall=0.5648, f1=0.5758
+05/06/2022 18:39:18 - INFO - trainer -   Train epoch 2, step[4000 / 20231], Evalution acc=0.7232, recall=0.5400, f1=0.6183
+05/06/2022 18:47:06 - INFO - trainer -   Train epoch 2, step[6000 / 20231], Evalution acc=0.6852, recall=0.5145, f1=0.5877
+05/06/2022 18:54:18 - INFO - trainer -   Train epoch 2, step[8000 / 20231], Evalution acc=0.6167, recall=0.5158, f1=0.5617
+05/06/2022 19:01:59 - INFO - trainer -   Train epoch 2, step[10000 / 20231], Evalution acc=0.6237, recall=0.5303, f1=0.5732
+05/06/2022 19:10:02 - INFO - trainer -   Train epoch 2, step[12000 / 20231], Evalution acc=0.6162, recall=0.5333, f1=0.5718
+05/06/2022 19:17:31 - INFO - trainer -   Train epoch 2, step[14000 / 20231], Evalution acc=0.7269, recall=0.5873, f1=0.6497
+05/06/2022 19:25:39 - INFO - trainer -   Train epoch 2, step[16000 / 20231], Evalution acc=0.6617, recall=0.5879, f1=0.6226
+05/06/2022 19:34:02 - INFO - trainer -   Train epoch 2, step[18000 / 20231], Evalution acc=0.6543, recall=0.5358, f1=0.5891
+05/06/2022 19:42:26 - INFO - trainer -   Train epoch 2, step[20000 / 20231], Evalution acc=0.7036, recall=0.4661, f1=0.5607
+05/06/2022 19:44:28 - INFO - trainer -   Epoch 2, train_loss 0.014661, Evalution acc 0.6036, recall 0.4697, f1 0.5283
+05/06/2022 19:53:07 - INFO - trainer -   Train epoch 3, step[2000 / 20231], Evalution acc=0.6347, recall=0.4612, f1=0.5342
+05/06/2022 20:01:44 - INFO - trainer -   Train epoch 3, step[4000 / 20231], Evalution acc=0.6325, recall=0.4630, f1=0.5346
+05/06/2022 20:10:16 - INFO - trainer -   Train epoch 3, step[6000 / 20231], Evalution acc=0.5684, recall=0.4455, f1=0.4995
+05/06/2022 20:18:48 - INFO - trainer -   Train epoch 3, step[8000 / 20231], Evalution acc=0.6100, recall=0.4806, f1=0.5376
+05/06/2022 20:27:30 - INFO - trainer -   Train epoch 3, step[10000 / 20231], Evalution acc=0.6341, recall=0.5042, f1=0.5618
+05/06/2022 20:34:29 - INFO - trainer -   Train epoch 3, step[12000 / 20231], Evalution acc=0.5882, recall=0.4303, f1=0.4970
+05/06/2022 20:41:05 - INFO - trainer -   Train epoch 3, step[14000 / 20231], Evalution acc=0.6264, recall=0.4624, f1=0.5321
+05/06/2022 20:47:39 - INFO - trainer -   Train epoch 3, step[16000 / 20231], Evalution acc=0.6227, recall=0.3891, f1=0.4789
+05/06/2022 20:54:13 - INFO - trainer -   Train epoch 3, step[18000 / 20231], Evalution acc=0.6200, recall=0.4648, f1=0.5313
+05/06/2022 21:00:46 - INFO - trainer -   Train epoch 3, step[20000 / 20231], Evalution acc=0.6120, recall=0.5315, f1=0.5689
+05/06/2022 21:02:13 - INFO - trainer -   Epoch 3, train_loss 0.010152, Evalution acc 0.6157, recall 0.5242, f1 0.5663
+05/06/2022 21:08:51 - INFO - trainer -   Train epoch 4, step[2000 / 20231], Evalution acc=0.6135, recall=0.4309, f1=0.5062
+05/06/2022 21:15:29 - INFO - trainer -   Train epoch 4, step[4000 / 20231], Evalution acc=0.5864, recall=0.4897, f1=0.5337
+05/06/2022 21:22:08 - INFO - trainer -   Train epoch 4, step[6000 / 20231], Evalution acc=0.6261, recall=0.4273, f1=0.5079
+05/06/2022 21:29:53 - INFO - trainer -   Train epoch 4, step[8000 / 20231], Evalution acc=0.5458, recall=0.4588, f1=0.4985
+05/06/2022 21:36:28 - INFO - __main__ -   **********************Job Start**********************
+05/06/2022 21:36:28 - INFO - __main__ -   Learning rate = 1e-05
+05/06/2022 21:36:28 - INFO - __main__ -   Warmup rate = 0.0
+05/06/2022 21:36:28 - INFO - __main__ -   Batch_size = 4
+05/06/2022 21:36:28 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/06/2022 21:36:28 - INFO - __main__ -   Train epoch = 64
+05/06/2022 21:36:28 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/06/2022 21:36:44 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/06/2022 21:36:44 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/06/2022 21:36:44 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/06/2022 21:36:44 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/06/2022 21:36:44 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/06/2022 21:36:44 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/06/2022 21:36:44 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/06/2022 21:36:44 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/06/2022 21:36:44 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:44 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:44 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:44 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:44 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:45 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:45 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:45 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:45 - INFO - dataset -   Using queries from description.
+05/06/2022 21:36:45 - INFO - dataset -   The target domain is BookRestaurant
+05/06/2022 21:36:45 - INFO - dataset -   train_data: 12411 -> 80923
+05/06/2022 21:36:45 - INFO - dataset -   valid_data: 500 -> 7000
+05/06/2022 21:36:45 - INFO - dataset -   test_data: 1573 -> 22022
+05/06/2022 21:37:57 - INFO - __main__ -   **********************Job Start**********************
+05/06/2022 21:37:57 - INFO - __main__ -   Learning rate = 1e-05
+05/06/2022 21:37:57 - INFO - __main__ -   Warmup rate = 0.0
+05/06/2022 21:37:57 - INFO - __main__ -   Batch_size = 4
+05/06/2022 21:37:57 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/06/2022 21:37:57 - INFO - __main__ -   Train epoch = 64
+05/06/2022 21:37:57 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/06/2022 21:38:16 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/06/2022 21:38:16 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/06/2022 21:38:16 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/06/2022 21:38:16 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/06/2022 21:38:16 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/06/2022 21:38:16 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/06/2022 21:38:16 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/06/2022 21:38:16 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/06/2022 21:38:16 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:16 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:16 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:16 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:16 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:17 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:17 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:17 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:17 - INFO - dataset -   Using queries from description.
+05/06/2022 21:38:17 - INFO - dataset -   The target domain is BookRestaurant
+05/06/2022 21:38:17 - INFO - dataset -   train_data: 12411 -> 80923
+05/06/2022 21:38:17 - INFO - dataset -   valid_data: 500 -> 7000
+05/06/2022 21:38:17 - INFO - dataset -   test_data: 1573 -> 22022
+05/06/2022 21:38:49 - INFO - __main__ -   **********************Job Start**********************
+05/06/2022 21:38:49 - INFO - __main__ -   Learning rate = 1e-05
+05/06/2022 21:38:49 - INFO - __main__ -   Warmup rate = 0.0
+05/06/2022 21:38:49 - INFO - __main__ -   Batch_size = 4
+05/06/2022 21:38:49 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/06/2022 21:38:49 - INFO - __main__ -   Train epoch = 64
+05/06/2022 21:38:49 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/06/2022 21:39:08 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/06/2022 21:39:08 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/06/2022 21:39:08 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/06/2022 21:39:08 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/06/2022 21:39:08 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/06/2022 21:39:08 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/06/2022 21:39:08 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/06/2022 21:39:08 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/06/2022 21:39:08 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:08 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:08 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:08 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:08 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:08 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:09 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:09 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:09 - INFO - dataset -   Using queries from description.
+05/06/2022 21:39:09 - INFO - dataset -   The target domain is BookRestaurant
+05/06/2022 21:39:09 - INFO - dataset -   train_data: 12411 -> 80923
+05/06/2022 21:39:09 - INFO - dataset -   valid_data: 500 -> 7000
+05/06/2022 21:39:09 - INFO - dataset -   test_data: 1573 -> 22022
+05/06/2022 21:41:12 - INFO - __main__ -   **********************Job Start**********************
+05/06/2022 21:41:12 - INFO - __main__ -   Learning rate = 1e-05
+05/06/2022 21:41:12 - INFO - __main__ -   Warmup rate = 0.0
+05/06/2022 21:41:12 - INFO - __main__ -   Batch_size = 4
+05/06/2022 21:41:12 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/06/2022 21:41:12 - INFO - __main__ -   Train epoch = 64
+05/06/2022 21:41:12 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/06/2022 21:41:26 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/06/2022 21:41:26 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/06/2022 21:41:26 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/06/2022 21:41:26 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/06/2022 21:41:26 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/06/2022 21:41:26 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/06/2022 21:41:26 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/06/2022 21:41:26 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/06/2022 21:41:26 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:26 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:26 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:26 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:27 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:27 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:27 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:27 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:27 - INFO - dataset -   Using queries from description.
+05/06/2022 21:41:27 - INFO - dataset -   The target domain is BookRestaurant
+05/06/2022 21:41:27 - INFO - dataset -   train_data: 12411 -> 80923
+05/06/2022 21:41:27 - INFO - dataset -   valid_data: 500 -> 7000
+05/06/2022 21:41:27 - INFO - dataset -   test_data: 1573 -> 22022
+05/06/2022 21:43:10 - INFO - __main__ -   **********************Job Start**********************
+05/06/2022 21:43:10 - INFO - __main__ -   Learning rate = 1e-05
+05/06/2022 21:43:10 - INFO - __main__ -   Warmup rate = 0.0
+05/06/2022 21:43:10 - INFO - __main__ -   Batch_size = 16
+05/06/2022 21:43:10 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/06/2022 21:43:10 - INFO - __main__ -   Train epoch = 64
+05/06/2022 21:43:10 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/06/2022 21:43:30 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/06/2022 21:43:30 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/06/2022 21:43:30 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/06/2022 21:43:30 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/06/2022 21:43:30 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/06/2022 21:43:30 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/06/2022 21:43:30 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/06/2022 21:43:30 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/06/2022 21:43:30 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:30 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:31 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:31 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:31 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:31 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:31 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:31 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:31 - INFO - dataset -   Using queries from description.
+05/06/2022 21:43:31 - INFO - dataset -   The target domain is BookRestaurant
+05/06/2022 21:43:31 - INFO - dataset -   train_data: 12411 -> 80923
+05/06/2022 21:43:31 - INFO - dataset -   valid_data: 500 -> 7000
+05/06/2022 21:43:31 - INFO - dataset -   test_data: 1573 -> 22022
+05/06/2022 21:46:42 - INFO - __main__ -   **********************Job Start**********************
+05/06/2022 21:46:42 - INFO - __main__ -   Learning rate = 1e-05
+05/06/2022 21:46:42 - INFO - __main__ -   Warmup rate = 0.0
+05/06/2022 21:46:42 - INFO - __main__ -   Batch_size = 16
+05/06/2022 21:46:42 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/06/2022 21:46:42 - INFO - __main__ -   Train epoch = 64
+05/06/2022 21:46:42 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/06/2022 21:46:58 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/06/2022 21:46:58 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/06/2022 21:46:58 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/06/2022 21:46:58 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/06/2022 21:46:58 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/06/2022 21:46:58 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/06/2022 21:46:58 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/06/2022 21:46:58 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/06/2022 21:46:58 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:58 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:58 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:58 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:59 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:59 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:59 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:59 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:59 - INFO - dataset -   Using queries from description.
+05/06/2022 21:46:59 - INFO - dataset -   The target domain is BookRestaurant
+05/06/2022 21:46:59 - INFO - dataset -   train_data: 12411 -> 80923
+05/06/2022 21:46:59 - INFO - dataset -   valid_data: 500 -> 7000
+05/06/2022 21:46:59 - INFO - dataset -   test_data: 1573 -> 22022
+05/06/2022 21:51:56 - INFO - trainer -   Train epoch 1, step[500 / 5058], Evalution acc=0.0129, recall=0.0091, f1=0.0107
+05/06/2022 21:56:43 - INFO - trainer -   Train epoch 1, step[1000 / 5058], Evalution acc=0.0494, recall=0.0376, f1=0.0427
+05/06/2022 22:01:19 - INFO - trainer -   Train epoch 1, step[1500 / 5058], Evalution acc=0.0743, recall=0.0552, f1=0.0633
+05/06/2022 22:06:02 - INFO - trainer -   Train epoch 1, step[2000 / 5058], Evalution acc=0.1141, recall=0.1230, f1=0.1184
+05/06/2022 22:10:43 - INFO - trainer -   Train epoch 1, step[2500 / 5058], Evalution acc=0.2256, recall=0.2824, f1=0.2508
+05/06/2022 22:15:14 - INFO - trainer -   Train epoch 1, step[3000 / 5058], Evalution acc=0.2448, recall=0.2770, f1=0.2599
+05/06/2022 22:19:42 - INFO - trainer -   Train epoch 1, step[3500 / 5058], Evalution acc=0.2777, recall=0.3158, f1=0.2955
+05/06/2022 22:24:09 - INFO - trainer -   Train epoch 1, step[4000 / 5058], Evalution acc=0.3847, recall=0.4188, f1=0.4010
+05/06/2022 22:28:33 - INFO - trainer -   Train epoch 1, step[4500 / 5058], Evalution acc=0.3601, recall=0.3673, f1=0.3636
+05/06/2022 22:32:57 - INFO - trainer -   Train epoch 1, step[5000 / 5058], Evalution acc=0.3842, recall=0.3861, f1=0.3851
+05/06/2022 22:35:17 - INFO - trainer -   Epoch 1, train_loss 0.154123, Evalution acc 0.3997, recall 0.3758, f1 0.3874
+05/06/2022 22:35:51 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/BookRestaurant/0/model.pth
+05/06/2022 22:40:08 - INFO - trainer -   Train epoch 2, step[500 / 5058], Evalution acc=0.3761, recall=0.3818, f1=0.3789
+05/06/2022 22:44:33 - INFO - trainer -   Train epoch 2, step[1000 / 5058], Evalution acc=0.4187, recall=0.4479, f1=0.4328
+05/06/2022 22:49:08 - INFO - trainer -   Train epoch 2, step[1500 / 5058], Evalution acc=0.3980, recall=0.4279, f1=0.4124
+05/06/2022 22:53:41 - INFO - trainer -   Train epoch 2, step[2000 / 5058], Evalution acc=0.3771, recall=0.4164, f1=0.3957
+05/06/2022 22:58:06 - INFO - trainer -   Train epoch 2, step[2500 / 5058], Evalution acc=0.4091, recall=0.4364, f1=0.4223
+05/06/2022 23:02:29 - INFO - trainer -   Train epoch 2, step[3000 / 5058], Evalution acc=0.4243, recall=0.4091, f1=0.4165
+05/06/2022 23:06:57 - INFO - trainer -   Train epoch 2, step[3500 / 5058], Evalution acc=0.3462, recall=0.3812, f1=0.3628
+05/06/2022 23:11:25 - INFO - trainer -   Train epoch 2, step[4000 / 5058], Evalution acc=0.3795, recall=0.3970, f1=0.3880
+05/06/2022 23:15:48 - INFO - trainer -   Train epoch 2, step[4500 / 5058], Evalution acc=0.3776, recall=0.3327, f1=0.3537
+05/06/2022 23:20:16 - INFO - trainer -   Train epoch 2, step[5000 / 5058], Evalution acc=0.3954, recall=0.4079, f1=0.4016
+05/06/2022 23:22:39 - INFO - trainer -   Epoch 2, train_loss 0.018703, Evalution acc 0.3845, recall 0.4067, f1 0.3953
+05/06/2022 23:23:09 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/BookRestaurant/0/model.pth
+05/06/2022 23:27:31 - INFO - trainer -   Train epoch 3, step[500 / 5058], Evalution acc=0.3627, recall=0.3939, f1=0.3777
+05/06/2022 23:31:43 - INFO - trainer -   Train epoch 3, step[1000 / 5058], Evalution acc=0.4063, recall=0.3982, f1=0.4022
+05/06/2022 23:36:02 - INFO - trainer -   Train epoch 3, step[1500 / 5058], Evalution acc=0.4304, recall=0.3879, f1=0.4080
+05/06/2022 23:40:14 - INFO - trainer -   Train epoch 3, step[2000 / 5058], Evalution acc=0.4944, recall=0.3988, f1=0.4415
+05/06/2022 23:44:37 - INFO - trainer -   Train epoch 3, step[2500 / 5058], Evalution acc=0.3925, recall=0.4018, f1=0.3971
+05/06/2022 23:48:44 - INFO - trainer -   Train epoch 3, step[3000 / 5058], Evalution acc=0.4428, recall=0.3921, f1=0.4159
+05/06/2022 23:53:11 - INFO - trainer -   Train epoch 3, step[3500 / 5058], Evalution acc=0.3602, recall=0.3794, f1=0.3695
+05/06/2022 23:57:29 - INFO - trainer -   Train epoch 3, step[4000 / 5058], Evalution acc=0.3198, recall=0.3400, f1=0.3296
+05/07/2022 00:01:52 - INFO - trainer -   Train epoch 3, step[4500 / 5058], Evalution acc=0.3944, recall=0.4073, f1=0.4007
+05/07/2022 00:06:19 - INFO - trainer -   Train epoch 3, step[5000 / 5058], Evalution acc=0.4098, recall=0.3994, f1=0.4045
+05/07/2022 00:08:41 - INFO - trainer -   Epoch 3, train_loss 0.010276, Evalution acc 0.3967, recall 0.4121, f1 0.4043
+05/07/2022 00:09:18 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/BookRestaurant/0/model.pth
+05/07/2022 00:13:44 - INFO - trainer -   Train epoch 4, step[500 / 5058], Evalution acc=0.4321, recall=0.3836, f1=0.4064
+05/07/2022 00:18:09 - INFO - trainer -   Train epoch 4, step[1000 / 5058], Evalution acc=0.3911, recall=0.4091, f1=0.3999
+05/07/2022 00:22:20 - INFO - trainer -   Train epoch 4, step[1500 / 5058], Evalution acc=0.3673, recall=0.3806, f1=0.3738
+05/07/2022 00:26:46 - INFO - trainer -   Train epoch 4, step[2000 / 5058], Evalution acc=0.3837, recall=0.3921, f1=0.3879
+05/07/2022 00:31:06 - INFO - trainer -   Train epoch 4, step[2500 / 5058], Evalution acc=0.4117, recall=0.4097, f1=0.4107
+05/07/2022 00:35:32 - INFO - trainer -   Train epoch 4, step[3000 / 5058], Evalution acc=0.4299, recall=0.4182, f1=0.4240
+05/07/2022 00:39:58 - INFO - trainer -   Train epoch 4, step[3500 / 5058], Evalution acc=0.4081, recall=0.4091, f1=0.4086
+05/07/2022 00:44:22 - INFO - trainer -   Train epoch 4, step[4000 / 5058], Evalution acc=0.4334, recall=0.4394, f1=0.4364
+05/07/2022 00:48:46 - INFO - trainer -   Train epoch 4, step[4500 / 5058], Evalution acc=0.4399, recall=0.4061, f1=0.4223
+05/07/2022 00:53:10 - INFO - trainer -   Train epoch 4, step[5000 / 5058], Evalution acc=0.4398, recall=0.3873, f1=0.4119
+05/07/2022 00:55:12 - INFO - trainer -   Epoch 4, train_loss 0.006219, Evalution acc 0.4308, recall 0.4000, f1 0.4148
+05/07/2022 00:55:49 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/BookRestaurant/0/model.pth
+05/07/2022 01:00:11 - INFO - trainer -   Train epoch 5, step[500 / 5058], Evalution acc=0.4151, recall=0.3988, f1=0.4068
+05/07/2022 01:04:33 - INFO - trainer -   Train epoch 5, step[1000 / 5058], Evalution acc=0.3806, recall=0.3933, f1=0.3869
+05/07/2022 01:08:54 - INFO - trainer -   Train epoch 5, step[1500 / 5058], Evalution acc=0.4190, recall=0.3921, f1=0.4051
+05/07/2022 01:13:14 - INFO - trainer -   Train epoch 5, step[2000 / 5058], Evalution acc=0.4052, recall=0.3715, f1=0.3876
+05/07/2022 01:17:33 - INFO - trainer -   Train epoch 5, step[2500 / 5058], Evalution acc=0.3994, recall=0.4103, f1=0.4048
+05/07/2022 01:21:54 - INFO - trainer -   Train epoch 5, step[3000 / 5058], Evalution acc=0.3904, recall=0.3909, f1=0.3907
+05/07/2022 01:26:16 - INFO - trainer -   Train epoch 5, step[3500 / 5058], Evalution acc=0.3829, recall=0.3994, f1=0.3910
+05/07/2022 01:30:26 - INFO - trainer -   Train epoch 5, step[4000 / 5058], Evalution acc=0.4092, recall=0.4109, f1=0.4100
+05/07/2022 01:34:46 - INFO - trainer -   Train epoch 5, step[4500 / 5058], Evalution acc=0.3906, recall=0.3830, f1=0.3868
+05/07/2022 01:39:09 - INFO - trainer -   Train epoch 5, step[5000 / 5058], Evalution acc=0.4143, recall=0.4061, f1=0.4102
+05/07/2022 01:41:26 - INFO - trainer -   Epoch 5, train_loss 0.004190, Evalution acc 0.4037, recall 0.4091, f1 0.4064
+05/07/2022 01:45:48 - INFO - trainer -   Train epoch 6, step[500 / 5058], Evalution acc=0.3897, recall=0.4079, f1=0.3986
+05/07/2022 01:50:12 - INFO - trainer -   Train epoch 6, step[1000 / 5058], Evalution acc=0.4036, recall=0.4109, f1=0.4072
+05/07/2022 01:54:34 - INFO - trainer -   Train epoch 6, step[1500 / 5058], Evalution acc=0.4333, recall=0.4055, f1=0.4189
+05/07/2022 01:58:56 - INFO - trainer -   Train epoch 6, step[2000 / 5058], Evalution acc=0.4645, recall=0.3885, f1=0.4231
+05/07/2022 02:03:14 - INFO - trainer -   Train epoch 6, step[2500 / 5058], Evalution acc=0.4364, recall=0.3885, f1=0.4110
+05/07/2022 02:07:32 - INFO - trainer -   Train epoch 6, step[3000 / 5058], Evalution acc=0.4395, recall=0.3830, f1=0.4093
+05/07/2022 02:11:55 - INFO - trainer -   Train epoch 6, step[3500 / 5058], Evalution acc=0.4528, recall=0.4103, f1=0.4305
+05/07/2022 02:16:18 - INFO - trainer -   Train epoch 6, step[4000 / 5058], Evalution acc=0.4318, recall=0.3933, f1=0.4117
+05/07/2022 02:20:41 - INFO - trainer -   Train epoch 6, step[4500 / 5058], Evalution acc=0.4199, recall=0.3830, f1=0.4006
+05/07/2022 02:25:01 - INFO - trainer -   Train epoch 6, step[5000 / 5058], Evalution acc=0.4565, recall=0.3812, f1=0.4155
+05/07/2022 02:27:16 - INFO - trainer -   Epoch 6, train_loss 0.002661, Evalution acc 0.4737, recall 0.3818, f1 0.4228
+05/07/2022 02:27:54 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/BookRestaurant/0/model.pth
+05/07/2022 02:32:15 - INFO - trainer -   Train epoch 7, step[500 / 5058], Evalution acc=0.4649, recall=0.3891, f1=0.4236
+05/07/2022 02:36:36 - INFO - trainer -   Train epoch 7, step[1000 / 5058], Evalution acc=0.4338, recall=0.4133, f1=0.4233
+05/07/2022 02:40:53 - INFO - trainer -   Train epoch 7, step[1500 / 5058], Evalution acc=0.5007, recall=0.4055, f1=0.4481
+05/07/2022 02:45:14 - INFO - trainer -   Train epoch 7, step[2000 / 5058], Evalution acc=0.4624, recall=0.3988, f1=0.4282
+05/07/2022 02:49:35 - INFO - trainer -   Train epoch 7, step[2500 / 5058], Evalution acc=0.4603, recall=0.3903, f1=0.4224
+05/07/2022 02:53:56 - INFO - trainer -   Train epoch 7, step[3000 / 5058], Evalution acc=0.5112, recall=0.4000, f1=0.4488
+05/07/2022 02:58:18 - INFO - trainer -   Train epoch 7, step[3500 / 5058], Evalution acc=0.4963, recall=0.4018, f1=0.4441
+05/07/2022 03:02:39 - INFO - trainer -   Train epoch 7, step[4000 / 5058], Evalution acc=0.4550, recall=0.4012, f1=0.4264
+05/07/2022 03:06:56 - INFO - trainer -   Train epoch 7, step[4500 / 5058], Evalution acc=0.4570, recall=0.3958, f1=0.4242
+05/07/2022 03:11:17 - INFO - trainer -   Train epoch 7, step[5000 / 5058], Evalution acc=0.4276, recall=0.3885, f1=0.4071
+05/07/2022 03:13:25 - INFO - trainer -   Epoch 7, train_loss 0.002143, Evalution acc 0.4466, recall 0.3848, f1 0.4134
+05/07/2022 03:17:45 - INFO - trainer -   Train epoch 8, step[500 / 5058], Evalution acc=0.4398, recall=0.3848, f1=0.4105
+05/07/2022 03:22:04 - INFO - trainer -   Train epoch 8, step[1000 / 5058], Evalution acc=0.4679, recall=0.3800, f1=0.4194
+05/07/2022 03:26:26 - INFO - trainer -   Train epoch 8, step[1500 / 5058], Evalution acc=0.4847, recall=0.3648, f1=0.4163
+05/07/2022 03:30:47 - INFO - trainer -   Train epoch 8, step[2000 / 5058], Evalution acc=0.4242, recall=0.3952, f1=0.4092
+05/07/2022 03:35:08 - INFO - trainer -   Train epoch 8, step[2500 / 5058], Evalution acc=0.4371, recall=0.3939, f1=0.4144
+05/07/2022 03:39:30 - INFO - trainer -   Train epoch 8, step[3000 / 5058], Evalution acc=0.4118, recall=0.3752, f1=0.3926
+05/07/2022 03:43:51 - INFO - trainer -   Train epoch 8, step[3500 / 5058], Evalution acc=0.4385, recall=0.3715, f1=0.4022
+05/07/2022 03:48:08 - INFO - trainer -   Train epoch 8, step[4000 / 5058], Evalution acc=0.4043, recall=0.3776, f1=0.3905
+05/07/2022 03:52:28 - INFO - trainer -   Train epoch 8, step[4500 / 5058], Evalution acc=0.4282, recall=0.3885, f1=0.4074
+05/07/2022 03:56:53 - INFO - trainer -   Train epoch 8, step[5000 / 5058], Evalution acc=0.3744, recall=0.3945, f1=0.3842
+05/07/2022 03:59:11 - INFO - trainer -   Epoch 8, train_loss 0.002181, Evalution acc 0.3625, recall 0.3897, f1 0.3756
+05/07/2022 04:03:29 - INFO - trainer -   Train epoch 9, step[500 / 5058], Evalution acc=0.4123, recall=0.3945, f1=0.4032
+05/07/2022 04:07:51 - INFO - trainer -   Train epoch 9, step[1000 / 5058], Evalution acc=0.4478, recall=0.4133, f1=0.4299
+05/07/2022 04:12:14 - INFO - trainer -   Train epoch 9, step[1500 / 5058], Evalution acc=0.4268, recall=0.3606, f1=0.3909
+05/07/2022 04:16:38 - INFO - trainer -   Train epoch 9, step[2000 / 5058], Evalution acc=0.4254, recall=0.3818, f1=0.4024
+05/07/2022 04:20:57 - INFO - trainer -   Train epoch 9, step[2500 / 5058], Evalution acc=0.3983, recall=0.3703, f1=0.3838
+05/07/2022 04:25:23 - INFO - trainer -   Train epoch 9, step[3000 / 5058], Evalution acc=0.4026, recall=0.3806, f1=0.3913
+05/07/2022 04:29:47 - INFO - trainer -   Train epoch 9, step[3500 / 5058], Evalution acc=0.4085, recall=0.3788, f1=0.3931
+05/07/2022 04:34:14 - INFO - trainer -   Train epoch 9, step[4000 / 5058], Evalution acc=0.3814, recall=0.3818, f1=0.3816
+05/07/2022 04:38:43 - INFO - trainer -   Train epoch 9, step[4500 / 5058], Evalution acc=0.3793, recall=0.3885, f1=0.3838
+05/07/2022 04:43:08 - INFO - trainer -   Train epoch 9, step[5000 / 5058], Evalution acc=0.3951, recall=0.3903, f1=0.3927
+05/07/2022 04:45:29 - INFO - trainer -   Epoch 9, train_loss 0.001220, Evalution acc 0.3809, recall 0.3836, f1 0.3822
+05/07/2022 04:49:55 - INFO - trainer -   Train epoch 10, step[500 / 5058], Evalution acc=0.3761, recall=0.3836, f1=0.3798
+05/07/2022 04:54:10 - INFO - trainer -   Train epoch 10, step[1000 / 5058], Evalution acc=0.3734, recall=0.3842, f1=0.3787
+05/07/2022 04:58:38 - INFO - trainer -   Train epoch 10, step[1500 / 5058], Evalution acc=0.3623, recall=0.3818, f1=0.3718
+05/07/2022 05:03:06 - INFO - trainer -   Train epoch 10, step[2000 / 5058], Evalution acc=0.3366, recall=0.3739, f1=0.3543
+05/07/2022 05:07:31 - INFO - trainer -   Train epoch 10, step[2500 / 5058], Evalution acc=0.3390, recall=0.3739, f1=0.3556
+05/07/2022 05:11:55 - INFO - trainer -   Train epoch 10, step[3000 / 5058], Evalution acc=0.3820, recall=0.3727, f1=0.3773
+05/07/2022 05:16:18 - INFO - trainer -   Train epoch 10, step[3500 / 5058], Evalution acc=0.3949, recall=0.3885, f1=0.3917
+05/07/2022 05:20:42 - INFO - trainer -   Train epoch 10, step[4000 / 5058], Evalution acc=0.3935, recall=0.3873, f1=0.3903
+05/07/2022 05:25:09 - INFO - trainer -   Train epoch 10, step[4500 / 5058], Evalution acc=0.3726, recall=0.3933, f1=0.3827
+05/07/2022 05:29:28 - INFO - trainer -   Train epoch 10, step[5000 / 5058], Evalution acc=0.3791, recall=0.3745, f1=0.3768
+05/07/2022 05:31:48 - INFO - trainer -   Epoch 10, train_loss 0.001310, Evalution acc 0.3769, recall 0.3830, f1 0.3799
+05/07/2022 05:36:16 - INFO - trainer -   Train epoch 11, step[500 / 5058], Evalution acc=0.3603, recall=0.3776, f1=0.3687
+05/07/2022 05:40:48 - INFO - trainer -   Train epoch 11, step[1000 / 5058], Evalution acc=0.3517, recall=0.3788, f1=0.3648
+05/07/2022 05:45:19 - INFO - trainer -   Train epoch 11, step[1500 / 5058], Evalution acc=0.2862, recall=0.3333, f1=0.3080
+05/07/2022 05:49:48 - INFO - trainer -   Train epoch 11, step[2000 / 5058], Evalution acc=0.3124, recall=0.3042, f1=0.3083
+05/07/2022 05:54:10 - INFO - trainer -   Train epoch 11, step[2500 / 5058], Evalution acc=0.3672, recall=0.3418, f1=0.3540
+05/07/2022 05:58:37 - INFO - trainer -   Train epoch 11, step[3000 / 5058], Evalution acc=0.3098, recall=0.3036, f1=0.3067
+05/07/2022 06:02:45 - INFO - trainer -   Train epoch 11, step[3500 / 5058], Evalution acc=0.3707, recall=0.3448, f1=0.3573
+05/07/2022 06:07:07 - INFO - trainer -   Train epoch 11, step[4000 / 5058], Evalution acc=0.3393, recall=0.3315, f1=0.3354
+05/07/2022 06:11:28 - INFO - trainer -   Train epoch 11, step[4500 / 5058], Evalution acc=0.3953, recall=0.3842, f1=0.3897
+05/07/2022 06:15:47 - INFO - trainer -   Train epoch 11, step[5000 / 5058], Evalution acc=0.3988, recall=0.3703, f1=0.3840
+05/07/2022 06:18:05 - INFO - trainer -   Epoch 11, train_loss 0.001231, Evalution acc 0.3833, recall 0.3564, f1 0.3693
+05/07/2022 06:18:05 - INFO - trainer -   Reach early stop count 5, training stop
+05/07/2022 06:18:06 - INFO - __main__ -   Starting test...
+05/07/2022 06:24:13 - INFO - trainer -   ***********************************************************
+05/07/2022 06:24:13 - INFO - trainer -   Target domain = BookRestaurant
+05/07/2022 06:24:13 - INFO - trainer -   Test result: acc 0.4530, recall 0.3749, f1 0.4103
+05/07/2022 06:24:13 - INFO - trainer -   ***********************************************************
+05/07/2022 11:25:30 - INFO - __main__ -   **********************Job Start**********************
+05/07/2022 11:25:30 - INFO - __main__ -   Learning rate = 1e-05
+05/07/2022 11:25:30 - INFO - __main__ -   Warmup rate = 0.0
+05/07/2022 11:25:30 - INFO - __main__ -   Batch_size = 8
+05/07/2022 11:25:30 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/07/2022 11:25:30 - INFO - __main__ -   Train epoch = 64
+05/07/2022 11:25:30 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/07/2022 11:25:46 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/07/2022 11:25:47 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/07/2022 11:25:47 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/07/2022 11:25:47 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/07/2022 11:25:47 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/07/2022 11:25:47 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/07/2022 11:25:47 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/07/2022 11:25:47 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/07/2022 11:25:47 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   Using queries from description.
+05/07/2022 11:25:48 - INFO - dataset -   The target domain is BookRestaurant
+05/07/2022 11:25:48 - INFO - dataset -   train_data: 12411 -> 80923
+05/07/2022 11:25:48 - INFO - dataset -   valid_data: 500 -> 7000
+05/07/2022 11:25:48 - INFO - dataset -   test_data: 1573 -> 22022
+05/07/2022 11:38:57 - INFO - __main__ -   **********************Job Start**********************
+05/07/2022 11:38:57 - INFO - __main__ -   Learning rate = 1e-05
+05/07/2022 11:38:57 - INFO - __main__ -   Warmup rate = 0.0
+05/07/2022 11:38:57 - INFO - __main__ -   Batch_size = 8
+05/07/2022 11:38:57 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/07/2022 11:38:57 - INFO - __main__ -   Train epoch = 64
+05/07/2022 11:38:57 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/07/2022 11:39:14 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/07/2022 11:39:14 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/07/2022 11:39:14 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/07/2022 11:39:14 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/07/2022 11:39:14 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/07/2022 11:39:14 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/07/2022 11:39:14 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/07/2022 11:39:14 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/07/2022 11:39:14 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:14 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:14 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:14 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:15 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:15 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:15 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:15 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:15 - INFO - dataset -   Using queries from description.
+05/07/2022 11:39:15 - INFO - dataset -   The target domain is BookRestaurant
+05/07/2022 11:39:15 - INFO - dataset -   train_data: 12411 -> 80923
+05/07/2022 11:39:15 - INFO - dataset -   valid_data: 500 -> 7000
+05/07/2022 11:39:15 - INFO - dataset -   test_data: 1573 -> 22022
+05/07/2022 11:44:32 - INFO - __main__ -   **********************Job Start**********************
+05/07/2022 11:44:32 - INFO - __main__ -   Learning rate = 1e-05
+05/07/2022 11:44:32 - INFO - __main__ -   Warmup rate = 0.0
+05/07/2022 11:44:32 - INFO - __main__ -   Batch_size = 8
+05/07/2022 11:44:32 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/07/2022 11:44:32 - INFO - __main__ -   Train epoch = 64
+05/07/2022 11:44:32 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/07/2022 11:44:48 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/07/2022 11:44:48 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/07/2022 11:44:49 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/07/2022 11:44:49 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/07/2022 11:44:49 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/07/2022 11:44:49 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/07/2022 11:44:49 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/07/2022 11:44:49 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/07/2022 11:44:49 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:49 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:49 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:49 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:49 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:49 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:50 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:50 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:50 - INFO - dataset -   Using queries from description.
+05/07/2022 11:44:50 - INFO - dataset -   The target domain is BookRestaurant
+05/07/2022 11:44:50 - INFO - dataset -   train_data: 12411 -> 80923
+05/07/2022 11:44:50 - INFO - dataset -   valid_data: 500 -> 7000
+05/07/2022 11:44:50 - INFO - dataset -   test_data: 1573 -> 22022
+05/07/2022 11:50:26 - INFO - trainer -   Train epoch 1, step[1000 / 10116], Evalution acc=0.5430, recall=0.4212, f1=0.4744
+05/07/2022 11:55:49 - INFO - trainer -   Train epoch 1, step[2000 / 10116], Evalution acc=0.5866, recall=0.4764, f1=0.5258
+05/07/2022 12:01:12 - INFO - trainer -   Train epoch 1, step[3000 / 10116], Evalution acc=0.7500, recall=0.4982, f1=0.5987
+05/07/2022 12:06:31 - INFO - trainer -   Train epoch 1, step[4000 / 10116], Evalution acc=0.7418, recall=0.5085, f1=0.6034
+05/07/2022 12:11:09 - INFO - trainer -   Train epoch 1, step[5000 / 10116], Evalution acc=0.6814, recall=0.4770, f1=0.5611
+05/07/2022 12:16:29 - INFO - trainer -   Train epoch 1, step[6000 / 10116], Evalution acc=0.7894, recall=0.4794, f1=0.5965
+05/07/2022 12:21:49 - INFO - trainer -   Train epoch 1, step[7000 / 10116], Evalution acc=0.6628, recall=0.4788, f1=0.5559
+05/07/2022 12:27:09 - INFO - trainer -   Train epoch 1, step[8000 / 10116], Evalution acc=0.6649, recall=0.4594, f1=0.5434
+05/07/2022 12:32:28 - INFO - trainer -   Train epoch 1, step[9000 / 10116], Evalution acc=0.6739, recall=0.4685, f1=0.5527
+05/07/2022 12:37:48 - INFO - trainer -   Train epoch 1, step[10000 / 10116], Evalution acc=0.6967, recall=0.4915, f1=0.5764
+05/07/2022 12:39:55 - INFO - trainer -   Epoch 1, train_loss 0.052880, Evalution acc 0.6986, recall 0.4636, f1 0.5574
+05/07/2022 12:40:35 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/BookRestaurant/0/model.pth
+05/07/2022 12:45:53 - INFO - trainer -   Train epoch 2, step[1000 / 10116], Evalution acc=0.6762, recall=0.5024, f1=0.5765
+05/07/2022 12:51:03 - INFO - trainer -   Train epoch 2, step[2000 / 10116], Evalution acc=0.6972, recall=0.5024, f1=0.5840
+05/07/2022 12:56:24 - INFO - trainer -   Train epoch 2, step[3000 / 10116], Evalution acc=0.6432, recall=0.5036, f1=0.5649
+05/07/2022 13:01:43 - INFO - trainer -   Train epoch 2, step[4000 / 10116], Evalution acc=0.7109, recall=0.5261, f1=0.6047
+05/07/2022 13:07:00 - INFO - trainer -   Train epoch 2, step[5000 / 10116], Evalution acc=0.6951, recall=0.4352, f1=0.5352
+05/07/2022 13:12:19 - INFO - trainer -   Train epoch 2, step[6000 / 10116], Evalution acc=0.7189, recall=0.4448, f1=0.5496
+05/07/2022 13:17:39 - INFO - trainer -   Train epoch 2, step[7000 / 10116], Evalution acc=0.7131, recall=0.5303, f1=0.6083
+05/07/2022 13:22:59 - INFO - trainer -   Train epoch 2, step[8000 / 10116], Evalution acc=0.6711, recall=0.5242, f1=0.5886
+05/07/2022 13:28:09 - INFO - trainer -   Train epoch 2, step[9000 / 10116], Evalution acc=0.7097, recall=0.4564, f1=0.5555
+05/07/2022 13:33:27 - INFO - trainer -   Train epoch 2, step[10000 / 10116], Evalution acc=0.7323, recall=0.4376, f1=0.5478
+05/07/2022 13:35:35 - INFO - trainer -   Epoch 2, train_loss 0.013283, Evalution acc 0.6660, recall 0.4303, f1 0.5228
+05/07/2022 13:40:54 - INFO - trainer -   Train epoch 3, step[1000 / 10116], Evalution acc=0.6882, recall=0.4588, f1=0.5505
+05/07/2022 13:46:11 - INFO - trainer -   Train epoch 3, step[2000 / 10116], Evalution acc=0.6789, recall=0.4818, f1=0.5636
+05/07/2022 13:51:31 - INFO - trainer -   Train epoch 3, step[3000 / 10116], Evalution acc=0.7338, recall=0.4612, f1=0.5664
+05/07/2022 13:56:47 - INFO - trainer -   Train epoch 3, step[4000 / 10116], Evalution acc=0.7319, recall=0.4848, f1=0.5833
+05/07/2022 14:01:55 - INFO - trainer -   Train epoch 3, step[5000 / 10116], Evalution acc=0.7086, recall=0.4673, f1=0.5632
+05/07/2022 14:07:07 - INFO - trainer -   Train epoch 3, step[6000 / 10116], Evalution acc=0.6778, recall=0.4412, f1=0.5345
+05/07/2022 14:12:26 - INFO - trainer -   Train epoch 3, step[7000 / 10116], Evalution acc=0.7111, recall=0.4655, f1=0.5626
+05/07/2022 14:17:46 - INFO - trainer -   Train epoch 3, step[8000 / 10116], Evalution acc=0.7515, recall=0.4564, f1=0.5679
+05/07/2022 14:23:04 - INFO - trainer -   Train epoch 3, step[9000 / 10116], Evalution acc=0.6945, recall=0.4945, f1=0.5777
+05/07/2022 14:28:25 - INFO - trainer -   Train epoch 3, step[10000 / 10116], Evalution acc=0.6604, recall=0.4655, f1=0.5460
+05/07/2022 14:30:33 - INFO - trainer -   Epoch 3, train_loss 0.008055, Evalution acc 0.6497, recall 0.4261, f1 0.5146
+05/07/2022 14:35:52 - INFO - trainer -   Train epoch 4, step[1000 / 10116], Evalution acc=0.6795, recall=0.4830, f1=0.5646
+05/07/2022 14:40:09 - INFO - trainer -   Train epoch 4, step[2000 / 10116], Evalution acc=0.7063, recall=0.4576, f1=0.5554
+05/07/2022 14:45:15 - INFO - trainer -   Train epoch 4, step[3000 / 10116], Evalution acc=0.6975, recall=0.4570, f1=0.5522
+05/07/2022 14:50:32 - INFO - trainer -   Train epoch 4, step[4000 / 10116], Evalution acc=0.7062, recall=0.4764, f1=0.5689
+05/07/2022 14:55:51 - INFO - trainer -   Train epoch 4, step[5000 / 10116], Evalution acc=0.6336, recall=0.4800, f1=0.5462
+05/07/2022 15:01:05 - INFO - trainer -   Train epoch 4, step[6000 / 10116], Evalution acc=0.6468, recall=0.5061, f1=0.5678
+05/07/2022 15:06:22 - INFO - trainer -   Train epoch 4, step[7000 / 10116], Evalution acc=0.6521, recall=0.4600, f1=0.5394
+05/07/2022 15:11:26 - INFO - trainer -   Train epoch 4, step[8000 / 10116], Evalution acc=0.6371, recall=0.4927, f1=0.5557
+05/07/2022 15:16:30 - INFO - trainer -   Train epoch 4, step[9000 / 10116], Evalution acc=0.6096, recall=0.4230, f1=0.4995
+05/07/2022 15:20:23 - INFO - trainer -   Train epoch 4, step[10000 / 10116], Evalution acc=0.6651, recall=0.5236, f1=0.5860
+05/07/2022 15:21:58 - INFO - trainer -   Epoch 4, train_loss 0.005710, Evalution acc 0.6707, recall 0.4988, f1 0.5721
+05/07/2022 15:22:45 - INFO - trainer -   Saved model checkpoint to ../model_dir/RCSF/BookRestaurant/0/model.pth
+05/07/2022 15:27:47 - INFO - trainer -   Train epoch 5, step[1000 / 10116], Evalution acc=0.6422, recall=0.4448, f1=0.5256
+05/07/2022 15:32:57 - INFO - trainer -   Train epoch 5, step[2000 / 10116], Evalution acc=0.6987, recall=0.5115, f1=0.5906
+05/07/2022 15:38:09 - INFO - trainer -   Train epoch 5, step[3000 / 10116], Evalution acc=0.7063, recall=0.4824, f1=0.5733
+05/07/2022 15:43:22 - INFO - trainer -   Train epoch 5, step[4000 / 10116], Evalution acc=0.6435, recall=0.4945, f1=0.5593
+05/07/2022 15:48:41 - INFO - trainer -   Train epoch 5, step[5000 / 10116], Evalution acc=0.6019, recall=0.4727, f1=0.5295
+05/07/2022 15:53:22 - INFO - trainer -   Train epoch 5, step[6000 / 10116], Evalution acc=0.6328, recall=0.5055, f1=0.5620
+05/07/2022 15:58:21 - INFO - trainer -   Train epoch 5, step[7000 / 10116], Evalution acc=0.6518, recall=0.5139, f1=0.5747
+05/07/2022 16:02:01 - INFO - trainer -   Train epoch 5, step[8000 / 10116], Evalution acc=0.6037, recall=0.4994, f1=0.5466
+05/07/2022 16:07:21 - INFO - trainer -   Train epoch 5, step[9000 / 10116], Evalution acc=0.5769, recall=0.4685, f1=0.5171
+05/07/2022 16:12:12 - INFO - trainer -   Train epoch 5, step[10000 / 10116], Evalution acc=0.5936, recall=0.4806, f1=0.5311
+05/07/2022 16:14:01 - INFO - trainer -   Epoch 5, train_loss 0.004748, Evalution acc 0.5570, recall 0.4855, f1 0.5188
+05/07/2022 16:18:28 - INFO - trainer -   Train epoch 6, step[1000 / 10116], Evalution acc=0.6880, recall=0.4958, f1=0.5763
+05/07/2022 16:22:46 - INFO - trainer -   Train epoch 6, step[2000 / 10116], Evalution acc=0.6191, recall=0.4758, f1=0.5380
+05/07/2022 16:26:55 - INFO - trainer -   Train epoch 6, step[3000 / 10116], Evalution acc=0.6539, recall=0.4648, f1=0.5434
+05/07/2022 16:31:02 - INFO - trainer -   Train epoch 6, step[4000 / 10116], Evalution acc=0.6195, recall=0.4539, f1=0.5240
+05/07/2022 16:36:01 - INFO - trainer -   Train epoch 6, step[5000 / 10116], Evalution acc=0.6324, recall=0.4994, f1=0.5581
+05/07/2022 16:40:57 - INFO - trainer -   Train epoch 6, step[6000 / 10116], Evalution acc=0.6280, recall=0.4697, f1=0.5374
+05/07/2022 16:45:56 - INFO - trainer -   Train epoch 6, step[7000 / 10116], Evalution acc=0.6949, recall=0.4679, f1=0.5592
+05/07/2022 16:49:32 - INFO - trainer -   Train epoch 6, step[8000 / 10116], Evalution acc=0.6985, recall=0.4788, f1=0.5681
+05/07/2022 16:53:05 - INFO - trainer -   Train epoch 6, step[9000 / 10116], Evalution acc=0.6566, recall=0.4752, f1=0.5513
+05/07/2022 16:57:17 - INFO - trainer -   Train epoch 6, step[10000 / 10116], Evalution acc=0.6312, recall=0.4273, f1=0.5096
+05/07/2022 16:58:48 - INFO - trainer -   Epoch 6, train_loss 0.003697, Evalution acc 0.6471, recall 0.4345, f1 0.5199
+05/07/2022 17:02:59 - INFO - trainer -   Train epoch 7, step[1000 / 10116], Evalution acc=0.6787, recall=0.4788, f1=0.5615
+05/07/2022 17:07:07 - INFO - trainer -   Train epoch 7, step[2000 / 10116], Evalution acc=0.5412, recall=0.4418, f1=0.4865
+05/07/2022 17:11:22 - INFO - trainer -   Train epoch 7, step[3000 / 10116], Evalution acc=0.6798, recall=0.5212, f1=0.5901
+05/07/2022 17:16:20 - INFO - trainer -   Train epoch 7, step[4000 / 10116], Evalution acc=0.6808, recall=0.5170, f1=0.5877
+05/07/2022 17:21:14 - INFO - trainer -   Train epoch 7, step[5000 / 10116], Evalution acc=0.6978, recall=0.4897, f1=0.5755
