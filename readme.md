@@ -194,6 +194,7 @@ SearchScreeningEvent GetWeather SearchCreativeWork这三个domain的参数：
 在RCSF的基础上，把query和context用bert分开编码，一条context对应一条query，然后concatenate起来通过一个self-attention
 
 BookRestaurant: acc 0.4530, recall 0.3749, f1 0.4103
+
 AddToPlaylist: acc 0.6912, recall 0.5320, f1 0.6012
 
 
@@ -218,7 +219,7 @@ BookRestaurant: Epoch 1, train_loss 0.052880, Evalution acc 0.6986, recall 0.463
 |num_epochs|64|
 |early_stop|64|
 |n_top|5|
-| batch_size | 8|
+| batch_size | 4|
 |context_max_len|64|
 |label_max_len|32|
 |dropout_rate|0.2|
