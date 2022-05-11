@@ -9,7 +9,7 @@
 #$ -j y
 # export LD_LIBRARY_PATH=/Work21/2021/liyuhang/system
 # export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64
-export HF_HOME=/Work21/2021/liyuhang/huggingface_cache
+# export HF_HOME=/Work21/2021/liyuhang/huggingface_cache
 
 echo "job start time: `date`"
 # tgt_domains="RateBook PlayMusic BookRestaurant"
@@ -17,17 +17,17 @@ echo "job start time: `date`"
 # tgt_domains="AddToPlaylist RateBook PlayMusic BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
 # tgt_domains="PlayMusic BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
 # tgt_domains="AddToPlaylist RateBook PlayMusic"
-tgt_domains="BookRestaurant"
+tgt_domains="BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
 n_samples=(0)
-message="bert-large-uncased后接2层self-attention,dropout0.2"
+message="bert-large-uncased接一层self-attention,dropout_rate=0.0,batch_size=8"
 for tgt_domain in ${tgt_domains[@]}
 do
     for n in ${n_samples[@]}
     do
-        CUDA_VISIBLE_DEVICES=2 /Work21/2021/liyuhang/envs/py3.7/BERT_TAGGER/bin/python main.py \
+        CUDA_VISIBLE_DEVICES=0 /root/autodl-tmp/envs/BERT_TAGGER/bin/python main.py \
         --do_train \
         --do_test \
-        --batch_size 4 \
+        --batch_size 8 \
         --num_epochs 64 \
         --use_gpu \
         --target_domain $tgt_domain \
@@ -42,7 +42,7 @@ do
         --model_dir ../model_dir/Label_Knowledge_Enhanced_SF \
         --log_dir ../log_dir/Label_Knowledge_Enhanced_SF \
         --log_message $message \
-        --dropout_rate 0.2
+        --dropout_rate 0.0
     done
 done
 

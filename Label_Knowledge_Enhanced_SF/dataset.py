@@ -380,10 +380,10 @@ class LabelEnhancedDataset(Dataset):
         input_ids = self.tokenizer.convert_tokens_to_ids(context_token)
 
         # 如果问题没有答案，让答案固定在[cls]位置
-        for i in range(len(all_start_positions)):
-            if len(all_start_positions[i]) == 0:
-                start_labels[i][0] = 1
-                end_labels[i][0] = 1
+        # for i in range(len(all_start_positions)):
+        #     if len(all_start_positions[i]) == 0:
+        #         start_labels[i][0] = 1
+        #         end_labels[i][0] = 1
         return{
             'input_ids': torch.tensor(input_ids, dtype=torch.long),
             'attention_mask': torch.tensor(attention_mask, dtype=torch.long),

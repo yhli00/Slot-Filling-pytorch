@@ -217,7 +217,7 @@ BookRestaurant: Epoch 1, train_loss 0.052880, Evalution acc 0.6986, recall 0.463
 |warmup_rate|0.0|
 |weight_decay|0.0|
 |num_epochs|64|
-|early_stop|64|
+|early_stop|12|
 |n_top|5|
 | batch_size | 4|
 |context_max_len|64|
@@ -236,3 +236,129 @@ BookRestaurant: Epoch 1, train_loss 0.052880, Evalution acc 0.6986, recall 0.463
 |SearchCreativeWork| 0.6922| 0.6581|
 |SearchScreeningEvent|0.3354|0.4446|
 |avg|0.5576|0.5135|
+
+
+# 实验十
+在实验6的基础上，把batch_size改成16(如果问题没有答案，让答案固定在[cls]位置)
+
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|12|
+|n_top|5|
+| batch_size | 16|
+|context_max_len|64|
+|label_max_len|32|
+|dropout_rate|0.2|
+|显卡|3090|
+
+
+结果
+|domain|baseline|my model|
+|---|---|---|
+|AddToPlaylist| 0.6870 |0.5809|
+|BookRestaurant| 0.6349 |0.3327|
+|GetWeather| 0.6536|0.5941|
+|PlayMusic| 0.5351| 0.4382|
+|RateBook| 0.3651| 0.2674|
+|SearchCreativeWork| 0.6922| 0.6419|
+|SearchScreeningEvent|0.3354|0.3832|
+|avg|0.5576|0.4626|
+
+# 实验十一
+在实验九的基础上，bert后dropout是0.2，后接双流注意力(如果问题没有答案，让答案固定在[cls]位置)
+
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|12|
+|n_top|5|
+| batch_size | 16|
+|context_max_len|64|
+|label_max_len|32|
+|dropout_rate|0.2|
+|显卡|3090|
+
+
+结果
+|domain|baseline|my model|
+|---|---|---|
+|AddToPlaylist| 0.6870 |0.7079|
+|BookRestaurant| 0.6349 |0.3972|
+|GetWeather| 0.6536|0.5490|
+|PlayMusic| 0.5351| 0.4885|
+|RateBook| 0.3651| 0.2941|
+|SearchCreativeWork| 0.6922| 0.7668|
+|SearchScreeningEvent|0.3354|0.4470|
+|avg|0.5576|0.5215|
+
+# 实验十二
+
+在实验六的基础上，bert输出后的dropout是0.2，后接一层self-attention(如果问题没有答案，让答案固定在[cls]位置)
+
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|12|
+|n_top|5|
+| batch_size | 8|
+|context_max_len|64|
+|label_max_len|32|
+|dropout_rate|0.2|
+|显卡|3090|
+
+结果
+|domain|baseline|my model|
+|---|---|---|
+|AddToPlaylist| 0.6870 |0.6289|
+|BookRestaurant| 0.6349 |0.4135|
+|GetWeather| 0.6536|0.6386|
+|PlayMusic| 0.5351| 0.4809|
+|RateBook| 0.3651| 0.3062|
+|SearchCreativeWork| 0.6922| 0.5911|
+|SearchScreeningEvent|0.3354|0.4070|
+|avg|0.5576|0.4950|
+
+
+# 实验十三
+
+复现实验六：不设dropout, early_stop = 12(如果问题没有答案，让答案固定在[cls]位置)
+
+
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|12|
+|n_top|5|
+| batch_size | 8|
+|context_max_len|64|
+|label_max_len|32|
+|显卡|3090|
+
+结果
+|domain|baseline|my model|
+|---|---|---|
+|AddToPlaylist| 0.6870 |0.6468|
+|BookRestaurant| 0.6349 |0.4388|
+|GetWeather| 0.6536|0.5211|
+|PlayMusic| 0.5351| 0.4708|
+|RateBook| 0.3651| 0.2944|
+|SearchCreativeWork| 0.6922| 0.6940|
+|SearchScreeningEvent|0.3354|0.4505|
+|avg|0.5576|0.5023|
