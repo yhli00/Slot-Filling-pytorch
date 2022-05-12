@@ -531,3 +531,171 @@
 05/11/2022 01:02:46 - INFO - trainer -   Target domain = SearchCreativeWork
 05/11/2022 01:02:46 - INFO - trainer -   Test result: acc 0.8580, recall 0.5827, f1 0.6940
 05/11/2022 01:02:46 - INFO - trainer -   ***********************************************************
+05/12/2022 12:05:38 - INFO - __main__ -   ********************** Job Start **********************
+05/12/2022 12:05:38 - INFO - __main__ -   Learning rate = 1e-05
+05/12/2022 12:05:38 - INFO - __main__ -   Warmup rate = 0.0
+05/12/2022 12:05:38 - INFO - __main__ -   Batch_size = 8
+05/12/2022 12:05:38 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/12/2022 12:05:38 - INFO - __main__ -   Train epoch = 64
+05/12/2022 12:05:38 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/12/2022 12:05:38 - INFO - __main__ -   Context_max_len = 64
+05/12/2022 12:05:38 - INFO - __main__ -   Label_max_len = 32
+05/12/2022 12:05:38 - INFO - __main__ -   dropout_rate = 0.2
+05/12/2022 12:05:38 - INFO - __main__ -   bert-large-uncased接一层self-attention,dropout_rate=0.2,batch_size=8
+05/12/2022 12:05:58 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/12/2022 12:05:58 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/12/2022 12:05:58 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/12/2022 12:05:58 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/12/2022 12:05:58 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/12/2022 12:05:58 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/12/2022 12:05:58 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/12/2022 12:05:58 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/12/2022 12:05:58 - INFO - dataset -   Using queries from description.
+05/12/2022 12:05:59 - INFO - dataset -   Using queries from description.
+05/12/2022 12:05:59 - INFO - dataset -   Using queries from description.
+05/12/2022 12:05:59 - INFO - dataset -   Using queries from description.
+05/12/2022 12:05:59 - INFO - dataset -   Using queries from description.
+05/12/2022 12:05:59 - INFO - dataset -   Using queries from description.
+05/12/2022 12:05:59 - INFO - dataset -   Using queries from description.
+05/12/2022 12:05:59 - INFO - dataset -   Using queries from description.
+05/12/2022 12:05:59 - INFO - dataset -   The target domain is SearchCreativeWork
+05/12/2022 12:05:59 - INFO - dataset -   ********** Train data information : **********
+05/12/2022 12:05:59 - INFO - dataset -   domain name: AddToPlaylist,    data_size=2042
+05/12/2022 12:05:59 - INFO - dataset -   domain name: BookRestaurant,    data_size=2073
+05/12/2022 12:05:59 - INFO - dataset -   domain name: GetWeather,    data_size=2100
+05/12/2022 12:05:59 - INFO - dataset -   domain name: PlayMusic,    data_size=2100
+05/12/2022 12:05:59 - INFO - dataset -   domain name: RateBook,    data_size=2056
+05/12/2022 12:05:59 - INFO - dataset -   domain name: SearchScreeningEvent,    data_size=2059
+05/12/2022 12:05:59 - INFO - dataset -   ********** Valid data information : **********
+05/12/2022 12:05:59 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=500
+05/12/2022 12:05:59 - INFO - dataset -   ********** Test data information : **********
+05/12/2022 12:05:59 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=1554
+05/12/2022 12:07:20 - INFO - trainer -   Epoch 1, Domain AddToPlaylist, train_loss 11.419309,    Evalution acc 0.0912, recall 0.0370, f1 0.0526
+05/12/2022 12:07:25 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 12:08:44 - INFO - trainer -   Epoch 1, Domain BookRestaurant, train_loss 3.546303,    Evalution acc 0.3233, recall 0.1746, f1 0.2267
+05/12/2022 12:08:49 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 12:10:05 - INFO - trainer -   Epoch 1, Domain GetWeather, train_loss 1.882644,    Evalution acc 0.2255, recall 0.1699, f1 0.1938
+05/12/2022 12:11:21 - INFO - trainer -   Epoch 1, Domain PlayMusic, train_loss 2.759806,    Evalution acc 0.3094, recall 0.1491, f1 0.2012
+05/12/2022 12:12:34 - INFO - trainer -   Epoch 1, Domain RateBook, train_loss 2.164984,    Evalution acc 0.6304, recall 0.6902, f1 0.6589
+05/12/2022 12:12:39 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 12:13:53 - INFO - trainer -   Epoch 1, Domain SearchScreeningEvent, train_loss 1.344659,    Evalution acc 0.8072, recall 0.7746, f1 0.7906
+05/12/2022 12:13:58 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 12:15:08 - INFO - trainer -   Epoch 2, Domain AddToPlaylist, train_loss 1.880640,    Evalution acc 0.7872, recall 0.6671, f1 0.7222
+05/12/2022 12:16:24 - INFO - trainer -   Epoch 2, Domain BookRestaurant, train_loss 0.901581,    Evalution acc 0.7364, recall 0.7850, f1 0.7599
+05/12/2022 12:17:39 - INFO - trainer -   Epoch 2, Domain GetWeather, train_loss 0.417398,    Evalution acc 0.7420, recall 0.7746, f1 0.7579
+05/12/2022 12:18:55 - INFO - trainer -   Epoch 2, Domain PlayMusic, train_loss 1.118499,    Evalution acc 0.7299, recall 0.7341, f1 0.7320
+05/12/2022 12:20:07 - INFO - trainer -   Epoch 2, Domain RateBook, train_loss 0.372979,    Evalution acc 0.6823, recall 0.7422, f1 0.7110
+05/12/2022 12:21:21 - INFO - trainer -   Epoch 2, Domain SearchScreeningEvent, train_loss 0.287183,    Evalution acc 0.8149, recall 0.7329, f1 0.7718
+05/12/2022 12:22:32 - INFO - trainer -   Epoch 3, Domain AddToPlaylist, train_loss 0.948335,    Evalution acc 0.8005, recall 0.7792, f1 0.7897
+05/12/2022 12:23:48 - INFO - trainer -   Epoch 3, Domain BookRestaurant, train_loss 0.419521,    Evalution acc 0.7693, recall 0.8173, f1 0.7926
+05/12/2022 12:23:54 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 12:25:08 - INFO - trainer -   Epoch 3, Domain GetWeather, train_loss 0.236482,    Evalution acc 0.7800, recall 0.7665, f1 0.7732
+05/12/2022 12:26:24 - INFO - trainer -   Epoch 3, Domain PlayMusic, train_loss 0.726787,    Evalution acc 0.7250, recall 0.7040, f1 0.7144
+05/12/2022 12:27:37 - INFO - trainer -   Epoch 3, Domain RateBook, train_loss 0.194031,    Evalution acc 0.7656, recall 0.7665, f1 0.7660
+05/12/2022 12:28:50 - INFO - trainer -   Epoch 3, Domain SearchScreeningEvent, train_loss 0.115115,    Evalution acc 0.7922, recall 0.6613, f1 0.7209
+05/12/2022 12:30:02 - INFO - trainer -   Epoch 4, Domain AddToPlaylist, train_loss 0.599122,    Evalution acc 0.7880, recall 0.6231, f1 0.6959
+05/12/2022 12:31:19 - INFO - trainer -   Epoch 4, Domain BookRestaurant, train_loss 0.281105,    Evalution acc 0.7878, recall 0.7341, f1 0.7600
+05/12/2022 12:32:33 - INFO - trainer -   Epoch 4, Domain GetWeather, train_loss 0.172779,    Evalution acc 0.8025, recall 0.7283, f1 0.7636
+05/12/2022 12:33:48 - INFO - trainer -   Epoch 4, Domain PlayMusic, train_loss 0.523809,    Evalution acc 0.7537, recall 0.7040, f1 0.7280
+05/12/2022 12:35:01 - INFO - trainer -   Epoch 4, Domain RateBook, train_loss 0.141556,    Evalution acc 0.8269, recall 0.7618, f1 0.7930
+05/12/2022 12:35:06 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 12:36:19 - INFO - trainer -   Epoch 4, Domain SearchScreeningEvent, train_loss 0.070836,    Evalution acc 0.8118, recall 0.7480, f1 0.7786
+05/12/2022 12:37:33 - INFO - trainer -   Epoch 5, Domain AddToPlaylist, train_loss 0.364098,    Evalution acc 0.7904, recall 0.7457, f1 0.7674
+05/12/2022 12:38:50 - INFO - trainer -   Epoch 5, Domain BookRestaurant, train_loss 0.168771,    Evalution acc 0.7976, recall 0.7653, f1 0.7811
+05/12/2022 12:40:06 - INFO - trainer -   Epoch 5, Domain GetWeather, train_loss 0.105432,    Evalution acc 0.7976, recall 0.7792, f1 0.7883
+05/12/2022 12:41:22 - INFO - trainer -   Epoch 5, Domain PlayMusic, train_loss 0.397120,    Evalution acc 0.7606, recall 0.7491, f1 0.7548
+05/12/2022 12:42:37 - INFO - trainer -   Epoch 5, Domain RateBook, train_loss 0.108129,    Evalution acc 0.8074, recall 0.7850, f1 0.7960
+05/12/2022 12:42:46 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 12:44:00 - INFO - trainer -   Epoch 5, Domain SearchScreeningEvent, train_loss 0.050180,    Evalution acc 0.8105, recall 0.6971, f1 0.7495
+05/12/2022 12:45:15 - INFO - trainer -   Epoch 6, Domain AddToPlaylist, train_loss 0.256719,    Evalution acc 0.7863, recall 0.6890, f1 0.7344
+05/12/2022 12:46:36 - INFO - trainer -   Epoch 6, Domain BookRestaurant, train_loss 0.135988,    Evalution acc 0.7850, recall 0.7133, f1 0.7474
+05/12/2022 12:47:55 - INFO - trainer -   Epoch 6, Domain GetWeather, train_loss 0.067046,    Evalution acc 0.7985, recall 0.7514, f1 0.7743
+05/12/2022 12:49:13 - INFO - trainer -   Epoch 6, Domain PlayMusic, train_loss 0.279919,    Evalution acc 0.7816, recall 0.7364, f1 0.7583
+05/12/2022 12:50:28 - INFO - trainer -   Epoch 6, Domain RateBook, train_loss 0.058447,    Evalution acc 0.7872, recall 0.7526, f1 0.7695
+05/12/2022 12:51:43 - INFO - trainer -   Epoch 6, Domain SearchScreeningEvent, train_loss 0.032181,    Evalution acc 0.8097, recall 0.6150, f1 0.6991
+05/12/2022 12:52:57 - INFO - trainer -   Epoch 7, Domain AddToPlaylist, train_loss 0.182014,    Evalution acc 0.7995, recall 0.6867, f1 0.7388
+05/12/2022 12:54:14 - INFO - trainer -   Epoch 7, Domain BookRestaurant, train_loss 0.077036,    Evalution acc 0.7713, recall 0.6902, f1 0.7285
+05/12/2022 12:55:30 - INFO - trainer -   Epoch 7, Domain GetWeather, train_loss 0.048779,    Evalution acc 0.7770, recall 0.7491, f1 0.7628
+05/12/2022 12:56:45 - INFO - trainer -   Epoch 7, Domain PlayMusic, train_loss 0.174854,    Evalution acc 0.7819, recall 0.7087, f1 0.7435
+05/12/2022 12:57:58 - INFO - trainer -   Epoch 7, Domain RateBook, train_loss 0.069818,    Evalution acc 0.8005, recall 0.6913, f1 0.7419
+05/12/2022 12:57:58 - INFO - trainer -   Reach early stop count 12, training stop
+05/12/2022 12:57:59 - INFO - __main__ -   Starting test...
+05/12/2022 12:58:25 - INFO - trainer -   ***********************************************************
+05/12/2022 12:58:25 - INFO - trainer -   Target domain = SearchCreativeWork
+05/12/2022 12:58:25 - INFO - trainer -   Test result: acc 0.7985, recall 0.7833, f1 0.7908
+05/12/2022 12:58:25 - INFO - trainer -   ***********************************************************
+05/12/2022 18:34:08 - INFO - __main__ -   ********************** Job Start **********************
+05/12/2022 18:34:08 - INFO - __main__ -   Learning rate = 1e-05
+05/12/2022 18:34:08 - INFO - __main__ -   Warmup rate = 0.0
+05/12/2022 18:34:08 - INFO - __main__ -   Batch_size = 8
+05/12/2022 18:34:08 - INFO - __main__ -   Gradient_accumulation_steps = 1
+05/12/2022 18:34:08 - INFO - __main__ -   Train epoch = 64
+05/12/2022 18:34:08 - INFO - __main__ -   Pretrained_model name = bert-large-uncased
+05/12/2022 18:34:08 - INFO - __main__ -   Context_max_len = 64
+05/12/2022 18:34:08 - INFO - __main__ -   Label_max_len = 32
+05/12/2022 18:34:08 - INFO - __main__ -   dropout_rate = 0.2
+05/12/2022 18:34:08 - INFO - __main__ -   bert-large-uncased接一层self-attention,dropout_rate=0.2,batch_size=8
+05/12/2022 18:34:31 - INFO - dataset -   Loading data from ../data/snips/AddToPlaylist/AddToPlaylist.txt, total nums is 2042
+05/12/2022 18:34:31 - INFO - dataset -   Loading data from ../data/snips/BookRestaurant/BookRestaurant.txt, total nums is 2073
+05/12/2022 18:34:31 - INFO - dataset -   Loading data from ../data/snips/GetWeather/GetWeather.txt, total nums is 2100
+05/12/2022 18:34:31 - INFO - dataset -   Loading data from ../data/snips/PlayMusic/PlayMusic.txt, total nums is 2100
+05/12/2022 18:34:31 - INFO - dataset -   Loading data from ../data/snips/RateBook/RateBook.txt, total nums is 2056
+05/12/2022 18:34:31 - INFO - dataset -   Loading data from ../data/snips/SearchCreativeWork/SearchCreativeWork.txt, total nums is 2054
+05/12/2022 18:34:31 - INFO - dataset -   Loading data from ../data/snips/SearchScreeningEvent/SearchScreeningEvent.txt, total nums is 2059
+05/12/2022 18:34:31 - INFO - dataset -   Loading data from ../data/atis/atis.txt, total nums is 5871
+05/12/2022 18:34:31 - INFO - dataset -   Using queries from description.
+05/12/2022 18:34:31 - INFO - dataset -   Using queries from description.
+05/12/2022 18:34:31 - INFO - dataset -   Using queries from description.
+05/12/2022 18:34:31 - INFO - dataset -   Using queries from description.
+05/12/2022 18:34:31 - INFO - dataset -   Using queries from description.
+05/12/2022 18:34:32 - INFO - dataset -   Using queries from description.
+05/12/2022 18:34:32 - INFO - dataset -   Using queries from description.
+05/12/2022 18:34:32 - INFO - dataset -   Using queries from description.
+05/12/2022 18:34:32 - INFO - dataset -   The target domain is SearchCreativeWork
+05/12/2022 18:34:32 - INFO - dataset -   ********** Train data information : **********
+05/12/2022 18:34:32 - INFO - dataset -   domain name: AddToPlaylist,    data_size=2042
+05/12/2022 18:34:32 - INFO - dataset -   domain name: BookRestaurant,    data_size=2073
+05/12/2022 18:34:32 - INFO - dataset -   domain name: GetWeather,    data_size=2100
+05/12/2022 18:34:32 - INFO - dataset -   domain name: PlayMusic,    data_size=2100
+05/12/2022 18:34:32 - INFO - dataset -   domain name: RateBook,    data_size=2056
+05/12/2022 18:34:32 - INFO - dataset -   domain name: SearchScreeningEvent,    data_size=2059
+05/12/2022 18:34:32 - INFO - dataset -   ********** Valid data information : **********
+05/12/2022 18:34:32 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=500
+05/12/2022 18:34:32 - INFO - dataset -   ********** Test data information : **********
+05/12/2022 18:34:32 - INFO - dataset -   domain name: SearchCreativeWork,    data_size=1554
+05/12/2022 18:36:16 - INFO - trainer -   Epoch 1, Domain AddToPlaylist, train_loss 11.843877,    Evalution acc 0.2929, recall 0.0474, f1 0.0816
+05/12/2022 18:36:22 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 18:38:24 - INFO - trainer -   Epoch 1, Domain BookRestaurant, train_loss 4.334875,    Evalution acc 0.3063, recall 0.1792, f1 0.2261
+05/12/2022 18:38:32 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 18:40:17 - INFO - trainer -   Epoch 1, Domain GetWeather, train_loss 3.167823,    Evalution acc 0.0417, recall 0.0023, f1 0.0044
+05/12/2022 18:41:58 - INFO - trainer -   Epoch 1, Domain PlayMusic, train_loss 5.032755,    Evalution acc 0.1260, recall 0.1087, f1 0.1167
+05/12/2022 18:43:39 - INFO - trainer -   Epoch 1, Domain RateBook, train_loss 3.873478,    Evalution acc 0.6296, recall 0.4717, f1 0.5393
+05/12/2022 18:43:47 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 18:45:26 - INFO - trainer -   Epoch 1, Domain SearchScreeningEvent, train_loss 1.473241,    Evalution acc 0.8403, recall 0.5595, f1 0.6718
+05/12/2022 18:45:34 - INFO - trainer -   Saved model checkpoint to ../model_dir/Label_Knowledge_Enhanced_SF/SearchCreativeWork/0/model.pth
+05/12/2022 18:47:11 - INFO - trainer -   Epoch 2, Domain AddToPlaylist, train_loss 2.363413,    Evalution acc 0.7449, recall 0.4220, f1 0.5387
+05/12/2022 18:49:12 - INFO - trainer -   Epoch 2, Domain BookRestaurant, train_loss 1.336464,    Evalution acc 0.6707, recall 0.5792, f1 0.6216
+05/12/2022 18:50:57 - INFO - trainer -   Epoch 2, Domain GetWeather, train_loss 0.555132,    Evalution acc 0.5798, recall 0.4370, f1 0.4984
+05/12/2022 18:52:38 - INFO - trainer -   Epoch 2, Domain PlayMusic, train_loss 1.288803,    Evalution acc 0.6389, recall 0.5052, f1 0.5642
+05/12/2022 18:54:17 - INFO - trainer -   Epoch 2, Domain RateBook, train_loss 0.466874,    Evalution acc 0.7112, recall 0.3757, f1 0.4917
+05/12/2022 18:55:54 - INFO - trainer -   Epoch 2, Domain SearchScreeningEvent, train_loss 0.308896,    Evalution acc 0.8314, recall 0.5075, f1 0.6303
+05/12/2022 18:57:32 - INFO - trainer -   Epoch 3, Domain AddToPlaylist, train_loss 1.020433,    Evalution acc 0.6781, recall 0.3896, f1 0.4949
+05/12/2022 18:59:33 - INFO - trainer -   Epoch 3, Domain BookRestaurant, train_loss 0.566806,    Evalution acc 0.6258, recall 0.4717, f1 0.5379
+05/12/2022 19:01:17 - INFO - trainer -   Epoch 3, Domain GetWeather, train_loss 0.210686,    Evalution acc 0.5712, recall 0.4127, f1 0.4792
+05/12/2022 19:02:38 - INFO - trainer -   Epoch 3, Domain PlayMusic, train_loss 0.806541,    Evalution acc 0.5690, recall 0.3815, f1 0.4567
+05/12/2022 19:03:50 - INFO - trainer -   Epoch 3, Domain RateBook, train_loss 0.232533,    Evalution acc 0.7112, recall 0.3387, f1 0.4589
+05/12/2022 19:05:04 - INFO - trainer -   Epoch 3, Domain SearchScreeningEvent, train_loss 0.131506,    Evalution acc 0.8247, recall 0.2936, f1 0.4331
+05/12/2022 19:06:16 - INFO - trainer -   Epoch 4, Domain AddToPlaylist, train_loss 0.642022,    Evalution acc 0.7445, recall 0.3538, f1 0.4796
+05/12/2022 19:07:33 - INFO - trainer -   Epoch 4, Domain BookRestaurant, train_loss 0.343073,    Evalution acc 0.7537, recall 0.4173, f1 0.5372
+05/12/2022 19:08:47 - INFO - trainer -   Epoch 4, Domain GetWeather, train_loss 0.152322,    Evalution acc 0.7446, recall 0.4416, f1 0.5544
+05/12/2022 19:10:02 - INFO - trainer -   Epoch 4, Domain PlayMusic, train_loss 0.618472,    Evalution acc 0.7002, recall 0.3780, f1 0.4910
+05/12/2022 19:11:13 - INFO - trainer -   Epoch 4, Domain RateBook, train_loss 0.180399,    Evalution acc 0.7593, recall 0.3538, f1 0.4826
+05/12/2022 19:12:25 - INFO - trainer -   Epoch 4, Domain SearchScreeningEvent, train_loss 0.083584,    Evalution acc 0.8315, recall 0.1711, f1 0.2838
+05/12/2022 19:13:35 - INFO - trainer -   Epoch 5, Domain AddToPlaylist, train_loss 0.346704,    Evalution acc 0.6717, recall 0.2578, f1 0.3726
+05/12/2022 19:14:52 - INFO - trainer -   Epoch 5, Domain BookRestaurant, train_loss 0.213434,    Evalution acc 0.7489, recall 0.3827, f1 0.5065
+05/12/2022 19:14:52 - INFO - trainer -   Reach early stop count 20, training stop
+05/12/2022 19:14:53 - INFO - __main__ -   Starting test...
+05/12/2022 19:15:18 - INFO - trainer -   ***********************************************************
+05/12/2022 19:15:18 - INFO - trainer -   Target domain = SearchCreativeWork
+05/12/2022 19:15:18 - INFO - trainer -   Test result: acc 0.8434, recall 0.5611, f1 0.6739
+05/12/2022 19:15:18 - INFO - trainer -   ***********************************************************

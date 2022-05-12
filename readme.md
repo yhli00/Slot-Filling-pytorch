@@ -144,6 +144,7 @@ SearchScreeningEvent GetWeather SearchCreativeWork这三个domain的参数：
 | batch_size | 8|
 |context_max_len|64|
 |label_max_len|32|
+|dropout_rate|0.2|
 |显卡|3090|
 
 结果
@@ -175,6 +176,7 @@ SearchScreeningEvent GetWeather SearchCreativeWork这三个domain的参数：
 | batch_size | 8|
 |context_max_len|64|
 |label_max_len|32|
+|dropout_rate|0.2|
 |显卡|3090|
 
 结果
@@ -349,6 +351,7 @@ BookRestaurant: Epoch 1, train_loss 0.052880, Evalution acc 0.6986, recall 0.463
 | batch_size | 8|
 |context_max_len|64|
 |label_max_len|32|
+|dropout_rate|0.2|
 |显卡|3090|
 
 结果
@@ -362,3 +365,70 @@ BookRestaurant: Epoch 1, train_loss 0.052880, Evalution acc 0.6986, recall 0.463
 |SearchCreativeWork| 0.6922| 0.6940|
 |SearchScreeningEvent|0.3354|0.4505|
 |avg|0.5576|0.5023|
+
+# 实验十四
+
+已经复现出实验六的结果：在实验六的基础上加一行：self.attention_layer.apply(self._init_weigths)，early_stop=12加快训练速度
+
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|12|
+|n_top|5|
+| batch_size | 8|
+|context_max_len|64|
+|label_max_len|32|
+|dropout_rate|0.2|
+|显卡|3090|
+
+结果
+|domain|baseline|my model|
+|---|---|---|
+|AddToPlaylist| 0.6870 |0.6376|
+|BookRestaurant| 0.6349 |0.3848|
+|GetWeather| 0.6536|0.6533|
+|PlayMusic| 0.5351| 0.4622|
+|RateBook| 0.3651| 0.3281|
+|SearchCreativeWork| 0.6922| 0.7908|
+|SearchScreeningEvent|0.3354|0.4977|
+|avg|0.5576|0.5362|
+
+
+# 实验十五
+
+已经复现出实验六的结果，在实验六的基础上：把attention_mask_extend = attention_mask_extend_tmp.unsqueeze(-1).repeat(1, 1, 1, L1+L2)改成attention_mask_extend = attention_mask_extend_tmp.unsqueeze(-2).repeat(1, 1, L1+L2, 1)
+
+(不加self.attention_layer.apply(self._init_weights))
+
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|12|
+|n_top|5|
+| batch_size | 8|
+|context_max_len|64|
+|label_max_len|32|
+|dropout_rate|0.2|
+|显卡|3090|
+
+结果
+|domain|baseline|my model|
+|---|---|---|
+|AddToPlaylist| 0.6870 |0.5872|
+|BookRestaurant| 0.6349 |0.4145|
+|GetWeather| 0.6536|0.6024|
+|PlayMusic| 0.5351| 0.3984|
+|RateBook| 0.3651| 0.3050|
+|SearchCreativeWork| 0.6922| 0.6739|
+|SearchScreeningEvent|0.3354|0.3775|
+|avg|0.5576|0.4798|
+
+# 实验十六

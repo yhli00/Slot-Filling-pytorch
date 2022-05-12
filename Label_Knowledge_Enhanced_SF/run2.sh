@@ -19,7 +19,7 @@ echo "job start time: `date`"
 # tgt_domains="AddToPlaylist RateBook PlayMusic"
 tgt_domains="BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
 n_samples=(0)
-message="bert-large-uncased接一层self-attention,dropout_rate=0.0,batch_size=8"
+message="bert-large-uncased接一层self-attention,dropout_rate=0.2,batch_size=8"
 for tgt_domain in ${tgt_domains[@]}
 do
     for n in ${n_samples[@]}
@@ -37,12 +37,12 @@ do
         --context_max_len 64 \
         --label_max_len 32 \
         --warmup_rate 0.0 \
-        --early_stop 12 \
+        --early_stop 20 \
         --lr 1e-5 \
         --model_dir ../model_dir/Label_Knowledge_Enhanced_SF \
         --log_dir ../log_dir/Label_Knowledge_Enhanced_SF \
         --log_message $message \
-        --dropout_rate 0.0
+        --dropout_rate 0.2
     done
 done
 

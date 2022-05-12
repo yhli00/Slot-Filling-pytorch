@@ -419,7 +419,7 @@ class LabelEnhanceBert(nn.Module):
         self.entity_start_classifier.apply(self._init_weights)
         self.entity_end_classifier.apply(self._init_weights)
         # for attention_layer in self.attention_layers:
-        self.attention_layer.apply(self._init_weights)
+        # self.attention_layer.apply(self._init_weights)
         # self.attention_layer.apply(self._init_weights)
         # self.attention_layer2.apply(self._init_weights)
         # self.attention_layer3.apply(self._init_weights)
@@ -553,7 +553,7 @@ class LabelEnhanceBert(nn.Module):
         attention_mask_extend_tmp = torch.cat([label_attn_mask_extend, text_attn_mask_extend], dim=-1)  # [B, num_labels, L1+L2]
         # attention_mask_extend = attention_mask_extend_tmp[:, :, None, :]  # [B, num_labels, 1, L1+L2]
         # attention_mask_extend = attention_mask_extend_tmp.unsqueeze(-2).repeat(1, 1, L1+L2, 1)  # [B, num_labels, L1+L2]->[B, num_labels, L1+L2, L1+L2]
-        attention_mask_extend = attention_mask_extend_tmp.unsqueeze(-1).repeat(1, 1, 1, L1+L2)  # [B, num_labels, L1+L2]->[B, num_labels, L1+L2, L1+L2]
+        attention_mask_extend = attention_mask_extend_tmp.unsqueeze(-2).repeat(1, 1, L1+L2, 1)  # [B, num_labels, L1+L2]->[B, num_labels, L1+L2, L1+L2]
         # attention_mask_extend = attention_mask_extend_1 + attention_mask_extend_2
         # attention_mask_extend = attention_mask_extend == 2
         # attention_mask_extend = attention_mask_extend.long()
