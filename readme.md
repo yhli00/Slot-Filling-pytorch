@@ -432,3 +432,37 @@ BookRestaurant: Epoch 1, train_loss 0.052880, Evalution acc 0.6986, recall 0.463
 |avg|0.5576|0.4798|
 
 # 实验十六
+
+除了early_stop=20外，和实验六的唯一不同是显卡不同（一个是3090，一个是A4000）
+
+| 参数 | 参数值 |
+| ---- | ----- |
+|框架| torch |
+|model|bert-large-uncased|
+|warmup_rate|0.0|
+|weight_decay|0.0|
+|num_epochs|64|
+|early_stop|20|
+|n_top|5|
+| batch_size | 8|
+|context_max_len|64|
+|label_max_len|32|
+|dropout_rate|0.2|
+|显卡|a4000|
+
+结果
+|domain|baseline|my model|
+|---|---|---|
+|AddToPlaylist| 0.6870 |0.7110|
+|BookRestaurant| 0.6349 |0.3472|
+|GetWeather| 0.6536|0.5858|
+|PlayMusic| 0.5351| 0.4248|
+|RateBook| 0.3651| 0.3531|
+|SearchCreativeWork| 0.6922| 0.8209|
+|SearchScreeningEvent|0.3354|0.3619|
+|avg|0.5576|0.5150|
+
+结论：
+
+为什么仅仅是训练模型的显卡不同，性能会差这么多？？
+

@@ -14,12 +14,12 @@
 echo "job start time: `date`"
 # tgt_domains="RateBook PlayMusic BookRestaurant"
 # tgt_domains="SearchScreeningEvent GetWeather SearchCreativeWork"
-# tgt_domains="AddToPlaylist RateBook PlayMusic BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
+tgt_domains="RateBook PlayMusic BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
 # tgt_domains="PlayMusic BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
 # tgt_domains="AddToPlaylist RateBook PlayMusic"
-tgt_domains="AddToPlaylist RateBook PlayMusic"
+# tgt_domains="BookRestaurant SearchScreeningEvent GetWeather SearchCreativeWork"
 n_samples=(0)
-message="bert-large-uncased接一层self-attention,dropout_rate=0.2,batch_size=8"
+message="bert-large-uncased接一层self-attention,dropout_rate=0.2,batch_size=2"
 for tgt_domain in ${tgt_domains[@]}
 do
     for n in ${n_samples[@]}
@@ -27,7 +27,7 @@ do
         CUDA_VISIBLE_DEVICES=0 /root/autodl-tmp/envs/BERT_TAGGER/bin/python main.py \
         --do_train \
         --do_test \
-        --batch_size 8 \
+        --batch_size 2 \
         --num_epochs 64 \
         --use_gpu \
         --target_domain $tgt_domain \

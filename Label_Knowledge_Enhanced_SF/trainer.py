@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 class Trainer:
     def __init__(self, args):
         self.args = args
-        self.model = LabelEnhanceBert(self.args)
+        self.model = LabelEnhanceBert(self.args.pretrained_model)
         if self.args.pretrained_model == 'deepset/bert-large-uncased-whole-word-masking-squad2':
             self.tokenizer = BertTokenizer.from_pretrained('bert-large-uncased') 
         if self.args.pretrained_model == 'bert-large-uncased':
